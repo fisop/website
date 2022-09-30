@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body>
+  <div id="root" class="container-lg">
+  <div class="row justify-content-center">
+
+  <!-- Table of contents on the side (see _includes/scripts.html). -->
+  <div id="sidetoc" class="col-md-3 d-none px-1">
+  </div>
+
+  <!-- Main pane -->
+  <div class="col col-md-9 pl-1">
+  <div id="pane" class="container-fluid">
+    <header role="banner" class="row">
+      {% include header.html %}
+    </header>
+
+    <main role="main" class="row justify-content-center pt-sm-4">
+      {{ content }}
+    </main>
+
+    <footer role="contentinfo" class="row">
+      {% include footer.html %}
+    </footer>
+  </div>
+  </div>
+  </div>
+  </body>
+
+</html>

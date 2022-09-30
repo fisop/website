@@ -1,0 +1,27 @@
+- Teoría:
+  Clases: /clases/
+
+- Labs:
+  fork: /labs/fork/
+  shell: /labs/shell/
+
+- TPs:
+  malloc: /tps/malloc
+
+- Enlaces:
+  Calendario: /calendario/
+  Régimen: /regimen/
+  Entregas: /entregas/
+  Bibliografía: /bibliografia/
+  Software: /kit/
+  Entorno: /vm/
+
+- Extra:
+  unix: /labs/unix/
+  proc: /labs/proc/
+  locks: /labs/locks/
+
+- Acerca:
+  Contacto: /contacto/
+  Docentes: /docentes/
+

@@ -1,0 +1,32 @@
+<!-- Bootstrap 4 includes. -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+
+<script>
+  // Copiar la tabla de contenidos de Kramdown al sidebar. Tras hacer esto,
+  // añadimos la clase d-md-none a la tabla antigua, para que no se muestre
+  // duplicada en las pantallas donde la sidebar es visible.
+  let toc = $("#markdown-toc.sidetoc");
+  if (toc.length) {
+    // Hacer una copia, y marcarla con posición fija.
+    toc.clone().removeAttr("id").addClass("sticky-top").appendTo("#sidetoc");
+
+    // Marcar la tabla del cuerpo, y su h2, como no visibles.
+    // FIXME: no asumir que el elemento anterior es un <h2> que hay que quitar.
+    toc.addClass("d-md-none");
+    toc.prev().addClass("d-md-none");
+
+    // Hacer visible el sidebar y...
+    $("#sidetoc").addClass("d-md-block");
+
+    // ... ajustar las clases para que funcione con scrollspy.
+    $("#sidetoc ul").addClass("nav flex-column");
+    $("#sidetoc li").addClass("nav-item");
+    $("#sidetoc a").addClass("nav-link");
+    $("body").scrollspy({target: "#sidetoc"});
+  }
+</script>

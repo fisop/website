@@ -1,0 +1,2 @@
+{% assign docente = include.docente %}
+{{ docente.nombre }} · <a href="mailto:{{ docente.mail }}" title="{{ docente.mail }}"><span class="fas fa-envelope-square"></span></a> · <a href="https://github.com/{{ docente.github }}" title="{{ docente.github }}"><span class="fab fa-github"></span></a>{{ -}}

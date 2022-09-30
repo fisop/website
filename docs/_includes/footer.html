@@ -1,0 +1,22 @@
+{% comment %}
+
+Por omisión la licencia es CC BY-SA. Se puede sobreescribir con "license: ..."
+en el front-matter de cada página.
+
+Faltaría poder indicar el copyright holder de manera más flexible. Por el
+momento es siempre Dato, a menos que se indique con "copyright: ..." en el
+front-matter de la página. A los TPs de JOS les faltaría atribución adicional.
+
+{% endcomment %}
+
+{% capture author %}{{ page.copyright | default 'Adeodato Simó' }}{% endcapture %}
+{% capture lic %}{{ page.license | default: 'by-sa' }}{% endcapture %}
+{% capture img %}assets/{{ lic }}.svg{% endcapture %}
+
+  <div class="wrapper">
+    <a style="float: left;" rel="license" title="© 2016-2018 {{ author }}" href="http://creativecommons.org/licenses/{{ lic }}/4.0/"><img src="{{ img | relative_url }}"></a>
+    <a style="float: right;" rel="source" href="{{ page.path | relative_url
+    }}"><img height="16" alt="Link to Markdown source" src="{{ "assets/source-md.svg" | relative_url }}"></a>
+  </div>
+
+{% include scripts.html %}

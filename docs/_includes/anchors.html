@@ -1,0 +1,10 @@
+<script>
+function addAnchors() {
+    anchors.options.visible = "always";
+    anchors.add("{{ include.level | default: 'h3' }}");
+}
+</script>
+
+<script async onload="addAnchors();" crossorigin="anonymous"
+        src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js"
+        integrity="sha256-E4RlfxwyJVmkkk0szw7LYJxuPlp6evtPSBDlWHsYYL8="></script>

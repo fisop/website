@@ -1,0 +1,229 @@
+//
+// Imported from Minima.
+//
+$spacing-unit:     30px !default;
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+.site-header {
+  border-top: 5px solid $grey-color-dark;
+  border-bottom: 1px solid $grey-color-light;
+}
+
+blockquote {
+  border-left: 4px solid $grey-color-light;
+  margin-left: $spacing-unit / 2;
+  margin-right: $spacing-unit / 2;
+  padding-left: 0.75em;
+}
+
+// Necesario para poder importar minima/syntax-highlighting.
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+//
+// Layout
+//
+//
+
+main {
+  padding-bottom: 0;
+  padding-top: $spacing-unit / 2;
+}
+
+li {
+  > ul,
+  > ol {
+    padding-left: 20px;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
+  > p + ul,
+  > p + ol {
+    margin-top: 0;
+    margin-bottom: 0.75em;
+  }
+}
+
+
+//
+// Overrides a Bootstrap
+//
+.navbar-light .navbar-nav {
+  .nav-link {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .nav-link:hover {
+    background-color: #e8e8e8;  // Original Minima value.
+  }
+}
+
+
+//
+//
+// Links
+//
+
+a, a:visited, a:hover {
+  color: $brand-color;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+.abbr {
+  font-style: normal;
+  abbr[title] {
+    text-decoration: underline dotted;
+  }
+}
+
+a > .fa, a > .fab, a > .far, a > .fas {
+  color: initial;
+}
+
+
+//
+// Headers
+//
+
+h1 {
+  font-size: 1.858rem !important;
+}
+
+h2 {
+  font-size: 1.296rem !important;
+}
+
+h3 {
+  font-size: 1.215rem !important;
+}
+
+h4 {
+  font-size: 1.138rem !important;
+}
+
+h5 {
+  font-size: 1.014rem !important;
+}
+
+
+//
+// Code
+//
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+}
+
+table code {
+  background-color: inherit ! important;
+}
+
+code {
+  padding: 0;
+  border: none;
+  color: inherit ! important;
+  background-color: inherit;
+}
+
+div.highlighter-rouge {
+  pre,
+  pre.highlight {
+    border: none;
+    background-color: #f3f3f3;
+  }
+}
+
+// Esta tabla existe en el HTML cuando se activan los números de
+// línea en _config.yml (pero por omisión no los mostramos). La
+// tabla la queremos lo más invisible posible.
+table.rouge-table {
+  border: 0;
+  margin: 0;
+
+  td {
+    border: 0;
+    padding: 0;
+
+    pre {
+      margin: 0;
+      padding: 0;
+    }
+
+    &.rouge-gutter {
+      // Por omisión, no se muestran los números de línea...
+      display: none;
+    }
+  }
+}
+
+// ... pero se los puede pedir desde Markdown con {:.numbered}
+div.numbered {
+  td {
+    display: inline-block;
+  }
+  td.rouge-gutter {
+    min-width: 3em;
+    text-align: right;
+    user-select: none;
+    display: inline-block;
+    border-right: 1px solid #aaa;
+    pre {
+      // Énfasis disminuido para los números de línea.
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  // Se eliminta el padding del <pre> global...
+  pre.highlight {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // ... para que lo den los <pre> de cada celda (proporcionando
+  // así padding interno y externo, una sola vez).
+  td pre {
+    padding: 0 0.5rem;
+    overflow: visible;
+  }
+}
+
+code.highlighter-rouge {
+  padding: 1pt 3pt;
+  white-space: nowrap;
+  background-color: #f3f3f3;
+}
+
+.alert code.highlighter-rouge {
+  background-color: inherit ! important;
+}
+
+code.wrap {
+  white-space: normal ! important;
+}
+
+.bigfoot-footnote code {
+  font-size: 0.878rem;
+}
+
+// Avoid *bold* and _italics_ in code.
+.highlight {
+  .c, .k, .o, .cm, .cp, .c1, .cs, .ge, .kc, .kd, .kp, .kr, .kt, .nc, .ne, .nf, .ow {
+    font-style: normal;
+    font-weight: normal;
+  }
+}
+
+// Apparently in Font Awesome 5 the outline icons like "far-circle" are Pro-only,
+// but they just work if we specify the content attribute by hand? At least this
+// one does (used in entregas.md).
+span.far-circle:before {
+  content: '\f111';
+}

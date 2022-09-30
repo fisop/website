@@ -1,0 +1,25 @@
+title: Sistemas Operativos
+description: >
+  Sistemas Operativos. Facultad de Ingeniería, Universidad de Buenos Aires.
+
+lang: "es"
+baseurl: "/website"
+url: "https://fisop.github.io"
+
+# Build settings
+theme: minima
+markdown: kramdown
+permalink: pretty
+excerpt_separator: ""
+
+kramdown:
+  toc_levels: "2,3,4"
+  footnote_backlink: "&#x21A9;&#xFE0E;"
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+sass:
+    style: compressed
+
+exclude: ["Gemfile", "lab/*/sol/*", "*.o"]

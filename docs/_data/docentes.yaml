@@ -1,0 +1,29 @@
+mariano:
+  nombre: Mariano Méndez
+  mail: marianomendez@fi.uba.ar
+  github: mendezmariano
+
+juan:
+  nombre: Juan Manuel Fresia
+  mail: jfresia@fi.uba.ar
+  github: juanfresia
+
+patricio:
+  nombre: Patricio Iribarne Catella
+  mail: piribarnec@fi.uba.ar
+  github: PatricioIribarneCatella
+
+sebastian:
+  nombre: Sebastián D’Alessandro Szymanowski
+  mail: sdalessandro@fi.uba.ar
+  github: sjdalessandro
+
+santiago:
+  nombre: Santiago Klein
+  mail: sklein@fi.uba.ar
+  github: sankle
+
+cristian:
+  nombre: Cristian Simonelli
+  mail: cristian@fi.uba.ar
+  github: csimonelli
