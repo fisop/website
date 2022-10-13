@@ -26,7 +26,7 @@ Se debe implementar cada ejercicio usando las syscalls Unix apropiadas, evitando
 
 Sí se permite el uso de funciones de la biblioteca estándar para trabajar con strings y para mostrar información por pantalla. Así, por ejemplo, para escribir en la consola se puede usar `printf(3)` en lugar de `write(2)`.
 
-Tanto en el caso de syscalls, como funciones, se puede consultar su documentación mediante el comando `man`. Esto es particularlmente recomendable en el caso de syscalls como `stat(2)`, que son complejas y tienen muchos flags: `man 2 stat`. En las páginas de manual también se indican los includes necesarios para cada syscall.
+Tanto en el caso de syscalls, como funciones, se puede consultar su documentación mediante el comando `man`. Esto es particularmente recomendable en el caso de syscalls como `stat(2)`, que son complejas y tienen muchos flags: `man 2 stat`. En las páginas de manual también se indican los includes necesarios para cada syscall.
 
 En cada ejercicio se indica la lista de syscalls recomendadas. Como cada ejercicio emula una herramienta estándar de Unix, se puede obtener una descripción de la funcionalidad completa también en las páginas del man (e.g. `man 1 cat`).
 
@@ -90,7 +90,7 @@ archivo2   directorio1   rm0
 
 ### cat0 ☆
 
-cat (_concatenate_) es una herramienta unix que permite concatenar archivos y mostrarlos por salida estándar. En este lab se implementará una vesión simplificada de cat, que muestra en pantalla los contenidos de un único archivo.
+cat (_concatenate_) es una herramienta unix que permite concatenar archivos y mostrarlos por salida estándar. En este lab se implementará una versión simplificada de cat, que muestra en pantalla los contenidos de un único archivo.
 
 ```
 $ cat ejemplo.txt
@@ -327,7 +327,7 @@ Implementar _tee0_ que transcribe la entrada estándar tanto en la salida están
 
 ls (_list_) lista los contenidos del directorio que se le pase por parámetro. Si no se especifica ningún parámetro, ls muestra el contenido de los archivos en el directorio actual (ver _pwd(1)_).
 
-El comando ls admite una gran variedad de flags para elegir qué información se mostrará de los archivos, con qué formato y orden. La implementación de ls0 se corresponderá con `ls -U1`, o lo que es equivalente `ls --format=single-column --sort=none`, que lista únciamente los nombres de los archivos, sin ningún ordenamiento particular y de a uno por línea.
+El comando ls admite una gran variedad de flags para elegir qué información se mostrará de los archivos, con qué formato y orden. La implementación de ls0 se corresponderá con `ls -U1`, o lo que es equivalente `ls --format=single-column --sort=none`, que lista únicamente los nombres de los archivos, sin ningún ordenamiento particular y de a uno por línea.
 
 Por ejemplo:
 

@@ -53,7 +53,7 @@ Esta versión compila el programa `test.c` conjuntamente con los `.o` de la libr
 make run-d
 ```
 
-En esta versión se compila el mismo programa `test.c`, pero esta vez no se incluye la librería. En su lugar, se utiliza la variable de entorno `LD_PRELOAD`, la cual le indica al _loader_ del sistema operativo que tiene que susituir ciertos _símbolos_ (las funciones de nuestra librería), por las que se indican en el binario.
+En esta versión se compila el mismo programa `test.c`, pero esta vez no se incluye la librería. En su lugar, se utiliza la variable de entorno `LD_PRELOAD`, la cual le indica al _loader_ del sistema operativo que tiene que sustituir ciertos _símbolos_ (las funciones de nuestra librería), por las que se indican en el binario.
 El resultado de `test-d` debería ser idéntico.
 
 Además, se puede hacer la prueba de intentar ejecutar el binario `test-d` de forma aislada `./test-d`, verificando que efectivamente se utiliza la implementación de la librería estándar de _C_.

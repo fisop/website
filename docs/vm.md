@@ -69,7 +69,7 @@ la máquina virtual. Dentro de la VM es accesible en /vagrant.
 {: .alert .alert-warning}
 
 La máquina virtual se instala con la interfaz gráfica de lubuntu. El usuario
-`vagrant` tiene como pass `vagrant`. 
+`vagrant` tiene como contraseña `vagrant`. 
 
 La primera vez que se corre se instalan todos los paquetes (puede demorar unos
 minutos y requiere conexión a internet) y luego es necesario rebootear la VM

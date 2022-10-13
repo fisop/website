@@ -442,7 +442,7 @@ sencilla de `strace`. Los requisitos mínimos de tal implementación son:
 * Debe imprimir _todas_ las llamadas al sistema, junto con su valor de
   retorno. Alcanza con indicar el número de syscall, en x86\_64 pueden usar
 [ésta tabla][syscalls-table] para encontrar el _nombre_ de la syscall. No hace falta
-imprimir los argumentos de las sycalls.
+imprimir los argumentos de las syscalls.
 * Debe soportar la ejecución de un único proceso, del que asumiremos no realiza
   `fork` ni `exec`; no maneja threads ni señales especiales.
 * No es necesario que soporte flags adicionales, y el formato de salida es libre
