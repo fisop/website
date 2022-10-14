@@ -2,7 +2,7 @@
 
 A continuación se lista la bibliografía **principal** y la _complementaria_. Cada ítem tiene una abreviatura que usaremos en nuestras referencias, por ejemplo: **[DAH] §2.3**.
 
-Para los trabajos prácticos, consultar tambien nuestro [kit de supervivencia](kit.md).
+Para los trabajos prácticos, consultar también nuestro [kit de supervivencia](kit.md).
 
 ## Bibliografía principal
 

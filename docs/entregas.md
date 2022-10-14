@@ -234,7 +234,7 @@ Es obligatorio hacer _git merge_ del esqueleto en el repositorio privado (no es 
 Esta sección es relevante cuando se realiza más de un lab de manera concurrente en la cursada. No es el caso en 2020/2.
 {:.alert .alert-success}
 
-Una consecuencia de usar ramas indepedientes para los labs es que no es posible trabajar, en un mismo directorio, en más de un lab a la vez. Esto, en general, no constituye un problema, pues no se suele trabajar en más de un lab al mismo tiempo; pero puede resultar molesto en caso de sí necesitar realizar cambios en dos labs de manera concurrente.
+Una consecuencia de usar ramas independientes para los labs es que no es posible trabajar, en un mismo directorio, en más de un lab a la vez. Esto, en general, no constituye un problema, pues no se suele trabajar en más de un lab al mismo tiempo; pero puede resultar molesto en caso de sí necesitar realizar cambios en dos labs de manera concurrente.
 
 La manera estándar de trabajar con ramas independientes sería usar _git checkout_ para alternar entre ellas. Así, si se estuviera trabajando en el lab _apollo_ y se desease realizar algún cambio en el lab anterior _(athena)_, el procedimiento sería:
 
@@ -428,35 +428,6 @@ Una vez enviados los cambios con _git push_, se deben hacer dos cosas:
 [^commreply]: Esta práctica es estándar en la industria, de manera que se le haga fácil a la persona que revisa la nueva versión saber qué se hizo y qué no, esto es, con qué se va a encontrar.
 
 **Como comentario final**, es especialmente importante realizar las correcciones con gran atención al detalle, para que no suceda que una reentrega empeora la situación (esto es, que en una reentrega dejen de funcionar aspectos que sí funcionaban antes).
-
-
-<!--
-## En papel
-{: #papel}
-
-Las entregas en papel deben seguir los siguientes lineamientos:
-
-  - todas las líneas de código deben imprimirse, siempre, en tipografía de paso fijo `(monoespaciada)`.
-
-  - bien visible en la primera hoja (sea carátula o no): su nombre y número de legajo, nombre de la entrega y fecha en que fue entregada.
-
-  - todas las hojas abrochadas juntas y sin folio.[^1]
-
-[^1]: Habrá en el aula una abrochadora a disposición de los alumnos que la necesiten.
-
-Cuando la entrega incluya preguntas a responder **en prosa, se pide respuestas concisas** de dos o tres oraciones simples por párrafo. Ejemplo:
-
-> _¿Qué hace la BIOS una vez verificado el hardware? ¿Qué debe ocurrir a continuación?_
->
-> Tras la inicialización del hardware, la BIOS determina el dispositivo de arranque y copia su primer sector (512 bytes) en la dirección de memoria física `0x7c00`. A continuación, la ejecución salta a esa posición.
->
-> Estos 512 bytes de código, denominados el “boot loader” del kernel, deben ocuparse de inicializar la CPU al estado deseado, y cargar en memoria el resto de instrucciones del kernel.
->
-> La incialización de la CPU consiste, normalmente, en el paso de modo real (16-bit) a modo protegido (32-bit). La carga del kernel se suele realizar desde disco.
->
-> La última instrucción del boot loader consiste en saltar al punto de entrada del kernel cargado, que toma así el control de la máquina.
-
--->
 
 {% include footnotes.html %}
 

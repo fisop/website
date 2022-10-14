@@ -173,10 +173,6 @@ La redirección del flujo estándar es una de las cualidades más interesantes y
   ---????---
   ```
 
-<!---
-- _<u>Challenge</u>:_ investigar, describir y agregar la funcionalidad del operador de redirección **`>>`** y **`&>`**
---->
-
 Existen más tipos de redirecciones que nuestra _shell_ no soportará (e.g. `>>` o `&>`)
 
 - _<u>Implementar:</u>_ _Al menos_, soporte para cada una de las **tres formas de redirección** descritas arriba: `>`, `<`, `2>` y `2>&1`.
@@ -236,7 +232,7 @@ Al finalizar la parte 2 la _shell_ debe poder:
 ### Expansión de variables
 {: #expandvar}
 
-Una característica de cualquier intérprete de comandos *shell* es la de expandir variables de entorno (ejecutar: `env` para ver una lista completa de las varibles de entorno definidas), como  **PATH**, o **HOME**.
+Una característica de cualquier intérprete de comandos *shell* es la de expandir variables de entorno (ejecutar: `env` para ver una lista completa de las variables de entorno definidas), como  **PATH**, o **HOME**.
 
 ```bash
 $ echo $TERM
@@ -248,7 +244,7 @@ Las variables de entorno se indican con el caracter `$` antes del nombre, y la _
 - _<u>Implementar:</u>_ Expansión de variables al ejecutar un comando. Se debe reemplazar las variables que no existan con una cadena vacía (`""`).
 {:.alert .alert-info}
 
-Las varibles vacías y las variables no setteadas *no deben* traducirse a
+Las variables vacías y las variables no setteadas *no deben* traducirse a
 argumentos en el `exec`. Por ejemplo `echo hola $VARIABLE_VACIA mundo` es
 equivalente a `echo "hola" "mundo"`, dos argumentos solamente.
 
@@ -289,7 +285,7 @@ Supongamos, entonces, que en vez de utilizar `setenv(3)` por cada una de las var
 
 ### Pseudo-variables
 
-Existen las denominadas variables de entorno *mágicas*, o pseudo-variables. Estas variables son propias del *shell* (no están formalmente en *environ*) y cambian su valor dinámicamente a lo largo de su ejecución. Implementar **`?`** como única variable *mágica* (describir, también, su próposito).
+Existen las denominadas variables de entorno *mágicas*, o pseudo-variables. Estas variables son propias del *shell* (no están formalmente en *environ*) y cambian su valor dinámicamente a lo largo de su ejecución. Implementar **`?`** como única variable *mágica* (describir, también, su propósito).
 
 ```bash
 $ /bin/true
@@ -319,7 +315,7 @@ Al finalizar la parte 3 la _shell_ debe poder:
 
 ### Comandos _built-in_
 
-Los comandos _built-in_ nos dan la opurtunidad de realizar acciones que no siempre podríamos hacer si ejecutáramos ese mismo comando en un proceso separado. Éstos son propios de cada _shell_ aunque existe un estándar generalizado entre los diferentes intérpretes, como por ejemplo `cd` y `exit`.
+Los comandos _built-in_ nos dan la oportunidad de realizar acciones que no siempre podríamos hacer si ejecutáramos ese mismo comando en un proceso separado. Éstos son propios de cada _shell_ aunque existe un estándar generalizado entre los diferentes intérpretes, como por ejemplo `cd` y `exit`.
 
 Es evidente que si `cd` no se realizara en el mismo proceso donde la _shell_ se está ejecutando, no tendría el efecto deseado, ya que el directorio actual se cambiaría en el hijo, y no en el padre que es lo que realmente queremos. Lo mismo se aplica a `exit` y a muchos comandos más ([aquí](https://www.gnu.org/software/bash/manual/bashref.html#Shell-Builtin-Commands) se muestra una lista completa de los comando _built-in_ que soporta _bash_).
 

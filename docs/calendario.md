@@ -1,4 +1,4 @@
-# Calendrio de la materia
+# Calendario de la materia
 
 A continuación se presenta un calendario aproximado de la cursada
 (segundo cuatrimestre, 2022).
@@ -15,7 +15,7 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 5      | 21/09/2022 | **FERIADO**                                                       |                                  | 23/09/2022 | Memoria                                                                | Entrega **shell** [^shell]  |
 | 6      | 28/09/2022 | **Presentación** _TP1_                                            |                                  | 30/09/2022 | Scheduling (parte 1)                                                   |                             |
 | 7      | 05/10/2022 | Continuación _TP1_                                                |                                  | 07/10/2022 | **FERIADO**                                                            |                             |
-| 8      | 12/10/2022 | Continuación _TP1_                                                | Parcialito **TP1** [^parcialito] | 14/10/2022 | Scheduling (parte 2)                                                   | Entrega **TP1**             |
+| 8      | 12/10/2022 | Continuación _TP1_                                                | Parcialito **TP1** [^parcialito] | 14/10/2022 | Scheduling (parte 2)                                                   | Entrega **TP1** [^malloc]             |
 | 9      | 19/10/2022 | **Presentación** _TP2_                                            |                                  | 21/10/2022 | Concurrencia (parte 1)                                                 |                             |
 | 10     | 26/10/2022 | Continuación _TP2_                                                |                                  | 28/10/2022 | Concurrencia (parte 2)                                                 |                             |
 | 11     | 02/11/2022 | Continuación _TP2_                                                |                                  | 04/11/2022 |                                                                        | **PARCIAL**                 |
@@ -27,5 +27,6 @@ En el caso de estas últimas, se notificará por correo/discord.
  
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 11/09 inclusive
 [^shell]: **shell** - la fecha de entrega es hasta el domingo 25/09 inclusive
+[^malloc]: **TP1** - la fecha de entrega es hasta el domingo 16/10 inclusive
 [^parcialito]: **parcialitos** - serán siempre en el horario de la práctica
 [^recu]: **recuperatorio** - el segundo recuperatorio será probablemente en la primera fecha de final
