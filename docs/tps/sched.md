@@ -156,7 +156,7 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
 ## Esqueleto y compilación
 {: #repo}
 
-El esqueleto para este trabajo e encuentra en el repositorio [fisop/sched-skel] de GitHub, en la rama _main_, y deberá ser integrado dentro del repositorio grupal.
+El esqueleto para este trabajo se encuentra en el repositorio [fisop/sched-skel] de GitHub, en la rama _main_, y deberá ser integrado dentro del repositorio grupal.
 
 Para integrar el esqueleto, se pueden seguir los siguientes pasos:
 ```
@@ -217,10 +217,9 @@ Remote debugging using 127.0.0.1:...
 
 #### Depurado de una triple fault
 
-En la arquitectura x86, el sistema se reinicia automáticamente cuando ocurre una “triple falla” _(triple fault)_. QEMU, por omisión, obecede esta especificación.
+En la arquitectura x86, el sistema se reinicia automáticamente cuando ocurre una “triple falla” _(triple fault)_. QEMU, por omisión, obedece esta especificación.
 
-Sin embargo, durante el desarrollo de sistemas operativos en modo protegido de x86, las triple fallas ocurren casi exclusivamente por un bug en el kernel. Por est
-o, es más deseable que QEMU detenga la ejecución en lugar de reiniciarse constantemente.
+Sin embargo, durante el desarrollo de sistemas operativos en modo protegido de x86, las triple fallas ocurren casi exclusivamente por un bug en el kernel. Por esto, es más deseable que QEMU detenga la ejecución en lugar de reiniciarse constantemente.
 
 QEMU no ofrece soporte _directo_ para detectar triple fallas y detener la ejecución, pero existen un set de opciones que se acercan bastante a ese propósito.
 
