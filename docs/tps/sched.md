@@ -177,7 +177,7 @@ $ git push -u origin entrega_sched
 **IMPORTANTE:** Para una guía sobre el manejo de repositorios e integraciones, consultar la página de [entregas y descargas](../entregas.md){:.alert-link}.
 {:.alert .alert-primary}
 
-[fisop/sched]: https://github.com/fisop/sched-skel
+[fisop/sched-skel]: https://github.com/fisop/sched-skel
 
 ### Compilación y ejecución
 {:#make}
