@@ -137,12 +137,12 @@ Las interrupciones del timer deben ser habilitadas descomentando la línea corre
 
 La política de scheduling _round robin_ es la más sencilla y simple de implementar; y aunque es justa (le da a todos los procesos la misma proporción del CPU) puede no ser suficiente para situaciones más reales. Usualmente los procesos son distintos entre sí en cuanto a importancia y carga para el sistema.
 
-En esta parte, se mejorará el scheduler implementado anteriormente para agregarle un esquema de **prioridades**. Esto requerirá a su vez la adición de _syscalls_ que permitan manipular las prioridades, así como de procesos de usuario para validar el correcto funcionamiento.
+En esta parte, se mejorará el scheduler implementado anteriormente para agregarle un esquema de **prioridades**. Esto requerirá a su vez la adición de _syscalls_ que permitan manipularlas, así como de procesos de usuario para validar el correcto funcionamiento.
 
 <div class="alert alert-primary" markdown="1">
 **Tarea**
   - Agregar a JOS un scheduler basado en prioridades. Los requisitos son:
-    - La política de scheduling debe ser _round robin_ o bien _por prioridades_ y la misma debe elejirse al llamar a `sched_yield` en tiempo de compilación (e.g. usar `#ifdef`).
+    - La política de scheduling debe ser _round robin_ o bien _por prioridades_ y la misma debe elegirse al llamar a `sched_yield` en tiempo de compilación (e.g. usar `#ifdef`).
     - Todo proceso debe tener asociada una prioridad, asignada al momento de su creación. Esto requiere cambios en `env_create` y/o `env_alloc`.
     - Se debe incluir una syscall para obtener prioridades, y otra para modificar prioridades. Ambas syscalls deben ser _seguras_. Esto quiere decir, no se debe permitir a un proceso _aumentar_ su prioridad.
     - Se debe incluir soporte para prioridades en las syscalls relevantes. Por ejemplo, cuando un proceso hace fork, se deberá configurar acordemente (y siguiendo algún criterio) las prioridades del proceso hijo.
@@ -152,7 +152,7 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
     - Número de ejecuciones por cada proceso
     - Inicio y fin de cada proceso ejecutado
   - Las estadísticas deben ser mostradas por el kernel al finalizar la ejecución de todos los procesos, durante `sched_halt`.
-  - Modificar `kern/init.c`, y crear procesos de usuario para mostrar el correcto funcionamiento del scheduler con prioriades. Incluir ejemplos que muestren si un proceso puede ganar/perder prioridad.
+  - Modificar `kern/init.c`, y crear procesos de usuario para mostrar el correcto funcionamiento del scheduler con prioridades. Incluir ejemplos que muestren si un proceso puede ganar/perder prioridad.
 </div>
 
 ## Esqueleto y compilación
@@ -174,6 +174,8 @@ La compilación se realiza mediante `make`. En el directorio `obj/kern` se puede
   - _kernel.asm_ — assembler asociado al binario
 
 Para correr JOS, se puede usar `make qemu` o `make qemu-nox`.
+
+Para ejecutar _un proceso de usuario_ en particular dentro del kernel, se puede usar `make run-<proceso>` o `make run-<proceso>-nox`. Como ejemplo, `make run-hello-nox` correrá el proceso de usuario `user/hello.c`.
 
 ### Depurado
 {:#gdb}
@@ -224,16 +226,16 @@ Por tanto, si en una determinada versión del desarrollo ocurre que QEMU se rein
 ## Bibliografía útil
 
 A continuación se presentan algunos enlaces y bibliografía útiles como referencia.
-  - OSTEP, capítulo 17: [_Free-Space Management_][ostep-malloc] (PDF)
-  - The Linux Prgramming Interface, capítulo 7: Memory Allocation
-  - Doug Lea: [A Memory Allocator][dlea]
-  - Dan Luu: [A Malloc tutorial][danluu]
-  - Marwan Burelle: [A Malloc Tutorial][marwan] (PDF)
+  - OSTEP, capítulo 7: [_Scheduling: Introduction_][ostep-cap7] (PDF)
+  - OSTEP, capítulo 8: [_Scheduling: The Multi-Level Feedback Queue_][ostep-cap8] (PDF)
+  - OSTEP, capítulo 9: [_Scheduling: Proportional Share_][ostep-cap9] (PDF)
+  - Manuales de Intel: [_Intel® 64 and IA-32 Architectures Software Developer's Manual Volume 3A: System Programming Guide, Part 1_][intel] (PDF)
 
-[dlea]: https://gee.cs.oswego.edu/dl/html/malloc.html
-[danluu]: https://danluu.com/malloc-tutorial/
-[ostep-malloc]: https://pages.cs.wisc.edu/~remzi/OSTEP/vm-freespace.pdf
-[marwan]: https://wiki-prog.infoprepa.epita.fr/images/0/04/Malloc_tutorial.pdf
+[ostep-cap7]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf
+[ostep-cap8]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
+[ostep-cap9]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
+[ostep-cap10]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
+[intel]: https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
 
 {% include anchors.html %}
 {% include footnotes.html %}
