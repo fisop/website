@@ -142,7 +142,7 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
   - Agregar a JOS un scheduler basado en prioridades. Los requisitos son:
     - La política de scheduling debe ser _round robin_ o bien _por prioridades_ y la misma debe elegirse al llamar a `sched_yield` en tiempo de compilación (e.g. usar `#ifdef`).
     - Todo proceso debe tener asociada una prioridad, asignada al momento de su creación. Esto requiere cambios en `env_create` y/o `env_alloc`.
-    - Se debe incluir una syscall para obtener prioridades, y otra para modificar prioridades. Ambas syscalls deben ser _seguras_. Esto quiere decir, no se debe permitir a un proceso _aumentar_ su prioridad.
+    - Se debe incluir una syscall para obtener prioridades, y otra para modificar prioridades. Ambas syscalls deben ser _seguras_. Esto quiere decir, no se debe permitir a un proceso _aumentar_ su prioridad pero si reducirla.
     - Se debe incluir soporte para prioridades en las syscalls relevantes. Por ejemplo, cuando un proceso hace fork, se deberá configurar acordemente (y siguiendo algún criterio) las prioridades del proceso hijo.
   - Incorporar, dentro del _scheduler_, estadísticas sobre las decisiones de scheduling. Algunas ideas/recomendaciones son:
     - Historial de procesos ejecutados/seleccionados
