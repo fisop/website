@@ -124,8 +124,6 @@ El esqueleto tiene preparado ya todo lo necesario para el mismo, en `kern/sched.
 
 Notar que `sched_yield` tiene dos posibles salidas: se elige y ejecuta un proceso llamando a `env_run`, o bien _no hay más procesos que ejecutar_ y se desemboca en `sched_halt`, donde efectivamente el kernel queda en estado _idle_.
 
-Las interrupciones del timer deben ser habilitadas descomentando la línea correspondiente de `kern/trap.c`. Esto habilita a que el temporizador (ya configurado) retome el control del CPU y se lo ceda al kernel, permitiendo así un scheduler con desalojo.
-
 <div class="alert alert-primary" markdown="1">
 **Tarea**
   - Implementar la función `sched_yield` en `kern/sched.c`
@@ -158,12 +156,28 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
 ## Esqueleto y compilación
 {: #repo}
 
-El esqueleto para este trabajo e encuentra en el repositorio [fisop/sched] de GitHub, en la rama _main_, y deberá ser integrado dentro del repositorio grupal.
+El esqueleto para este trabajo e encuentra en el repositorio [fisop/sched-skel] de GitHub, en la rama _main_, y deberá ser integrado dentro del repositorio grupal.
+
+Para integrar el esqueleto, se pueden seguir los siguientes pasos:
+```
+$ git remote add sched git@github.com:fisop/sched-skel.git
+
+$ git checkout -b base_sched
+$ git push -u origin base_sched
+
+$ git fetch --all
+$ git checkout base_sched
+$ git merge sched/main
+$ git push origin base_sched
+
+$ git checkout -b entrega_sched
+$ git push -u origin entrega_sched
+```
 
 **IMPORTANTE:** Para una guía sobre el manejo de repositorios e integraciones, consultar la página de [entregas y descargas](../entregas.md){:.alert-link}.
 {:.alert .alert-primary}
 
-[fisop/sched]: https://github.com/fisop/jos/
+[fisop/sched]: https://github.com/fisop/sched-skel
 
 ### Compilación y ejecución
 {:#make}
@@ -200,8 +214,6 @@ Remote debugging using 127.0.0.1:...
 0x0000fff0 in ?? ()
 (gdb)
 ```
-
-Para más información, consultar [esta guía][labguide].
 
 #### Depurado de una triple fault
 
