@@ -7,6 +7,7 @@
 
 - TPs:
   malloc: /tps/malloc
+  sched: /tps/sched
 
 - Enlaces:
   Calendario: /calendario/
