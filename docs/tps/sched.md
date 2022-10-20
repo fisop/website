@@ -167,7 +167,7 @@ $ git push -u origin base_sched
 
 $ git fetch --all
 $ git checkout base_sched
-$ git merge sched/main
+$ git merge sched/main --allow-unrelated-histories
 $ git push origin base_sched
 
 $ git checkout -b entrega_sched
