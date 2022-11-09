@@ -244,7 +244,7 @@ A continuación se presentan algunos enlaces y bibliografía útiles como refere
 
 [ostep-cap7]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf
 [ostep-cap8]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
-[ostep-cap9]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
+[ostep-cap9]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-lottery.pdf
 [ostep-cap10]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
 [intel]: https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
 
