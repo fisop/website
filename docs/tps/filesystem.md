@@ -95,7 +95,7 @@ La documentación para la versión 2 (la última, 2.9.9) más precisa es el cód
 
 ## Implementación
 
-Implementaremos `fisopfs`, un filesystem de tipo FUSE definido por el usuario. El mismo deberá implementar un subconjunto de las [operaciones][fuse-operations] que soporta FUSE. Las opearaciones serán las necesarias para soportar la lista de operaciones que figura a continuación.
+Implementaremos `fisopfs`, un filesystem de tipo FUSE definido por el usuario. El mismo deberá implementar un subconjunto de las [operaciones][fuse-operations] que soporta FUSE. Las operaciones serán las necesarias para soportar la lista de operaciones que figura a continuación.
 
 <div class="alert alert-primary" markdown="1">
 **Operaciones requeridas**
@@ -161,7 +161,7 @@ El filesystem _entero_ se representará como un único archivo en disco, con la 
 
 ### Pruebas y salidas de ejemplo
 
-Como parte de la implementacón de `fisopfs` también será necesario incorporar pruebas de caja negra sobre lo implementado. Las mismas deben consistir de una serie de secuencias de comandos pensadas para generar un escenario de prueba, junto con la salida esperada del mismo. Un ejemplo del mismo es lo presentado en la sección "Software necesario".
+Como parte de la implementación de `fisopfs` también será necesario incorporar pruebas de caja negra sobre lo implementado. Las mismas deben consistir de una serie de secuencias de comandos pensadas para generar un escenario de prueba, junto con la salida esperada del mismo. Un ejemplo del mismo es lo presentado en la sección "Software necesario".
 
 Cada funcionalidad implementada debe incluir una prueba asociada. Las salidas de las pruebas debe incluirse como una sección en el informe.
 
@@ -186,7 +186,7 @@ Las tareas listadas aquí no son obligatorias, pero suman para el régimen de [f
 
 Más allá de los requisitos obligatorios, los grupos podrán optar por implementar _al menos_ dos de las siguientes funcionalidades adicionales.
 * Soporte para enlaces simbólicos
-  * Debe implementarse la operacion `symlink`
+  * Debe implementarse la operación `symlink`
   * Deben incluirse pruebas utilizando `link -s`
 * Soporte para hard links
   * Debe implementarse la operación `link`
