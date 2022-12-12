@@ -23,11 +23,12 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 13     | 16/11/2022 | **Presentación** _TP3_                                            |                                  | 18/11/2022 |                                                                        |                             |
 | 14     | 23/11/2022 | Continuación _TP3_                                                |                                  | 25/11/2022 |                                                                        |                             |
 | 15     | 30/11/2022 | Continuación _TP3_                                                |                                  | 02/12/2022 |                                                                        | **recuperatorio** [^recu]   |
-| 16     | 07/12/2022 |                                                                   | Parcialito **TP3** [^parcialito] | 09/12/2022 | **FERIADO**                                                            | Entrega **TP3**             |
+| 16     | 07/12/2022 |                                                                   | Parcialito **TP3** [^parcialito] | 09/12/2022 | **FERIADO**                                                            | Entrega **TP3** [^fs]       |
  
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 11/09 inclusive
 [^shell]: **shell** - la fecha de entrega es hasta el domingo 25/09 inclusive
 [^malloc]: **TP1** - la fecha de entrega es hasta el domingo 16/10 inclusive
 [^sched]: **TP2** - la fecha de entrega es hasta el domingo 13/11 inclusive
+[^fs]: **TP3** - la fecha de entrega es hasta el domingo 11/12 inclusive
 [^parcialito]: **parcialitos** - serán siempre en el horario de la práctica
 [^recu]: **recuperatorio** - el segundo recuperatorio será probablemente en la primera fecha de final
