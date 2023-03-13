@@ -12,15 +12,15 @@ suscripción a la lista de correo, y el servidor de _Discord_ a través de los c
 ## Horarios de clase
 
 Se dicta clase los siguiente días y horarios teniendo en cuenta la modalidad híbrida:
-- **Práctica**:
-  - _Día_: Viernes
-  - _Modalidad_: **Virtual**
-  - _Horario_: 19 a 22
 - **Teórica**:
   - _Día_: Miércoles
   - _Modalidad_: **Presencial**
   - _Horario_: 18 a 21
-  - _Aula_: A confirmar
+  - _Aula_: 313 
+- **Práctica**:
+  - _Día_: Viernes
+  - _Modalidad_: **Virtual**
+  - _Horario_: 19 a 22
 
 Las clases virtuales se realizan vía **Google Meet**, y se graban las mismas cada semana.
 
