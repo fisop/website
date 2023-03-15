@@ -26,12 +26,12 @@ El método aquí descrito es el único mecanismo de entregas válido, y es oblig
 
 Durante la cursada, se proporciona a cada estudiante un repositorio privado en la organización [fiubatps] de GitHub. Este repositorio suele tener la forma _sisop_año_apellido_, por ejemplo: `github.com:fiubatps/sisop_2020a_mendez`.
 
-Para los trabajos prácticos en grupo se proporciona un segundo repositorio privado siguiendo el esquema _sisop_año_numgrupo_apellidos_, por ejemplo: `github.com:fiubatps/sisop_2020a_g8_mendez_simo`.
+Para los trabajos prácticos en grupo se proporciona un segundo repositorio privado siguiendo el esquema `sisop_año_numgrupo`, por ejemplo: `github.com:fiubatps/sisop_2020a_g8`.
 
 ### Descarga inicial
 {:#clone}
 
-Cada estudiante deberá clonar sus repositorios privados en su computadora personal, bien vía _http_ (con contraseña), o _ssh_ (con clave privada):
+Cada estudiante deberá clonar sus repositorios privados en su computadora personal, bien vía _http_ (con contraseña), o _ssh_ (con clave privada), siendo esta última la más recomendada y fácil de utilizar:
 
 ```
 # Por HTTP
@@ -101,10 +101,10 @@ En la configuración estándar, Git pedirá una contraseña cada vez que se comu
     password in Git][gh-https-en] (o, en castellano: [Guardar en caché tu
     contraseña de GitHub en Git][gh-https-es]).
 
-[gh-ssh-en]: https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
-[gh-ssh-es]: https://help.github.com/es/github/authenticating-to-github/connecting-to-github-with-ssh
-[gh-https-en]: https://help.github.com/en/github/using-git/caching-your-github-password-in-git
-[gh-https-es]: https://help.github.com/es/github/using-git/caching-your-github-password-in-git
+[gh-ssh-en]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+[gh-ssh-es]: https://docs.github.com/es/authentication/connecting-to-github-with-ssh
+[gh-https-en]: https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
+[gh-https-es]: https://docs.github.com/es/get-started/getting-started-with-git/caching-your-github-credentials-in-git
 
 
 ## Esqueleto del TP
