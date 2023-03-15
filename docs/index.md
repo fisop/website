@@ -1,29 +1,29 @@
-Este es el sitio de la materia _Sistemas Operativos de FIUBA_ (75.08 / 95.03), curso Méndez/Fresia. La información que se presenta corresponde a la cursada 2022/2.
+Este es el sitio de la materia _Sistemas Operativos de FIUBA_ (75.08 / 95.03), curso Méndez/Fresia. La información que se presenta corresponde a la cursada 2023/1.
 
   - [Contacto](contacto.md)
   - [Docentes](docentes.md)
 
 Se pide completar [el formulario de alta][alta]{:.alert-link} (que incluye la
-suscripción a la lista de correo a través de la cual se comunica el curso).
+suscripción a la lista de correo, y el servidor de _Discord_ a través de los cuales se comunica el curso).
 {:.alert .alert-primary}
 
 *[FIUBA]: Facultad de Ingeniería, Universidad de Buenos Aires
 
 ## Horarios de clase
 
-Para la primer semana de clases, el miércoles **24/08** se dará la teórica de forma **presencial** (de 19 a 22), y el viernes **26/08** se dará la práctica de forma **virtual** (de 19 a 22).
+Para la primera semana de clase, la clase **Teórica** (miércoles 15/03) será virtual
 {:.alert .alert-danger}
 
 Se dicta clase los siguiente días y horarios teniendo en cuenta la modalidad híbrida:
-- **Práctica**:
-  - _Día_: Miércoles
-  - _Modalidad_: **Virtual**
-  - _Horario_: 19 a 22
 - **Teórica**:
-  - _Día_: Viernes
+  - _Día_: Miércoles
   - _Modalidad_: **Presencial**
   - _Horario_: 18 a 21
   - _Aula_: A confirmar
+- **Práctica**:
+  - _Día_: Viernes
+  - _Modalidad_: **Virtual**
+  - _Horario_: 19 a 22
 
 Las clases virtuales se realizan vía **Google Meet**, y se graban las mismas cada semana.
 
@@ -32,6 +32,6 @@ Los enlaces para acceder a **Meet**, así como las grabaciones de clases anterio
 
 [calendario]: https://calendar.google.com/calendar/u/0?cid=Y19zdmlnbHN1cTI3ZGNwZXNuZ2dnYWowOGthOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t
 
-[alta]: https://forms.gle/sk6GT8D1AEb2BiVYA
+[alta]: https://forms.gle/JdbZ4FkhdtFGRJPWA
 
 {% include footnotes.html %}

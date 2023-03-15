@@ -11,75 +11,9 @@
 
 La cursada comprenderá tres tipos distintos de instancias evaluatorias:
 
-  - 2 entregas individuales - denominadas "labs"
-  - 3 entregas grupales (de tres/cuatro personas) - denominadas "trabajos prácticos"
-  - 1 parcial - teórico-práctico, individual
-
-Cada una de esas instancias tendrá una calificación numérica entre 0 y 10 puntos
-(con excepción de los [_labs_](#labs)).
-
-La nota final de la cursada, será una composición ponderada de las notas de cada
-una de las instancias de evaluación de acuerdo a la siguiente fórmula:
-
-```
-promedio_tps = (tp1 + tp2 + tp3) / 3
-
-nota_cursada = (0.4 * parcial + 0.6 * promedio_tps)
-
-if (lab1.state == 'APROBADO' && lab2.state == 'APROBADO') {
-	nota_cursada = round_up(nota_cursada)
-} else {
-	nota_cursada = trunc(nota_cursada)
-}
-```
-
-- Ejemplo 1:
-
-```
-fork = 'APROBADO'
-shell = 'APROBADO'
-
-nota_cursada = 7.20
-
-nota_cursada => 8
-```
-
-- Ejemplo 2:
-
-```
-fork = 'APROBADO'
-shell = 'APROBADO'
-
-nota_cursada = 7.80
-
-nota_cursada => 8
-```
-
-- Ejemplo 3:
-
-```
-fork = 'APROBADO'
-shell = 'REGULAR'
-
-nota_cursada = 7.20
-
-nota_cursada => 7
-```
-
-- Ejemplo 4:
-
-```
-fork = 'APROBADO'
-shell = 'REGULAR'
-
-nota_cursada = 7.80
-
-nota_cursada => 7
-```
-
-Además, existen instancias evaluadoras complementarias, denominadas [*challenges*](#challenges)
-o desafíos, que exceden al régimen de evaluación regular pero contribuyen para
-el régimen de [**final alternativo**](#final) (el cual se explica más adelante).
+  - 1 "_lab_" [**individual**]
+  - 4 "_trabajos prácticos_" [**grupal** (de cuatro personas)]
+  - 1 "_parcial_" - teórico-práctico [**individual**]
 
 ### Descripción de los labs
 {: #labs}
@@ -94,7 +28,7 @@ prácticos, de manera que los integrantes de cada grupo hayan cubierto una
 cantidad de material y conocimientos previos similar.
 
 Por su carácter formativo, se recomienda leer mucho, dedicarles tiempo, y
-preguntar en clase y en la [lista](index.md#contacto) tanto como sea
+preguntar en clase y en la [lista](../contacto)/_Discord_ tanto como sea
 necesario, hasta aclarar cualquier duda posible.
 
 Los **estados** posibles para un _lab_ corregido son:
@@ -116,18 +50,18 @@ Los _trabajos prácticos_ grupales consisten en la implementación de
 funcionalidad relacionada con un componente importante de un sistema operativo.
 
 Si bien las consignas también son guiadas, al tratarse de grupos de
-tres/cuatro personas, también se dejará lugar al diseño y modularización de su solución.
+cuatro personas, también se dejará lugar al diseño y modularización de su solución.
 Siendo ésto una parte importante de la nota final de cada _trabajo práctico_.
 
 ### Parcialitos
 {: #parcialitos}
 
-Cada uno de los _trabajos prácticos_ tendrá una instancia de evaluación _individual_ asociada,
-en la semana de la entrega. Estas instancias se denominan "parcialitos".
+Cada uno de los _trabajos prácticos_ tendrá una instancia de evaluación _individual_ asociada.
+Estas instancias se denominan "parcialitos".
 
 Los _parcialitos_ serán evaluaciones cortas (de no más de 30/40 minutos), de carácter
 _choice_ o respuestas muy breves en prosa. Los mismos serán
-durante las clases prácticas, a la semana siguiente de la entrega de los _trabajos
+durante las clases prácticas, en la semana siguiente de la entrega de los _trabajos
 prácticos_. Los temas a evaluar estarán relacionados con el trabajo de turno a
 entregar.
 
@@ -141,16 +75,16 @@ Los _parcialitos_ representan un **30% de la calificación** del _trabajo práct
 ### Descripción del parcial
 {: #parcial}
 
-El parcial constituirá en una única evaluación a mitad de la cursada, contemplando
+El parcial se constituye de una única evaluación a mitad de la cursada, contemplando
 los temas dados en la primera mitad de la materia (kernel, memoria y scheduling).
 
 El parcial podrá ser recuperado en dos oportunidades;
 con fechas a determinar durante la cursada.
 
-### Ejercicios opcionales
+### Ejercicios opcionales (_challenges_)
 {: #challenges}
 
-Tanto en los _labs_ como en los _trabajos prácticos_ habrá ejercicios marcados como
+Tanto en el _lab_ como en los _trabajos prácticos_ habrá ejercicios marcados como
 opcionales. Están para explorar con más profundidad algunos temas y representan un
 desafío en cuanto a complejidad e investigación respecto a los ejercicios
 obligatorios.
@@ -161,14 +95,107 @@ Cabe mencionar que las consignas de estos ejercicios suelen ser mucho menos
 específicas, y quedará definir con el corrector asignado qué es suficiente para
 aprobar los mismos.
 
+## Cálculo de notas
+{: #notas}
+
+Cada una de esas instancias tendrá una calificación numérica entre 0 y 10 puntos
+(con **excepción** de los [_labs_](#labs)).
+
+La nota de cada _trabajo práctico_, se calcula de la siguiente forma:
+
+```
+nota_tp_i = round_near(nota_grupal_tp_i * 0.7 + nota_parcialito_tp_i * 0.3)
+```
+
+- Ejemplo 1
+
+```
+nota_grupal_tp_1 = 7.5
+
+nota_parcialito_tp_1 = 10
+
+nota_tp_1 = round_near(7.5 * 0.7 + 10 * 0.3)
+nota_tp_1 = round_near(8.25)
+nota_tp_1 = 8
+```
+
+- Ejemplo 2
+
+```
+nota_grupal_tp_2 = 8
+
+nota_parcialito_tp_2 = 10
+
+nota_tp_1 = round_near(8 * 0.7 + 10 * 0.3)
+nota_tp_1 = round_near(8.60)
+nota_tp_1 = 9
+```
+
+La nota final de la cursada, será una composición ponderada de las notas de cada
+una de las instancias de evaluación de acuerdo a la siguiente fórmula:
+
+```
+promedio_tps = (tp1 + tp2 + tp3 + tp4) / 4
+
+nota_cursada = (0.4 * parcial + 0.6 * promedio_tps)
+
+nota_cursada_final = lab.state == 'APROBADO'
+	? nota_cursada = round_up(nota_cursada)
+	: nota_cursada = trunc(nota_cursada)
+```
+
+- Ejemplo 1:
+
+```
+fork = 'APROBADO'
+
+nota_cursada = 7.20
+
+nota_cursada_final => 8
+```
+
+- Ejemplo 2:
+
+```
+fork = 'APROBADO'
+
+nota_cursada = 7.80
+
+nota_cursada_final => 8
+```
+
+- Ejemplo 3:
+
+```
+fork = 'REGULAR'
+
+nota_cursada = 7.20
+
+nota_cursada_final => 7
+```
+
+- Ejemplo 4:
+
+```
+fork = 'REGULAR'
+
+nota_cursada = 7.80
+
+nota_cursada_final => 7
+```
+
+Además, existen instancias evaluadoras complementarias, denominadas [*challenges*](#challenges)
+o desafíos, que exceden al régimen de evaluación regular pero contribuyen para
+el régimen de [**final alternativo**](#final) (el cual se explica más adelante).
+
 ## Criterios de aprobación
 {: #aprob}
 
 Para aprobar la cursada es necesario:
 
   - Aprobar el parcial, en primera instancia o en recuperatorio
-  - Aprobar todos los _trabajos prácticos_ y _labs_
-  - Los _labs_ **deben** estar en los estados `APROBADO` o `REGULAR`,
+  - Aprobar el _lab_ y todos los _trabajos prácticos_
+  - El _lab_ **debe** estar en los estados `APROBADO` o `REGULAR`,
     **nunca** en `DESAPROBADO`
 
 Con estas condiciones, se podrán anotar a rendir el coloquio.
@@ -181,7 +208,7 @@ Esto quiere decir que la entrega inicial será la válida
 para computar la nota.
 {:.alert .alert-danger}
 
-Los _labs_ admiten **una** reentrega cuando están como **REGULAR**.
+El _lab_ admite **una** reentrega cuando esté **REGULAR**.
 Asimismo, es **obligatoria** la reentrega en caso
 de estar **DESAPROBADO**
 {:.alert .alert-danger}
@@ -192,9 +219,10 @@ trabajo, pudiendo imponer un techo en la calificación máxima del mismo. En cas
 correcciones _necesarias_ para la aprobación, las mismas deberán llevarse a cabo
 en el tiempo y forma acordados.
 
-El criterio estricto de la entrega de los _trabajos prácticos_ y _labs_ es que a la
+El criterio estricto de la entrega de los _trabajos prácticos_ y _lab_ es que a la
 fecha de entrega original se haya _entregado algo_ que demuestre un avance
 sustancial.
+{:.alert .alert-danger}
 
 **No se aceptarán** prórrogas de la fecha de entrega si no se ha mostrado
 avance/interés. En tales condiciones, la regularidad se perderá automáticamente.
@@ -215,10 +243,10 @@ más cercano.
 
 El criterio de promoción es el siguiente:
   - Nota final de cursada `>= 8`
-  - Aprobar el parcial en primera instancia, con calificación `>= 8`
-  - Aprobar todos los _labs_, con estado **APROBADO** (ya sea en primera instancia
+  - Aprobar el parcial, con calificación `>= 8`
+  - Aprobar el _lab_, con estado **APROBADO** (ya sea en primera instancia
     o en la reentrega)
-  - Aprobar todos los trabajos grupales, con calificación `>= 7` en cada uno
+  - Aprobar todos los trabajos grupales, con calificación `>= 7` (nota final) en cada uno
   - Aprobar todos los parcialitos, con calificación `>= 5` en cada uno
 
 ## Final alternativo
@@ -229,18 +257,18 @@ cualquiera puede optar por reemplazar el coloquio-final con _trabajos prácticos
 adicionales.
 
 A lo largo de la cursada, se expondrán distintos [desafíos](#challenges) como parte adicional
-de los _trabajos prácticos_. Éstos son de carácter no obligatorio y serán
+de los _trabajos_ (individual y grupales). Éstos son de carácter no obligatorio y serán
 claramente señalizados.
 
-Quienes opten por el final alternativo deberán cumplir lo siguiente:
+Quienes opten por el _final alternativo_ deberán cumplir lo siguiente:
   - Aprobar la cursada, de forma regular
   - Elegir 3 desafíos opcionales de los presentados. Realizarlos y entregarlos, a
     más tardar, hasta la **segunda fecha de final**.
 
-Los desafíos van a estar visibles tan pronto como se llegue al trabajo práctico
+Los desafíos van a estar visibles tan pronto como se llegue al lab/trabajo práctico
 de la materia al que estén asociados, y no hay limitaciones con que se realicen
-_durante_ la cursada (si el/la alumno/a quiere optar por este final
-alternativo). Lo importante es que los mismos serán evaluados _luego_ de la
+_durante_ la cursada (si el/la alumno/a quiere optar por este tipo de final).
+Lo importante es que los mismos serán evaluados _luego_ de la
 cursada, durante las mismas fechas de final.
 
 {::options toc_levels="2" /}

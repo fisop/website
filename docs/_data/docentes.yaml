@@ -13,17 +13,32 @@ patricio:
   mail: piribarnec@fi.uba.ar
   github: PatricioIribarneCatella
 
-sebastian:
-  nombre: Sebastián D’Alessandro Szymanowski
-  mail: sdalessandro@fi.uba.ar
-  github: sjdalessandro
-
-santiago:
-  nombre: Santiago Klein
-  mail: sklein@fi.uba.ar
-  github: sankle
-
 cristian:
   nombre: Cristian Simonelli
   mail: cristian@fi.uba.ar
   github: csimonelli
+
+francisco:
+  nombre: Francisco Xavier Gauna
+  mail: fgauna@fi.uba.ar
+  github: FranciscoGauna
+
+eliana:
+  nombre: Eliana Harriet
+  mail: eharriet@fi.uba.ar
+  github: ElianaHarriet
+
+aldana:
+  nombre: Aldana Lescano Maier
+  mail: alescano@fi.uba.ar
+  github: Aldy09
+
+facundo:
+  nombre: Facundo Agustín Aguirre Argerich
+  mail: faguirrea@fi.uba.ar
+  github: bonshot
+
+mario:
+  nombre: Mario Santiago Adris
+  mail: madris@fi.uba.ar
+  github: marioax
