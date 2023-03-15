@@ -194,7 +194,7 @@ el régimen de [**final alternativo**](#final) (el cual se explica más adelante
 Para aprobar la cursada es necesario:
 
   - Aprobar el parcial, en primera instancia o en recuperatorio
-  - Aprobar todos los _trabajos prácticos_ y _lab_
+  - Aprobar el _lab_ y todos los _trabajos prácticos_
   - El _lab_ **debe** estar en los estados `APROBADO` o `REGULAR`,
     **nunca** en `DESAPROBADO`
 
