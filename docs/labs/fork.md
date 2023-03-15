@@ -2,9 +2,6 @@
 
 El objetivo de este lab es familiarizarse con las llamadas al sistema `fork(2)` (que crea una copia del proceso actual) y `pipe(2)` (que proporciona un mecanismo de comunicación unidireccional entre dos procesos).
 
-A efectos de lo explicado en la [página de entregas](../entregas.md), el esqueleto para este lab se encuentra en el repositorio [`https://github.com/fisop/labs`][repolabs]{:.alert-link}, rama **_fork_** (la cual no necesita ninguna integración previa).
-{:.alert .alert-primary}
-
 **IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
 {:.alert .alert-warning}
 
@@ -37,6 +34,15 @@ En general, una buena referencia sobre sistemas POSIX es **[KERR]**. En particul
 
 Opcionalmente se puede leer el capítulo 3 a modo de introducción.
 
+## Pruebas automatizadas
+
+Además de los ejemplos proporcionados a continuación,
+existen pruebas automáticas que **deben** ejecutarse sobre la solución del _lab_.
+Las mismas se encuentran en [**repositorio público**](https://github.com/fisop/labs-tests),
+para ser descargado por el mecanismo que les resulte más fácil.
+
+Como se menciona en la sección del [_regimen_](../../regimen) de la cursada, es **obligatorio** que pasen todas las pruebas para poder considerar al _lab_ como _APROBADO_.
+{:.alert .alert-danger}
 
 ## Tarea: pingpong
 {: #pingpong}
