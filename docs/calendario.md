@@ -6,7 +6,7 @@ A continuación se presenta un calendario aproximado de la cursada
 Los temas de cada clase podrán verse alterados, así como las fechas de entrega.
 En el caso de estas últimas, se notificará por correo/discord.
 
-| Semana | Fecha      | Práctica                                           | Eventos           | Fecha      | Teórica                                           | Eventos                                                  |
+| Semana | Fecha      | Teórica                                            | Eventos           | Fecha      | Práctica                                          | Eventos                                                  |
 |--------|------------|----------------------------------------------------|-------------------|------------|---------------------------------------------------|----------------------------------------------------------|
 | 1      | 15/03/2023 | Introducción a la materia, Introducción a procesos |                   | 17/03/2023 | Introducción a la práctica, Presentación lab fork |                                                          |
 | 2      | 22/03/2023 | **[PRACTICA]** Continuar lab fork                  |                   | 24/03/2023 | **FERIADO**                                       |                                                          |
