@@ -11,5 +11,6 @@
     - {% include docente.html docente=docentes.eliana %}
     - {% include docente.html docente=docentes.aldana %}
     - {% include docente.html docente=docentes.facundo %}
+    - {% include docente.html docente=docentes.mario %}
 
 *[JTP]: Jefe de trabajos prácticos
