@@ -11,12 +11,15 @@ suscripción a la lista de correo, y el servidor de _Discord_ a través de los c
 
 ## Horarios de clase
 
+Para la primera semana de clase, la clase **Teórica** (miércoles 15/03) será virtual
+{:.alert .alert-danger}
+
 Se dicta clase los siguiente días y horarios teniendo en cuenta la modalidad híbrida:
 - **Teórica**:
   - _Día_: Miércoles
   - _Modalidad_: **Presencial**
   - _Horario_: 18 a 21
-  - _Aula_: 313 
+  - _Aula_: A confirmar
 - **Práctica**:
   - _Día_: Viernes
   - _Modalidad_: **Virtual**
