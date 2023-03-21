@@ -8,6 +8,9 @@ El objetivo de este lab es familiarizarse con las llamadas al sistema `fork(2)` 
 **REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
 {:.alert .alert-danger}
 
+**RECORDATORIO**: en la sección [entregas](../../entregas) se describe en forma general el proceder para integrar el código del esqueleto público, como así también el mecanismo de entrega.
+{:.alert .alert-info}
+
 [repolabs]: https://github.com/fisop/labs
 
 
