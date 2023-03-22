@@ -7,10 +7,12 @@
   - Práctica:
     - {% include docente.html docente=docentes.patricio %}
     - {% include docente.html docente=docentes.cristian %}
-    - {% include docente.html docente=docentes.francisco %}
+    - {% include docente.html docente=docentes.francisco-g %}
     - {% include docente.html docente=docentes.eliana %}
     - {% include docente.html docente=docentes.aldana %}
     - {% include docente.html docente=docentes.facundo %}
     - {% include docente.html docente=docentes.mario %}
+    - {% include docente.html docente=docentes.carolina %}
+    - {% include docente.html docente=docentes.francisco-o %}
 
 *[JTP]: Jefe de trabajos prácticos

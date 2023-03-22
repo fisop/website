@@ -18,7 +18,7 @@ cristian:
   mail: cristian@fi.uba.ar
   github: csimonelli
 
-francisco:
+francisco-g:
   nombre: Francisco Xavier Gauna
   mail: fgauna@fi.uba.ar
   github: FranciscoGauna
@@ -42,3 +42,13 @@ mario:
   nombre: Mario Santiago Adris
   mail: madris@fi.uba.ar
   github: marioax
+
+carolina:
+  nombre: Carolina Di Matteo
+  mail: cdimatteo@fi.uba.ar
+  github: gcc-cdimatteo
+
+francisco-o:
+  nombre: Francisco Orquera Lorda
+  mail: forqueral@fi.uba.ar
+  github: franorquera
