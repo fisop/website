@@ -373,8 +373,8 @@ Antes de finalizar la creación del _pull request_, se deben completar los sigui
     corrección.
 
   - _reviewers:_ en caso de ya contar con un docente asignado para las
-    correcciones, se le deberá incluir en este campo. En caso contrario, se
-    deberá seleccionar se puede dejar en blanco.
+    correcciones, se le deberá incluir en este campo. En caso contrario,
+    se puede dejar en blanco.
 
 ### Mecanismo de corrección
 {:#codereview}
