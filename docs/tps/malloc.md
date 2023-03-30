@@ -1,4 +1,4 @@
-# TP1: Manejo del _heap_
+# TP2: Manejo del _heap_
 
 ## Índice
 {:.no_toc}
@@ -27,36 +27,8 @@ Aunque se podría discutir el propósito de querer definir nuestra propia librer
 - [mimalloc](https://github.com/microsoft/mimalloc) creado por _Microsoft_
 </div>
 
-## Esqueleto y compilación
-
-Se provee un esqueleto mínimo con una implementación funcional utilizando `sbrk(2)` la cual puede ser compilada tanto estática como dinámicamente contra cualquier programa en _C_ que utilice la librería estándar.
-
-Para compilar la librería se puede ejecutar:
-
-```bash
-make libmalloc.so
-```
-
-El resultado es una _librería_ dinámica `libmalloc.so`. Por su parte, se pueden generar y ejecutar, dos versiones diferentes de un programa de pruebas, de la siguiente forma:
-
-- Estática
-
-```bash
-make run-s
-```
-
-Esta versión compila el programa `test.c` conjuntamente con los `.o` de la librería `malloc.c`, y luego corre el binario `test-s`.
-
-- Dinámica
-
-```bash
-make run-d
-```
-
-En esta versión se compila el mismo programa `test.c`, pero esta vez no se incluye la librería. En su lugar, se utiliza la variable de entorno `LD_PRELOAD`, la cual le indica al _loader_ del sistema operativo que tiene que sustituir ciertos _símbolos_ (las funciones de nuestra librería), por las que se indican en el binario.
-El resultado de `test-d` debería ser idéntico.
-
-Además, se puede hacer la prueba de intentar ejecutar el binario `test-d` de forma aislada `./test-d`, verificando que efectivamente se utiliza la implementación de la librería estándar de _C_.
+**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
+{:.alert .alert-danger}
 
 ## Implementación
 
@@ -186,6 +158,36 @@ Por ejemplo, podría ser que la región actual, tuviera un tamaño real compatib
   - Verificar que la región suministrada fue previamente pedida con `malloc(3)`
 </div>
 
+## Esqueleto y compilación
+
+Se provee un esqueleto mínimo con una implementación funcional utilizando `sbrk(2)` la cual puede ser compilada tanto estática como dinámicamente contra cualquier programa en _C_ que utilice la librería estándar.
+
+Para compilar la librería se puede ejecutar:
+
+```bash
+make libmalloc.so
+```
+
+El resultado es una _librería_ dinámica `libmalloc.so`. Por su parte, se pueden generar y ejecutar, dos versiones diferentes de un programa de pruebas, de la siguiente forma:
+
+- Estática
+
+```bash
+make run-s
+```
+
+Esta versión compila el programa `test.c` conjuntamente con los `.o` de la librería `malloc.c`, y luego corre el binario `test-s`.
+
+- Dinámica
+
+```bash
+make run-d
+```
+
+En esta versión se compila el mismo programa `test.c`, pero esta vez no se incluye la librería. En su lugar, se utiliza la variable de entorno `LD_PRELOAD`, la cual le indica al _loader_ del sistema operativo que tiene que sustituir ciertos _símbolos_ (las funciones de nuestra librería), por las que se indican en el binario.
+El resultado de `test-d` debería ser idéntico.
+
+Además, se puede hacer la prueba de intentar ejecutar el binario `test-d` de forma aislada `./test-d`, verificando que efectivamente se utiliza la implementación de la librería estándar de _C_.
 
 ## Manejo de errores
 
