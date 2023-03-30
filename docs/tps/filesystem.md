@@ -1,4 +1,4 @@
-# TP3: Filesystem FUSE
+# TP4: Filesystem FUSE
 
 ## Índice
 {:.no_toc}
@@ -8,6 +8,9 @@
 
 ## Introducción
 
+**AVISO**: antes de comenzar, verificar que se tiene instalado [el software necesario](../kit.md#tools){:.alert-link}.
+{:.alert .alert-warning}
+
 En este trabajo implementaremos nuestro propio sistema de archivos (o _filesystem_) para Linux. El sistema de archivos utilizará el mecanismo de [FUSE][fuse-wiki] (_Filesystem in USErspace_) provisto por el [kernel][fuse-linux], que nos permitirá definir en _modo usuario_ la implementación de un _filesystem_. Gracias a ello, el mismo tendrá la interfaz VFS y podrá ser accedido con las syscalls y programas habituales (`read`, `open`, `ls`, etc).
 
 La implementación del _filesystem_ será enteramente en memoria: tanto archivos como directorios serán representados mediante estructuras que vivirán en memoria dinámica. Por esta razón, buscamos un sistema de archivos que apunte a la velocidad de acceso, y no al volumen de datos o a la persistencia (algo similar a [`tmpfs`][tmpfs]). Aún así, los datos de nuestro _filesystem_ estarán representados _en disco_ por un archivo.
@@ -15,6 +18,9 @@ La implementación del _filesystem_ será enteramente en memoria: tanto archivos
 [fuse-wiki]: https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 [fuse-linux]: https://www.kernel.org/doc/html/latest/filesystems/fuse.html
 [tmpfs]: https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html
+
+**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
+{:.alert .alert-danger}
 
 ### Software necesario
 
