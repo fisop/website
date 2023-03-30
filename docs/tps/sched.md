@@ -1,4 +1,4 @@
-# TP2: _Scheduling_ y cambio de contexto
+# TP3: _Scheduling_ y cambio de contexto
 
 ## Índice
 {:.no_toc}
@@ -16,6 +16,9 @@ En este trabajo se implementarán el mecanismo de cambio de contexto para proces
 [pdos]: https://pdos.csail.mit.edu/
 
 JOS está diseñado para correr en la arquitectura Intel x86, y para poder ejecutarlo utilizaremos QEMU para emular tal arquitectura.
+
+**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
+{:.alert .alert-danger}
 
 ## Implementación
 
