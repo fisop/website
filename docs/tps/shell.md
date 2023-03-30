@@ -167,7 +167,7 @@ Existen más tipos de redirecciones que nuestra _shell_ no soportará (e.g. `>>`
   - Soportar cada una de las **tres formas de redirección** descritas arriba: `>`, `<`, `2>` y `2>&1`.
   - **Responder**: Investigar el significado de `2>&1`, explicar cómo funciona su _forma general_
     - Mostrar qué sucede con la salida de `cat out.txt` en el ejemplo.
-    - Luego repetirlo invertiendo el orden de las redirecciones (es decir, `2>&1 >out.txt`). ¿Cambió algo? Compararlo con el comportamiento en `bash(1)`.
+    - Luego repetirlo, invirtiendo el orden de las redirecciones (es decir, `2>&1 >out.txt`). ¿Cambió algo? Compararlo con el comportamiento en `bash(1)`.
 </div>
 
 **Ayuda:** Pueden valerse de las páginas del manual de bash: `man bash`.
@@ -278,7 +278,7 @@ ENTORNO=nada
 **Tareas**
   - Soportar variables de entorno temporales.
   - **Responder**: ¿Por qué es necesario hacerlo luego de la llamada a `fork(2)`?
-  - **Responder**: En algunos de los _wrappers_ de la familia de funciones de `exec(3)` (las que finalizan con la letra _e_), se les puede pasar un tercer argumento (o una lista de argumentos dependiendo del caso), con nuevas variables de entorno para la ejecución de ese proceso. Supongamos, entonces, que en vez de utilizar `setenv(3)` por cada una de las variables, se guardan en un array y se lo coloca en el tercer argumento de una de las funciones de `exec(3)`.
+  - **Responder**: En algunos de los _wrappers_ de la familia de funciones de `exec(3)` (las que finalizan con la letra _e_), se les puede pasar un tercer argumento (o una lista de argumentos dependiendo del caso), con nuevas variables de entorno para la ejecución de ese proceso. Supongamos, entonces, que en vez de utilizar `setenv(3)` por cada una de las variables, se guardan en un arreglo y se lo coloca en el tercer argumento de una de las funciones de `exec(3)`.
     - ¿El comportamiento resultante es el mismo que en el primer caso? Explicar qué sucede y por qué.
     - Describir brevemente (sin implementar) una posible implementación para que el comportamiento sea el mismo.
 </div>
