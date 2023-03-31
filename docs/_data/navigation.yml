@@ -3,9 +3,9 @@
 
 - Labs:
   fork: /labs/fork/
-  # shell: /labs/shell/
 
-# - TPs:
+- TPs:
+  shell: /tps/shell/
 #   malloc: /tps/malloc
 #   sched: /tps/sched
 #   filesystem: /tps/filesystem
