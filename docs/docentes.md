@@ -14,5 +14,6 @@
     - {% include docente.html docente=docentes.mario %}
     - {% include docente.html docente=docentes.carolina %}
     - {% include docente.html docente=docentes.francisco-o %}
+    - {% include docente.html docente=docentes.emmanuel %}
 
 *[JTP]: Jefe de trabajos prácticos
