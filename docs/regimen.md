@@ -34,7 +34,8 @@ necesario, hasta aclarar cualquier duda posible.
 Los **estados** posibles para un _lab_ corregido son:
 
 **APROBADO**: pasan correctamente todas las pruebas automáticas
-(y las respuestas en prosa son correctas)
+y la solución (como respuestas en prosa en caso de corresponder)
+es conceptualmente correcta.
 {:.alert .alert-success}
 
 **REGULAR**: no pasan todas las pruebas por errores menores en el código (_no_ conceptuales)
