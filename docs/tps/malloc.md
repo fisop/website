@@ -167,6 +167,12 @@ Todas **deben** setear la variable global `errno(3)` con el valor `ENOMEM`.
 
 ## Esqueleto y compilación
 
+**AVISO**: El esqueleto se encuentra disponible en [fisop/malloc](https://github.com/fisop/malloc){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
 Se provee un esqueleto mínimo con una implementación funcional utilizando `sbrk(2)` la cual puede ser compilada en cualquier programa en _C_ que utilice la librería estándar.
 
 Para compilar la librería se puede ejecutar:
