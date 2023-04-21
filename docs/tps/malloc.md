@@ -11,10 +11,11 @@
 **AVISO**: antes de comenzar, verificar que se tiene instalado [el software necesario](../kit.md#tools){:.alert-link}.
 {:.alert .alert-warning}
 
-En este trabajo se desarrollará una librería de usuario que implementará las funciones [`malloc(3)`](https://dashdash.io/3/malloc), [`calloc(3)`](https://dashdash.io/3/malloc), [`realloc(3)`](https://dashdash.io/3/realloc) y [`free(3)`](https://dashdash.io/3/malloc).
-La librería se encargará de solicitar la memoria que requiera, y la administrará de forma transparente para el usuario.
+**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
+{:.alert .alert-danger}
 
-Podrá utilizarse de forma normal en cualquier programa de C, ya sea de forma estática o dinámica (como se verá más adelante).
+En este trabajo se desarrollará una librería de usuario que implementará las funciones [`malloc(3)`](https://dashdash.io/3/malloc), [`calloc(3)`](https://dashdash.io/3/malloc), [`realloc(3)`](https://dashdash.io/3/realloc) y [`free(3)`](https://dashdash.io/3/malloc).
+La librería se encargará de solicitar la memoria que requiera, y la administrará de forma transparente para el usuario. Además debería poder utilizarse de forma normal en cualquier programa de C.
 
 <div class="alert alert-success" markdown="1">
 **Casos reales**
@@ -26,9 +27,6 @@ Aunque se podría discutir el propósito de querer definir nuestra propia librer
 - [tcmalloc](https://github.com/google/tcmalloc) creado por _Google_
 - [mimalloc](https://github.com/microsoft/mimalloc) creado por _Microsoft_
 </div>
-
-**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
-{:.alert .alert-danger}
 
 ## Implementación
 
@@ -43,7 +41,7 @@ Al final de este trabajo, la librería tendrá las siguientes funcionalidades:
 
 Para simplificar, tendremos en cuenta las siguientes limitaciones y sugerencias:
   - usar [`mmap(2)`](https://dashdash.io/2/mmap) para la obtención de memoria, **no** [`brk(2)`](https://dashdash.io/2/brk) **ni** [`sbrk(2)`](https://dashdash.io/2/sbrk)
-  - definir un tamaño mínimo que siempre se va a devolver, incluso aunque el usuario pida menos memoria (máximo 256 bytes)
+  - definir un tamaño mínimo que siempre se va a devolver, incluso cuando el usuario pida menos memoria (máximo 256 bytes)
 
 **IMPORTANTE**: registrar todas los respuestas a las preguntas y cualquier explicación adicional sobre los detalles del diseño en el archivo `malloc.md`
 {:.alert .alert-primary}
@@ -87,7 +85,7 @@ Extender la lógica anterior para que la librería pueda administrar _más de un
 
 Se definirán tres tamaños de bloque: pequeño (16Kib), mediano (1Mib) y grande (32Mib); y la librería deberá administrar múltiples instancias de cada tamaño de bloque.
 
-El procedimiento debería pasar a ser el siguiente: empezar, como en la parte 1, con un único bloque (el más pequeño). Mientras sea posible, trabajar con éste devolviendo regiones contenidas en él. Si nos quedamos sin memoria en ese bloque, alocar _otro_ bloque, cuyo tamaño sea tan pequeño como sea posible, dentro de las opciones definidas. Es decir, buscar el tamaño de bloque más pequeño en el cual cabe el pedido del usuario.
+El procedimiento debería pasar a ser el siguiente: empezar, como en la parte 1, con un único bloque (el más pequeño _requerido_). Mientras sea posible, trabajar con éste devolviendo regiones contenidas en él. Si nos quedamos sin memoria en ese bloque, alocar _otro_ bloque, cuyo tamaño sea tan pequeño como sea posible, dentro de las opciones definidas. Es decir, buscar el tamaño de bloque más pequeño en el cual cabe el pedido del usuario.
 
 Si se pidiera más memoria que el bloque de tamaño más grande; entonces la librería debería fallar. Se puede además definir un tamaño máximo para toda la librería (i.e. la suma de todos los bloques administrados nunca podrá exceder tal valor).
 
@@ -145,7 +143,7 @@ void* realloc(void* ptr, size_t size)
 ```
 
 Aunque esta implementación debería funcionar correctamente, no es eficiente en cuanto a la administración de las regiones y bloques libres.
-Por ejemplo, podría ser que la región actual, tuviera un tamaño real compatible con el _nuevo tamaño_, siendo la solución óptima, la de reutilizar dicha región. Pero, siguiendo el _pseudocódigo_ se estaría utilizando una nueva región (incluso hasta un nuevo bloque.
+Por ejemplo, podría ser que la región actual, tuviera un tamaño real compatible con el _nuevo tamaño_, siendo la solución óptima, la de reutilizar dicha región. Pero, siguiendo el _pseudocódigo_ se estaría utilizando una nueva región (incluso hasta un nuevo bloque).
 
 <div class="alert alert-primary" markdown="1">
 **Tareas**
@@ -158,37 +156,6 @@ Por ejemplo, podría ser que la región actual, tuviera un tamaño real compatib
   - Verificar que la región suministrada fue previamente pedida con `malloc(3)`
 </div>
 
-## Esqueleto y compilación
-
-Se provee un esqueleto mínimo con una implementación funcional utilizando `sbrk(2)` la cual puede ser compilada tanto estática como dinámicamente contra cualquier programa en _C_ que utilice la librería estándar.
-
-Para compilar la librería se puede ejecutar:
-
-```bash
-make libmalloc.so
-```
-
-El resultado es una _librería_ dinámica `libmalloc.so`. Por su parte, se pueden generar y ejecutar, dos versiones diferentes de un programa de pruebas, de la siguiente forma:
-
-- Estática
-
-```bash
-make run-s
-```
-
-Esta versión compila el programa `test.c` conjuntamente con los `.o` de la librería `malloc.c`, y luego corre el binario `test-s`.
-
-- Dinámica
-
-```bash
-make run-d
-```
-
-En esta versión se compila el mismo programa `test.c`, pero esta vez no se incluye la librería. En su lugar, se utiliza la variable de entorno `LD_PRELOAD`, la cual le indica al _loader_ del sistema operativo que tiene que sustituir ciertos _símbolos_ (las funciones de nuestra librería), por las que se indican en el binario.
-El resultado de `test-d` debería ser idéntico.
-
-Además, se puede hacer la prueba de intentar ejecutar el binario `test-d` de forma aislada `./test-d`, verificando que efectivamente se utiliza la implementación de la librería estándar de _C_.
-
 ## Manejo de errores
 
 El manejo de errores para las funciones a implementar, debería ser consistente con lo detallando en las páginas de manual. En este sentido, se tiene lo siguiente:
@@ -197,6 +164,22 @@ El manejo de errores para las funciones a implementar, debería ser consistente 
 - `free(3)` no devuelve nada
 
 Todas **deben** setear la variable global `errno(3)` con el valor `ENOMEM`.
+
+## Esqueleto y compilación
+
+Se provee un esqueleto mínimo con una implementación funcional utilizando `sbrk(2)` la cual puede ser compilada en cualquier programa en _C_ que utilice la librería estándar.
+
+Para compilar la librería se puede ejecutar:
+
+```bash
+make
+```
+
+Para correr las pruebas basta con:
+
+```bash
+make test
+```
 
 ## Bibliografía útil
 
