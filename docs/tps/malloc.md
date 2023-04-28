@@ -91,7 +91,7 @@ Si se pidiera más memoria que el bloque de tamaño más grande; entonces la lib
 
 A la hora de recibir un pedido de `malloc()`, la librería debería entonces iterar sobre todos los bloques que esté administrando, comenzando por los más pequeños hasta encontrar uno que posea una región apropiada.
 
-Cuando se reciba un `free()` que libere completamente un bloque (i.e. termine conteniendo una única región que englobe el bloque completo), debería ocasionar un `munmap()` de tal bloque; devolviendo así la memoria al usuario.
+Cuando se reciba un `free()` que libere completamente un bloque (i.e. termine conteniendo una única región que englobe el bloque completo), debería ocasionar un `munmap()` de tal bloque; devolviendo así la memoria al sistema.
 
 <div class="alert alert-primary" markdown="1">
 **Tareas**
