@@ -148,7 +148,7 @@ Por ejemplo, podría ser que la región actual, tuviera un tamaño real compatib
 <div class="alert alert-primary" markdown="1">
 **Tareas**
   - Soportar la función `realloc(3)`
-  - El contenido de la región existente **no** debe alterarse (teniendo en cuenta que el _nuvo tamaño_ podría ser menor que el actual)
+  - El contenido de la región existente **no** debe alterarse (teniendo en cuenta que el _nuevo tamaño_ podría ser menor que el actual)
   - Si el _nuevo tamaño_ es más grande, la nueva memoria **no** debe inicializarse
   - Si `ptr` es igual a `NULL`, el comportamiento es igual a `malloc(size)`
   - Si `size` es igual a _cero_ (y `ptr` no es `NULL`) debería ser equivalente a `free(ptr)`
