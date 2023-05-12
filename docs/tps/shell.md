@@ -395,9 +395,9 @@ La tecla BackSpace debe funcionar para borrar los caracteres de un comando de ha
 **IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
 {:.alert .alert-warning}
 
-Para que no tengan que implementar todo desde cero, se provee un esqueleto de shell. Éste tiene gran parte del parseo hecho, y está estructurado indicando con comentarios los lugares en donde deben introducir el código crítico de cada punto.
+Para que no tengan que implementar todo desde cero, se provee un esqueleto. Éste tiene gran parte del parseo hecho, y está estructurado indicando con comentarios los lugares en donde deben introducir el código crítico de cada punto.
 
-Se recomienda antes de empezar leer el código para entender bien cómo funciona, y qué hace cada una de las funciones. **Particularmente recomendamos entender qué significa cada uno de los campos en los structs de `types.h`**.
+Se recomienda, antes de empezar, leer el código para entender bien cómo funciona, y qué hace cada una de las funciones. **Particularmente recomendamos entender qué significa cada uno de los campos en los structs definidos en `types.h`**.
 
 ### Compilación
 {: #compile}
