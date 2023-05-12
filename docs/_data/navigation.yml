@@ -7,7 +7,7 @@
 - TPs:
   shell: /tps/shell/
   malloc: /tps/malloc
-#   sched: /tps/sched
+  sched: /tps/sched
 #   filesystem: /tps/filesystem
 
 - Enlaces:
