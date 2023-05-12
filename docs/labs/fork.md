@@ -44,13 +44,13 @@ existen pruebas automáticas que **deben** ejecutarse sobre la solución del _la
 Las mismas se encuentran en [**repositorio público**](https://github.com/fisop/labs-tests),
 para ser descargado por el mecanismo que les resulte más fácil.
 
-Como se menciona en la sección del [_regimen_](../../regimen) de la cursada, es **obligatorio** que pasen todas las pruebas para poder considerar al _lab_ como _APROBADO_.
+Como se menciona en la sección del [_regimen_](../../regimen) de la cursada, es **obligatorio** que pasen todas las pruebas (además de que la solución sea correcta) para poder considerar al _lab_ como _APROBADO_.
 {:.alert .alert-danger}
 
 ## Tarea: pingpong
 {: #pingpong}
 
-Se pide escribir un programa en C que use `fork(2)` y `pipe(2)` para enviar y recibir (ping-pong) un determinado valor entero, entre dos procesos.  El valor se debe crear con `random(3)` **una vez ambos procesos existan**.
+Se pide escribir un programa en C que use `fork(2)` y `pipe(2)` para enviar y recibir (ping-pong) un determinado valor entero, entre dos procesos.  El valor **se debe** crear con `random(3)` **una vez ambos procesos existan**.
 
 El programa debe imprimir por pantalla la secuencia de eventos de ambos procesos, en el formato **exacto** que se especifica a continuación:
 
@@ -88,9 +88,16 @@ Ayuda:
   - Si `fork(2)` fallase, simplemente se imprime un mensaje por salida de error
     estándar (_stderr_), y el programa termina.
 
-  - Tener en cuenta el tipo de los valores de retorno para cada una de las _syscalls_/funciones de _libc_ a utilizar (por ejemplo: `random(3)`)
+  - Tener en cuenta el tipo de los valores de retorno para cada una de las
+    _syscalls_/funciones de _libc_ a utilizar (por ejemplo: `random(3)`)
 
-Llamadas al sistema: `fork(2)`, `pipe(2)`.
+  - Utilizar `wait(2)` con el único propósito de no dejar
+    al proceso hijo en estado _zombie_.
+
+  - **No** se puede utilizar ninguna función similar a `sleep(3)`
+    para sincronizar a los procesos.
+
+Llamadas al sistema: `fork(2)`, `pipe(2)`, `wait(2)`.
 
 
 ## Tarea: primes
@@ -136,6 +143,9 @@ donde _n_ será un número natural mayor o igual a 2. El código debe crear una 
 
   - Se debería poder ejecutar correctamente el programa con un _N_ mayor o igual a 10000.
 
+  - **No** se debe realizar ninguna clase de optimización que simplifique
+    el algoritmo.
+
 Ejemplo de uso:
 
 ```
@@ -158,7 +168,7 @@ Ayuda:
   - Conceptualmente esta tarea es la más difícil de las cuatro del lab, y no
     es prerrequisito para poder realizar las dos siguientes.
 
-Llamadas al sistema: `fork(2)`, `pipe(2)`.
+Llamadas al sistema: `fork(2)`, `pipe(2)`, `wait(2)`.
 
 [coxcsp]: https://swtch.com/~rsc/thread/
 [wpsieve-es]: https://es.wikipedia.org/wiki/Criba_de_Eratóstenes
@@ -264,7 +274,7 @@ Requisitos:
 
       - Sí será necesario, no obstante, concatenar cadenas para mostrar por
         pantalla los resultados. No es necesario usar memoria dinámica; es suficiente un
-        único buffer estático de longitud `PATH_MAX`.
+        único buffer estático de longitud `PATH_MAX` (ver _header_ `limits.h`).
 
       - Funciones que resultarán útiles como complemento a `openat()`:
         `dirfd(3)`, `fdopendir(3)`.
