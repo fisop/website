@@ -11,23 +11,25 @@
 **AVISO**: antes de comenzar, verificar que se tiene instalado [el software necesario](../kit.md#tools){:.alert-link}.
 {:.alert .alert-warning}
 
+**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
+{:.alert .alert-danger}
+
 En este trabajo implementaremos nuestro propio sistema de archivos (o _filesystem_) para Linux. El sistema de archivos utilizará el mecanismo de [FUSE][fuse-wiki] (_Filesystem in USErspace_) provisto por el [kernel][fuse-linux], que nos permitirá definir en _modo usuario_ la implementación de un _filesystem_. Gracias a ello, el mismo tendrá la interfaz VFS y podrá ser accedido con las syscalls y programas habituales (`read`, `open`, `ls`, etc).
 
-La implementación del _filesystem_ será enteramente en memoria: tanto archivos como directorios serán representados mediante estructuras que vivirán en memoria dinámica. Por esta razón, buscamos un sistema de archivos que apunte a la velocidad de acceso, y no al volumen de datos o a la persistencia (algo similar a [`tmpfs`][tmpfs]). Aún así, los datos de nuestro _filesystem_ estarán representados _en disco_ por un archivo.
+La implementación del _filesystem_ será enteramente en memoria: tanto archivos como directorios serán representados mediante estructuras que vivirán en memoria dinámica. Por esta razón, buscamos un sistema de archivos que apunte a la velocidad de acceso, y no al volumen de datos o a la persistencia (algo similar a [`tmpfs`][tmpfs]). Aún así, los datos de nuestro _filesystem_ **estarán** representados _en disco_ por un archivo.
 
 [fuse-wiki]: https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 [fuse-linux]: https://www.kernel.org/doc/html/latest/filesystems/fuse.html
 [tmpfs]: https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html
 
-**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
-{:.alert .alert-danger}
 
 ### Software necesario
 
-**AVISO**: El esqueleto del TP3 se encuentra disponible en [fisop/fisopfs](https://github.com/fisop/fisopfs){:.alert-link}.
-{:.alert .alert-warning}
+FUSE está compuesto de varios componentes, los principales son:
+- un módulo del kernel (que se encarga de hacer la delegación)
+- una librería de usuario que se utiliza como framework
 
-FUSE está compuesto de varios componentes, los principales son: un módulo del kernel (que se encarga de hacer la delegación) y una librería de usuario que se utiliza como framework. Para realizar este trabajo se necesitará un sistema operativo que cuente con el kernel Linux, y que disponga de las [librerías de FUSE][libfuse] versión 2.
+Para realizar este trabajo se necesitará un sistema operativo que cuente con el kernel Linux, y que disponga de las [librerías de FUSE][libfuse] versión 2.
 
 [libfuse]: https://github.com/libfuse/libfuse
 
@@ -36,7 +38,7 @@ Pueden instalarse todas las dependencias con el siguiente comando:
 sudo apt update && sudo apt install pkg-config libfuse2 libfuse-dev
 ```
 
-El código del esqueleto viene con un _filesystem_ FUSE trivial, para poder probar las dependencias. Si las mismas están correctamente instaladas, deberían poder *compilar y ejecutar* el código del esqueleto de la siguiente forma:
+El código del [esqueleto](#skel) viene con un _filesystem_ FUSE trivial, para poder probar las dependencias. Si las mismas están correctamente instaladas, deberían poder *compilar y ejecutar* el código del esqueleto de la siguiente forma:
 * Compilación
 ```
 $ ls
@@ -119,7 +121,7 @@ Implementaremos `fisopfs`, un _filesystem_ de tipo FUSE definido por el usuario.
 - La creación de directorios debe soportar al menos un nivel de recursión, es decir, directorio raíz y sub-directorio.
 </div>
 
-Para cada una de las funcionalidades pedidas, se espera que la misma se pueda corroborar montando el sistema de archivos e interactuando con el mismo a través de una terminal `bash`, de la misma forma que se haría con cualquier otro _filesystem_. Entre paréntesis, los comandos sugeridos para probar cada una de las funcionalidades.
+Para cada una de las funcionalidades pedidas, se espera que la misma se pueda corroborar montando el sistema de archivos e interactuando con el mismo a través de una terminal `bash`, de la misma forma que se haría con cualquier otro _filesystem_. Entre paréntesis, se muestran los comandos sugeridos para probar cada una de las funcionalidades.
 
 **AYUDA**: Una buena forma de saber qué _operaciones_ hacen falta es implementar las mismas vacías con `printf` de debug; y montar el _filesystem_ en primer plano: `./fisopfs -f ...`. Esto permitirá loggear todas las operaciones/syscalls que generan los procesos al interactuar con el sistema de archivos.
 {:.alert .alert-info}
@@ -130,9 +132,9 @@ En caso de error o funcionalidad no implementada, el sistema de archivos debe es
 
 ### Representación del sistema de archivos
 
-El sistema de archivo implementado debe existir en memoria RAM durante su operación. La estructura en memoria que se utilice para lograr tal funcionalidad es enteramente a diseño del grupo. Deberá explicarse claramente, con ayuda de diagramas, en el informe del trabajo (i.e. el archivo `TP3.md`); las decisiones tomadas y el razonamiento detrás de las mismas.
+El sistema de archivo implementado debe existir en memoria RAM durante su operación. La estructura en memoria que se utilice para lograr tal funcionalidad es enteramente a diseño del grupo. Deberá explicarse claramente, con ayuda de diagramas, en el informe del trabajo (i.e. el archivo `fisopfs.md`); las decisiones tomadas y el razonamiento detrás de las mismas.
 
-La primera parte de la entrega, consistirá en el diseño de las estructuras que almacenarán toda la información, y cómo las mismas se accederán en cada una de las operaciones. Para luego implementarlas en la segunda parte del trabajo práctico.
+La primera parte de la entrega, consistirá en el diseño de las estructuras que almacenarán toda la información, y cómo se accederán en cada una de las operaciones. Para luego implementarlas en la segunda parte del trabajo práctico.
 
 <div class="alert alert-primary" markdown="1">
 **Documentación de diseño**
@@ -161,28 +163,35 @@ El _filesystem_ _entero_ se representará como un único archivo en disco, con l
 - Es *requisito* que el sistema de archivos se persista en disco
   - En un único archivo, de extensión `.fisopfs`
   - Al lanzar el _filesystem_, se debe especificar un nombre de archivo, si no se hace, se elige uno por defecto
-  - Del archivo especificado se lee todo el _filesystem_, y se inicializan las estructuras acordemente (esto ocurre en la función `init`)
-  - Si ocurre un `flush` o cuando el sistema de archivos se desmonta (esto ocurre en la función `exit`), la data debe persistirse en el archivo nuevamente
+  - Del archivo especificado se lee todo el _filesystem_, y se inicializan las estructuras acordemente (esto ocurre en la función [`init`][init])
+  - Si ocurre un `flush` o cuando el sistema de archivos se desmonta (esto ocurre en la función [`destroy`][destroy]), la data debe persistirse en el archivo nuevamente
 </div>
+
+[init]: http://libfuse.github.io/doxygen/structfuse__operations.html#a0ad1f7c4105ee062528c767da88060f0
+[destroy]: http://libfuse.github.io/doxygen/structfuse__operations.html#af7485db1c9c6d402323f7a24e1b7db82
 
 ### Pruebas y salidas de ejemplo
 
-Como parte de la implementación de `fisopfs` también será necesario incorporar pruebas de caja negra sobre lo implementado. Las mismas deben consistir de una serie de secuencias de comandos pensadas para generar un escenario de prueba, junto con la salida esperada del mismo. Un ejemplo, es lo presentado en la sección ["Software necesario"](#software-necesario).
+Como parte de la implementación de `fisopfs` también será necesario **incorporar pruebas** de caja negra sobre lo implementado. Las mismas deben consistir de una serie de secuencias de comandos pensadas para generar un escenario de prueba, junto con la salida esperada del mismo. Un ejemplo, es lo presentado en la sección ["Software necesario"](#software-necesario).
 
 Cada funcionalidad implementada debe incluir una prueba asociada. Las salidas de las pruebas deben incluirse como una sección en el informe.
 
 Es altamente recomendable pensar y escribir las pruebas incluso antes de arrancar con la implementación, para tener una guía del comportamiento del sistema.
 
-## Etapas de entrega
+## Esqueleto y compilación
+{: #skel}
 
-La entrega consistirá en dos etapas:
-* Semana del 21/11: los grupos deberán traer pensado el diseño de su sistema de archivos. No es necesario que esté documentado formalmente en el informe, pero deben tener un avance significativo en el mismo. Se debe incluir
-  * Diseño de las estructuras internas del _filesystem_, cómo se manejará la memoria
-  * Idea conceptual de cómo se accederán a tales estructuras en operación
-  * Un plan para la serialización de las estructuras.
-  En esta semana, cada grupo tendrá una charla de 15 minutos con su corrector asignado para evaluar el progreso del diseño y resolver consultas. Las charlas serán organizadas el miércoles 23/11 y 25/11 a convenir.
-* Semana del 28/11: se realizarán únicamente clases de consulta generales sobre la implementación del TP.
-* Semana del 05/12: parcialito del TP3 y última clases de consulta antes de la entrega.
+**AVISO**: El esqueleto del TP3 se encuentra disponible en [fisop/fisopfs](https://github.com/fisop/fisopfs){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
+Para compilar nuestro _filesystem_, se puede:
+
+```bash
+make
+```
 
 ## Desafíos
 {: #Desafíos}
