@@ -8,7 +8,7 @@
   shell: /tps/shell/
   malloc: /tps/malloc
   sched: /tps/sched
-#   filesystem: /tps/filesystem
+  filesystem: /tps/filesystem
 
 - Enlaces:
   Calendario: /calendario/
