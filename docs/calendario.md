@@ -21,8 +21,8 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 11     | 24/05/2023 | **[PRACTICA]** Continuar TP3                       |                   | 26/05/2023 | **FERIADO**                                       |                                                          |
 | 12     | 31/05/2023 |                                                    | **PARCIAL**       | 02/06/2023 | Continuar TP3                                     |                                                          |
 | 13     | 07/06/2023 | Concurrencia (parte 1)                             |                   | 09/06/2023 | **Presentación TP4**: fs (preguntas TP3)          | Entrega **TP3** [^sched]                                 |
-| 14     | 14/06/2023 | Concurrencia (parte 2)                             |                   | 16/06/2023 | Continuar TP4                                     | **Parcialito TP3** [^parcialito]                         |
-| 15     | 21/06/2023 | **[PRACTICA]** Continuar TP4                       |                   | 23/06/2023 | Continuar TP4                                     |                                                          |
+| 14     | 14/06/2023 | Clase especial (_Máquinas Virtuales_)              |                   | 16/06/2023 | Continuar TP4                                     | **Parcialito TP3** [^parcialito]                         |
+| 15     | 21/06/2023 | Concurrencia (parte 2)                             |                   | 23/06/2023 | Continuar TP4                                     |                                                          |
 | 16     | 28/06/2023 |                                                    | **recuperatorio** | 30/06/2023 | Dudas / Clase especial                            | **Parcialito TP4** [^parcialito] / Entrega **TP4** [^fs] |
  
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 2/04 inclusive
