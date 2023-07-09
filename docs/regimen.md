@@ -244,7 +244,7 @@ más cercano.
 
 El criterio de promoción es el siguiente:
   - Nota final de cursada `>= 8`
-  - Aprobar el parcial, con calificación `>= 8`
+  - Aprobar el parcial, con calificación `>= 7`
   - Aprobar el _lab_, con estado **APROBADO** (ya sea en primera instancia
     o en la reentrega)
   - Aprobar todos los trabajos grupales, con calificación `>= 7` (nota final) en cada uno
