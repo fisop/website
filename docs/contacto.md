@@ -13,4 +13,4 @@ docentes en la dirección [fisop-doc@googlegroups.com][doc].**
 
 [doc]: mailto:fisop-doc@googlegroups.com
 [lista]: https://groups.google.com/forum/#!forum/fisop-consultas
-[buzón]: https://forms.gle/6LdMXdJ6pPS34G2S7
+[buzón]: https://forms.gle/pSooF8pYT4vuykSB7
