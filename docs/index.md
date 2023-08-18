@@ -1,4 +1,4 @@
-Este es el sitio de la materia _Sistemas Operativos de FIUBA_ (75.08 / 95.03), curso Méndez/Fresia. La información que se presenta corresponde a la cursada 2023/1.
+Este es el sitio de la materia _Sistemas Operativos de FIUBA_ (75.08 / 95.03), curso Méndez/Fresia. La información que se presenta corresponde a la cursada 2023/2.
 
   - [Contacto](contacto.md)
   - [Docentes](docentes.md)
@@ -10,9 +10,6 @@ suscripción a la lista de correo, y el servidor de _Discord_ a través de los c
 *[FIUBA]: Facultad de Ingeniería, Universidad de Buenos Aires
 
 ## Horarios de clase
-
-Para la primera semana de clase, la clase **Teórica** (miércoles 15/03) será virtual
-{:.alert .alert-danger}
 
 Se dicta clase los siguiente días y horarios teniendo en cuenta la modalidad híbrida:
 - **Teórica**:
@@ -32,6 +29,6 @@ Los enlaces para acceder a **Meet**, así como las grabaciones de clases anterio
 
 [calendario]: https://calendar.google.com/calendar/u/0?cid=Y19zdmlnbHN1cTI3ZGNwZXNuZ2dnYWowOGthOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t
 
-[alta]: https://forms.gle/JdbZ4FkhdtFGRJPWA
+[alta]: https://forms.gle/UiiCkuQHmhM2wgwQ8
 
 {% include footnotes.html %}
