@@ -8,12 +8,13 @@
     - {% include docente.html docente=docentes.patricio %}
     - {% include docente.html docente=docentes.cristian %}
     - {% include docente.html docente=docentes.francisco-g %}
-    - {% include docente.html docente=docentes.eliana %}
-    - {% include docente.html docente=docentes.aldana %}
-    - {% include docente.html docente=docentes.facundo %}
     - {% include docente.html docente=docentes.mario %}
     - {% include docente.html docente=docentes.carolina %}
     - {% include docente.html docente=docentes.francisco-o %}
     - {% include docente.html docente=docentes.emmanuel %}
+    - {% include docente.html docente=docentes.paula %}
+    - {% include docente.html docente=docentes.clara %}
+    - {% include docente.html docente=docentes.brayan %}
+    - {% include docente.html docente=docentes.valentin %}
 
 *[JTP]: Jefe de trabajos prácticos

@@ -23,21 +23,6 @@ francisco-g:
   mail: fgauna@fi.uba.ar
   github: FranciscoGauna
 
-eliana:
-  nombre: Eliana Harriet
-  mail: eharriet@fi.uba.ar
-  github: ElianaHarriet
-
-aldana:
-  nombre: Aldana Lescano Maier
-  mail: alescano@fi.uba.ar
-  github: Aldy09
-
-facundo:
-  nombre: Facundo Agustín Aguirre Argerich
-  mail: faguirrea@fi.uba.ar
-  github: bonshot
-
 mario:
   nombre: Mario Santiago Adris
   mail: madris@fi.uba.ar
@@ -57,3 +42,23 @@ emmanuel:
   nombre: Emmanuel Espina
   mail: eespina@fi.uba.ar
   github: espinaemmanuel
+
+paula:
+  nombre: María Paula Bruck
+  mail: pbruck.ext@fi.uba.ar
+  github: paulabruck
+
+clara:
+  nombre: Clara Ruano Frugoli
+  mail: cruano@fi.uba.ar
+  github: claram97
+
+brayan:
+  nombre: Brayan Alexander Ricaldi Rebata
+  mail: bricaldi@fi.uba.ar
+  github: Brayan-Ric
+
+valentin:
+  nombre: Valentín Flores
+  mail: vaflores@fi.uba.ar
+  github: valentinflores
