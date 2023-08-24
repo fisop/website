@@ -12,7 +12,7 @@
 La cursada comprenderá tres tipos distintos de instancias evaluatorias:
 
   - 1 "_lab_" [**individual**]
-  - 4 "_trabajos prácticos_" [**grupal** (de cuatro personas)]
+  - 3 "_trabajos prácticos_" [**grupal** (de cuatro personas)]
   - 1 "_parcial_" - teórico-práctico [**individual**]
 
 ### Descripción de los labs
@@ -34,8 +34,8 @@ necesario, hasta aclarar cualquier duda posible.
 Los **estados** posibles para un _lab_ corregido son:
 
 **APROBADO**: pasan correctamente todas las pruebas automáticas
-y la solución (como respuestas en prosa en caso de corresponder)
-es conceptualmente correcta.
+y la solución, al igual que respuestas en prosa (en caso de corresponder)
+son conceptualmente correctas.
 {:.alert .alert-success}
 
 **REGULAR**: no pasan todas las pruebas por errores menores en el código (_no_ conceptuales)
@@ -66,41 +66,52 @@ durante las clases prácticas, en la semana siguiente de la entrega de los _trab
 prácticos_. Los temas a evaluar estarán relacionados con el trabajo de turno a
 entregar.
 
-Los parcialitos **no son recuperables**, y su resultado será lo que permanezca
+**No son recuperables**, y su resultado será lo que permanezca
 para el cómputo de la calificación.
 {:.alert .alert-danger}
 
-Los _parcialitos_ representan un **30% de la calificación** del _trabajo práctico_.
+Representan un **30% de la calificación** del _trabajo práctico_.
 {:.alert .alert-primary}
 
 ### Descripción del parcial
 {: #parcial}
 
-El parcial se constituye de una única evaluación a mitad de la cursada, contemplando
-los temas dados en la primera mitad de la materia (kernel, memoria y scheduling).
+El parcial se constituye de una única evaluación cerca del final de la cursada,
+contemplando todos los temas de la materia (kernel, memoria, _scheduling_ y _file system_).
 
 El parcial podrá ser recuperado en dos oportunidades;
 con fechas a determinar durante la cursada.
 
-### Ejercicios opcionales (_challenges_)
-{: #challenges}
-
-Tanto en el _lab_ como en los _trabajos prácticos_ habrá ejercicios marcados como
-opcionales. Están para explorar con más profundidad algunos temas y representan un
-desafío en cuanto a complejidad e investigación respecto a los ejercicios
-obligatorios.
-
-Éstos ejercicios contribuyen al régimen de [**final alternativo**](#final).
-
-Cabe mencionar que las consignas de estos ejercicios suelen ser mucho menos
-específicas, y quedará definir con el corrector asignado qué es suficiente para
-aprobar los mismos.
-
 ## Cálculo de notas
 {: #notas}
 
-Cada una de esas instancias tendrá una calificación numérica entre 0 y 10 puntos
+Cada una de estas instancias tendrá una calificación numérica entre 0 y 10 puntos
 (con **excepción** de los [_labs_](#labs)).
+
+La nota de los parcialitos, se computa automáticamente (al ser _choice_),
+pero la nota final de cada uno es:
+
+```
+nota_parcialito_final = round_up(nota_parcialito)
+```
+
+- Ejemplo 1
+
+```
+nota_parcialito = 7.3
+
+nota_parcialito_final = round_up(7.3)
+nota_parcialito_final = 8
+```
+
+- Ejemplo 2
+
+```
+nota_parcialito = 7.7
+
+nota_parcialito_final = round_up(7.7)
+nota_parcialito_final = 8
+```
 
 La nota de cada _trabajo práctico_, se calcula de la siguiente forma:
 
@@ -136,7 +147,7 @@ La nota final de la cursada, será una composición ponderada de las notas de ca
 una de las instancias de evaluación de acuerdo a la siguiente fórmula:
 
 ```
-promedio_tps = (tp1 + tp2 + tp3 + tp4) / 4
+promedio_tps = (tp1 + tp2 + tp3) / 3
 
 nota_cursada = (0.4 * parcial + 0.6 * promedio_tps)
 
@@ -185,21 +196,15 @@ nota_cursada = 7.80
 nota_cursada_final => 7
 ```
 
-Además, existen instancias evaluadoras complementarias, denominadas [*challenges*](#challenges)
-o desafíos, que exceden al régimen de evaluación regular pero contribuyen para
-el régimen de [**final alternativo**](#final) (el cual se explica más adelante).
-
 ## Criterios de aprobación
 {: #aprob}
 
-Para aprobar la cursada es necesario:
+Para aprobar la cursada/materia es necesario:
 
   - Aprobar el parcial, en primera instancia o en recuperatorio
   - Aprobar el _lab_ y todos los _trabajos prácticos_
   - El _lab_ **debe** estar en los estados `APROBADO` o `REGULAR`,
     **nunca** en `DESAPROBADO`
-
-Con estas condiciones, se podrán anotar a rendir el coloquio.
 
 ## Instancias recuperatorias
 {: #recup}
@@ -220,8 +225,8 @@ trabajo, pudiendo imponer un techo en la calificación máxima del mismo. En cas
 correcciones _necesarias_ para la aprobación, las mismas deberán llevarse a cabo
 en el tiempo y forma acordados.
 
-El criterio estricto de la entrega de los _trabajos prácticos_ y _lab_ es que a la
-fecha de entrega original se haya _entregado algo_ que demuestre un avance
+El **criterio estricto** de la entrega de los _trabajos prácticos_ y _lab_ es que a la
+fecha de entrega original se haya **entregado algo** que demuestre un avance
 sustancial.
 {:.alert .alert-danger}
 
@@ -233,42 +238,28 @@ consensuada con el equipo docente.
 En caso de desaprobar el parcial, el mismo podrá ser recuperado durante las
 fechas dedicadas para tal fin (sobre el final del cuatrimestre).
 
-## Criterio de promoción
-{: #promocion}
+## Ejercicios opcionales (_challenges_)
+{: #challenges}
 
-Aquellos/as alumnos/as que califiquen con las siguientes condiciones, podrán, si
-así lo desean, apelar a la promoción. En caso de cumplir con los requisitos de
-promoción, el/la alumno/a quedaría exento de rendir el coloquio-final, quedándole
-como calificación final de la materia la nota de cursada redondeada al entero
-más cercano.
+La idea de estos ejercicios opcionales es que sirvan para
+mejorar la nota final de aquellos que así lo deseen.
 
-El criterio de promoción es el siguiente:
-  - Nota final de cursada `>= 8`
-  - Aprobar el parcial, con calificación `>= 7`
-  - Aprobar el _lab_, con estado **APROBADO** (ya sea en primera instancia
-    o en la reentrega)
-  - Aprobar todos los trabajos grupales, con calificación `>= 7` (nota final) en cada uno
-  - Aprobar todos los parcialitos, con calificación `>= 5` en cada uno
+Tanto en el _lab_ como en los _trabajos prácticos_ habrá ejercicios marcados como
+opcionales. Están para explorar con más profundidad algunos temas y representan un
+desafío en cuanto a complejidad e investigación respecto a los ejercicios
+obligatorios.
 
-## Final alternativo
-{: #final}
+Cabe mencionar que las consignas de estos ejercicios suelen ser mucho menos
+específicas, y quedará definir con el corrector asignado qué es suficiente para
+aprobar los mismos.
 
-Independientemente del criterio de promoción, para la evaluación integradora
-cualquiera puede optar por reemplazar el coloquio-final con _trabajos prácticos_
-adicionales.
-
-A lo largo de la cursada, se expondrán distintos [desafíos](#challenges) como parte adicional
+A lo largo de la cursada, se expondrán distintos _desafíos_ como parte adicional
 de los _trabajos_ (individual y grupales). Éstos son de carácter no obligatorio y serán
 claramente señalizados.
 
-Quienes opten por el _final alternativo_ deberán cumplir lo siguiente:
-  - Aprobar la cursada, de forma regular
-  - Elegir 3 desafíos opcionales de los presentados. Realizarlos y entregarlos, a
-    más tardar, hasta la **segunda fecha de final**.
-
 Los desafíos van a estar visibles tan pronto como se llegue al lab/trabajo práctico
 de la materia al que estén asociados, y no hay limitaciones con que se realicen
-_durante_ la cursada (si el/la alumno/a quiere optar por este tipo de final).
+_durante_ la cursada.
 Lo importante es que los mismos serán evaluados _luego_ de la
 cursada, durante las mismas fechas de final.
 
