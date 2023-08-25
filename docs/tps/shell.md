@@ -22,8 +22,6 @@ En este trabajo se va a desarrollar la funcionalidad mínima que caracteriza a u
 
 La implementación debe realizarse en C11 y POSIX.1-2008. *(Estas siglas hacen referencia a la versión del lenguaje C utilizada y del estándar de syscalls Unix empleado. Las versiones modernas de GCC y Linux cumplen con ambos requerimientos.)*
 
-[repolabs]: https://github.com/fisop/labs
-
 ## Implementación
 
 ### Parte 1: Invocación de comandos
