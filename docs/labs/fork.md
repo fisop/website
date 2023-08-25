@@ -175,117 +175,6 @@ Llamadas al sistema: `fork(2)`, `pipe(2)`, `wait(2)`.
 [wpsieve-en]: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
 
-## Tarea: find
-{: #find}
-
-Se pide escribir una versión muy simplificada de la utilidad `find(1)`. Esta herramienta, tal y como se la encuentra en sistemas GNU/Linux, acepta una miríada de opciones (ver su [página de manual][find(1)], o un [resumen gráfico][evansfind]). No obstante, en este lab se implementará sólo una de ellas.
-
-La sinopsis de nuestra implementación será:
-
-```bash
-$ ./find [-i] <cadena>
-```
-
-Invocado como `./find xyz`, el programa buscará y mostrará por pantalla todos los archivos del directorio actual (y subdirectorios) cuyo nombre contenga (o sea igual a) `xyz`. Si se invoca como `./find -i xyz`, se realizará la misma búsqueda, pero sin distinguir entre mayúsculas y minúsculas.
-
-Por ejemplo, si en el directorio actual se tiene:
-
-```
-.
-├── Makefile
-├── find.c
-├── xargs.c
-├── antiguo
-│   ├── find.c
-│   ├── xargs.c
-│   ├── pingpong.c
-│   ├── basurarghh
-│   │   ├── find0.c
-│   │   ├── find1.c
-│   │   ├── pongg.c
-│   │   └── findddddddd.c
-│   ├── planes.txt
-│   └── pingpong2.c
-├── antinoo.jpg
-└── GNUmakefile
-```
-
-el resultado de las distintas invocaciones debe ser como sigue (**no importa el orden** en que se impriman los archivos de un mismo directorio):
-
-```bash
-$ ./find akefile
-Makefile
-GNUmakefile
-
-$ ./find Makefile
-Makefile
-
-$ ./find -i Makefile
-Makefile
-GNUmakefile
-
-$ ./find arg
-xargs.c
-antiguo/xargs.c
-antiguo/basurarghh
-
-$ ./find pong
-antiguo/pingpong.c
-antiguo/basurarghh/pongg.c
-antiguo/pingpong2.c
-
-$ ./find an
-antiguo
-antiguo/planes.txt
-antinoo.jpg
-
-$ ./find d.c
-find.c
-antiguo/find.c
-antiguo/basurarghh/findddddddd.c
-```
-
-Ayuda:
-
-  - Usar recursividad para descender a los distintos directorios.
-
-  - Nunca descender los directorios especiales `.` y `..` (ambos son un “alias”;
-    el primero al directorio actual, el segundo
-    a su directorio inmediatamente superior).
-
-  - No es necesario preocuparse por ciclos en enlaces simbólicos.
-
-  - En el resultado de `readdir(3)`, asumir que el campo `d_type`
-    siempre está presente, y es válido.
-
-  - La implementación _case-sensitive_ vs. _case-insensitive_ (opción `-i`) se
-    puede resolver limpiamente usando un puntero a función como abstracción.
-    (Ver [`strstr(3)`][strstr(3)].)
-
-Requisitos:
-
-  - Llamar a la función `opendir(3)` **una sola vez**, al principio del programa
-    (con argumento `"."`; no es necesario conseguir el _nombre_ del directorio
-    actual, si tenemos su alias).
-
-  - Para abrir sub-directorios, usar exclusivamente la función `openat(2)`
-    (con el flag `O_DIRECTORY` como precaución). De esta manera, no es
-    necesario realizar concatenación de cadenas para abrir subdirectorios.
-
-      - Sí será necesario, no obstante, concatenar cadenas para mostrar por
-        pantalla los resultados. No es necesario usar memoria dinámica; es suficiente un
-        único buffer estático de longitud `PATH_MAX` (ver _header_ `limits.h`).
-
-      - Funciones que resultarán útiles como complemento a `openat()`:
-        `dirfd(3)`, `fdopendir(3)`.
-
-Llamadas al sistema: `openat(2)`, `readdir(3)`.
-
-[find(1)]: https://dashdash.io/1/find
-[strstr(3)]: https://dashdash.io/3/strstr
-[evansfind]: https://twitter.com/b0rk/status/993862211964735488/photo/1
-
-
 ## Tarea: xargs
 {: #xargs}
 
@@ -393,6 +282,8 @@ hacer `ps -eo pid,comm`, se recomienda compararlo con tal comando).  Para más
 información, leer la [sección `ps0`][ps0], de uno de los labs anteriores. Ayuda:
 leer `proc(5)` para información sobre el directorio `/proc`.
 
+* `find` (2pts): el comando buscará y mostrará por pantalla todos los archivos del directorio _actual_ (y subdirectorios) cuyo nombre contenga (o sea igual a) `xyz`. Se pide **como mínimo** una implementación equivalente a la que se indica en la [sección `find`][find], de lab _unix_.
+
 * `ls` (2pts):  el comando _list_ permite listar los contenidos de un
   directorio, brindando información extra de cada una de sus entradas.
 Se pide implementar una versión simplificada de `ls -al` donde cada entrada del
@@ -420,6 +311,7 @@ enviándole SIGTERM. Se pide implementar una versión simplificada del comando
 
 [ps0]: ../unix/#ps0-
 [cp1]: ../unix/#cp1-
+[find]: ../unix/#find
 
 ### strace(1)
 {: #strace}
