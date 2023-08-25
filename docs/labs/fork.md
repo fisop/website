@@ -31,39 +31,31 @@ Tanto en el caso de syscalls del sistema operativo, como funciones de la bibliot
 
 En general, una buena referencia sobre sistemas POSIX es **[KERR]**. En particular, para este lab son relevantes:
 
-  - Tareas **_pingpong_**, **_primes_**: §6.1, §6.2, §24.2, §44.2
-  - Tarea **_find_**: §2.5, §5.4, §18.8, §18.11
+  - Tarea **_primes_**: §6.1, §6.2, §24.2, §44.2
   - Tarea **_xargs_**: §6.6, §24.1, §26.1, §27.1, §27.2
 
 Opcionalmente se puede leer el capítulo 3 a modo de introducción.
 
-## Pruebas automatizadas
-
-Además de los ejemplos proporcionados a continuación,
-existen pruebas automáticas que **deben** ejecutarse sobre la solución del _lab_.
-Las mismas se encuentran en [**repositorio público**](https://github.com/fisop/labs-tests),
-para ser descargado por el mecanismo que les resulte más fácil.
-
-Como se menciona en la sección del [_regimen_](../../regimen) de la cursada, es **obligatorio** que pasen todas las pruebas (además de que la solución sea correcta) para poder considerar al _lab_ como _APROBADO_.
-{:.alert .alert-danger}
-
-## Tarea: pingpong
+## Introducción: pingpong
 {: #pingpong}
 
-Se pide escribir un programa en C que use `fork(2)` y `pipe(2)` para enviar y recibir (ping-pong) un determinado valor entero, entre dos procesos.  El valor **se debe** crear con `random(3)` **una vez ambos procesos existan**.
+Este ejercicio es solo para demostración en clase, y **no** forma parte de la entrega.
+{:.alert .alert-danger}
 
-El programa debe imprimir por pantalla la secuencia de eventos de ambos procesos, en el formato **exacto** que se especifica a continuación:
+Vamos a escribir un programa en C que use `fork(2)` y `pipe(2)` para enviar y recibir (ping-pong) un determinado valor entero (creado con `random(3)`), entre dos procesos.
+
+El programa debe imprimir por pantalla la secuencia de eventos de ambos procesos, en el formato que se especifica a continuación:
 
 ```bash
 $ ./pingpong
 Hola, soy PID <x>:
-  - primer pipe me devuelve: [3, 4]
-  - segundo pipe me devuelve: [6, 7]
+  - IDs del primer pipe: [3, 4]
+  - IDs del segundo pipe: [6, 7]
 
 Donde fork me devuelve <y>:
   - getpid me devuelve: <?>
   - getppid me devuelve: <?>
-  - random me devuelve: <v>
+  - valor random: <v>
   - envío valor <v> a través de fd=?
 
 Donde fork me devuelve 0:
@@ -76,7 +68,7 @@ Hola, de nuevo PID <x>:
   - recibí valor <v> vía fd=?
 ```
 
-Ayuda:
+Tips:
 
   - Nótese que como las tuberías _—pipes—_ son unidireccionales, se necesitarán
     dos para poder transmitir el valor en una dirección y en otra.
@@ -97,7 +89,7 @@ Ayuda:
   - **No** se puede utilizar ninguna función similar a `sleep(3)`
     para sincronizar a los procesos.
 
-Llamadas al sistema: `fork(2)`, `pipe(2)`, `wait(2)`.
+Llamadas al sistema: `fork(2)`, `pipe(2)`, `wait(2)`, `getpid(2)`, `getppid(2)`.
 
 
 ## Tarea: primes
@@ -259,10 +251,29 @@ Llamadas al sistema: `fork(2)`, `execvp(3)`, `wait(2)`.
 [xargs(1)]: https://dashdash.io/1/xargs
 [getline(3)]: https://dashdash.io/3/getline
 
+## Esqueleto y compilación
+{: #skel}
+
+**AVISO**: El esqueleto se encuentra disponible en [fisop/fork](https://github.com/fisop/fork){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
+### Compilación
+{: #compile}
+
+Simplemente alcanza con ejecutar `make`.
+
+### Pruebas
+{: #tests}
+
+Alcanza con ejecutar `make test`.
+
 ## Desafíos
 {: #Desafíos}
 
-Las tareas listadas aquí no son obligatorias, pero suman para el régimen de [final alternativo](../regimen.md#final).
+Las tareas listadas aquí no son obligatorias, y refieren a [los challenges](../regimen.md#challenges).
 {:.alert .alert-warning}
 
 ### Más utilidades Unix
