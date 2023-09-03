@@ -204,10 +204,10 @@ Las tareas listadas aquí no son obligatorias, pero suman para el régimen de [f
 Más allá de los requisitos obligatorios, los grupos podrán optar por implementar _al menos_ dos de las siguientes funcionalidades adicionales.
 * Soporte para enlaces simbólicos
   * Debe implementarse la operación `symlink`
-  * Deben incluirse pruebas utilizando `link -s`
+  * Deben incluirse pruebas utilizando `ln -s`
 * Soporte para hard links
   * Debe implementarse la operación `link`
-  * Deben incluirse pruebas utilizado `hardlink`
+  * Deben incluirse pruebas utilizado `ln`
   * Notar que ahora el borrado _real_ de un archivo solo debe ocurrir si no quedan más _hard links_ asociados al mismo.
 * Soporte para múltiples directorios anidados
   * Más de dos niveles de directorios
