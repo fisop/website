@@ -340,7 +340,121 @@ Es evidente que si `cd` no se realizara en el mismo proceso donde la _shell_ se 
 
 **Archivo:** `cd()`, `exit_shell()` y `pwd()` en _builtin.c_
 
-### Parte 5: Historial
+### Parte 5: Segundo plano avanzado
+{: #advance-back}
+
+En la [parte 1](#back) se implementó una solución simple para manejar los procesos en _segundo plano_
+preguntando de forma oportunística por la terminación de dichos procesos.
+
+Ahora, queremos mejorar dicha implementación para que el manejo y liberación de _recursos_ del proceso,
+sea asincrónica. Es decir, en el _mismo_ momento en que dicho proceso termina.
+
+Para poder realizar esto, vamos a manejar _señales_ (o `signals`). La señal que nos interesa _atrapar_
+es `SIGCHLD`, la cual se genera cada vez que un proceso hijo termina (es decir, llama a `exit(3)`).
+
+El _sistema operativo_ nos da la posibilidad de poder ejecutar lógica _custom_ para cada señal
+que se precise manejar de manera particular. Con la _syscall_ `sigaction(2)` vamos a poder configurar
+lo que se denomina **handler** (a.k.a una _función_) para dicha señal y liberar los recursos del
+proceso en _segundo plano_ que haya finalizado.
+
+Desde el punto de vista del usuario de la _shell_, el comportamiento al final esta tarea,
+debería ser el siguiente:
+
+```bash
+$ sleep 2 &
+PID=2489
+
+$ sleep 5
+<pasan dos segundos, y entonces:
+
+==> terminado: PID=2489
+
+:ahora pasan otros tres segundos antes de retornar>
+$
+```
+
+En otras palabras, se notifica de la terminación en cuanto ocurre, sin esperar al siguiente prompt.
+
+También se observa el comportamiento en la ausencia de un segundo comando en primer plano; simplemente, se escribiría en la línea del _prompt_ actual:
+
+```bash
+$ sleep 2 &
+PID=2489
+
+$ ==> terminado: PID=2489
+ ^
+ dos segundos después, se imprime a continuación del prompt
+```
+
+Se recomienda, de hecho, realizar las primeras pruebas con este segundo ejemplo, para trabajar con una solo evento de la señal `SIGCHLD`.
+
+Una vez hecho esto, se debe resolver el problema de que los procesos en _primer plano_ (o `foreground`)
+también generan `SIGCHLD` cuando finalizan. El _handler_ los aceptaría, quedando `waitpid(2)`
+de `run_cmd()` incapaz de obtener el estado de salida del hijo.
+
+La solución más fácil es asegurarse de que todos los procesos en _segundo plano_ tengan
+un mismo _process group_.
+Y que la llamada a `waitpid(2)` en el _handler_ no use -1 como argumento
+(es decir, esperar por _cualquier proceso_), sino un valor numérico que restrinja
+la llamada a los procesos en segundo plano.
+
+**Sugerencia**: configurar el uso de grupos tal que ese primer argumento
+de `waitpid(2)` pueda ser, sencillamente, 0.
+
+<div class="alert alert-primary" markdown="1">
+**Tareas**
+  - Manejar los proceso en segundo plano inmediatamente cuando finalizan.
+  - Explicar detalladamente el mecanismo completo utilizado.
+  - **Responder**:
+    - ¿Por qué es necesario el uso de señales?
+</div>
+
+**Syscalls sugeridas:** `setpgid(2)`, `sigaction(2)`, `sigaltstack(2)`
+
+**Archivos:** _exec.c_, _runcmd.c_, _sh.c_
+
+
+## Esqueleto y compilación
+{: #skel}
+
+**AVISO**: El esqueleto se encuentra disponible en [fisop/shell](https://github.com/fisop/shell){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `shell/README.md` que se encuentra en el proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
+Para que no tengan que implementar todo desde cero, se provee un esqueleto. Éste tiene gran parte del parseo hecho, y está estructurado indicando con comentarios los lugares en donde deben introducir el código crítico de cada punto.
+
+Se recomienda, antes de empezar, leer el código para entender bien cómo funciona, y qué hace cada una de las funciones. **Particularmente recomendamos entender qué significa cada uno de los campos en los structs definidos en `types.h`**.
+
+### Compilación
+{: #compile}
+
+Simplemente alcanza con ejecutar `make`.
+
+### Ejecución
+{: #run}
+
+Se proveen dos formas para ejecutar la _shell_: `make run` y `make valgrind` que ejecuta el binario dentro de una sesión de `valgrind`.
+
+### Depurando con printf
+{: #debug}
+
+Es importante mencionar que es requisito usar las funciones `printf_debug` y `fprintf_debug` si se desea mostrar información por pantalla; o bien encapsular todo lo que se imprima por stdout o stderr utilizando la macro `SHELL_NO_INTERACTIVE` (como ejemplo, ver las funciones definidas en `utils.c`).
+
+Esto es debido a que al momento de corregir es mucho más fácil ejecutar una shell en modo no interactivo (que no imprima _prompt_) y así poder comparar el output de forma automática.
+
+Cualquier mensaje que se imprima por pantalla al momento de hacer la entrega tiene que hacerse con las funciones `printf_debug` (en lugar de `printf`) o bien encapsulando el código con la directiva del preprocesador `#ifndef SHELL_NO_INTERACTIVE`.
+{:.alert .alert-info}
+
+
+## Desafíos
+{: #challenges}
+
+Las tareas listadas aquí no son obligatorias, pero suman para el régimen de [final alternativo](../regimen.md#final).
+{:.alert .alert-warning}
+
+### Historial
 {: #historial}
 
 Si bien el _historial_ es también un _built-in_, lo tratamos de forma separada dada su importancia y dificultad técnica
@@ -382,89 +496,5 @@ La tecla BackSpace debe funcionar para borrar los caracteres de un comando de ha
     - Implementar los designadores de eventos `!!` y `!-n`, ver sección _Event Designators_ en [bash(1)](https://www.man7.org/linux/man-pages/man1/bash.1.html).
   - **Responder**: ¿Cuál es la función de los parámetros `MIN` y `TIME` del modo no canónico? ¿Qué se logra en el ejemplo dado al establecer a `MIN` en `1` y a `TIME` en `0`?
 </div>
-
-
-## Esqueleto y compilación
-{: #skel}
-
-**AVISO**: El esqueleto se encuentra disponible en [fisop/shell](https://github.com/fisop/shell){:.alert-link}.
-{:.alert .alert-warning}
-
-**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
-{:.alert .alert-warning}
-
-Para que no tengan que implementar todo desde cero, se provee un esqueleto. Éste tiene gran parte del parseo hecho, y está estructurado indicando con comentarios los lugares en donde deben introducir el código crítico de cada punto.
-
-Se recomienda, antes de empezar, leer el código para entender bien cómo funciona, y qué hace cada una de las funciones. **Particularmente recomendamos entender qué significa cada uno de los campos en los structs definidos en `types.h`**.
-
-### Compilación
-{: #compile}
-
-Simplemente alcanza con ejecutar `make`.
-
-### Ejecución
-{: #run}
-
-Se proveen dos formas para ejecutar la _shell_: `make run` y `make valgrind` que ejecuta el binario dentro de una sesión de `valgrind`.
-
-### Depurando con printf
-{: #debug}
-
-Es importante mencionar que es requisito usar las funciones `printf_debug` y `fprintf_debug` si se desea mostrar información por pantalla; o bien encapsular todo lo que se imprima por stdout o stderr utilizando la macro `SHELL_NO_INTERACTIVE` (como ejemplo, ver las funciones definidas en `utils.c`).
-
-Esto es debido a que al momento de corregir es mucho más fácil ejecutar una shell en modo no interactivo (que no imprima _prompt_) y así poder comparar el output de forma automática.
-
-Cualquier mensaje que se imprima por pantalla al momento de hacer la entrega tiene que hacerse con las funciones `printf_debug` (en lugar de `printf`) o bien encapsulando el código con la directiva del preprocesador `#ifndef SHELL_NO_INTERACTIVE`.
-{:.alert .alert-info}
-
-
-## Desafíos
-{: #challenges}
-
-Las tareas listadas aquí no son obligatorias, pero suman para el régimen de [final alternativo](../regimen.md#final).
-{:.alert .alert-warning}
-
-### Segundo plano avanzado
-{: #advance-back}
-
-```
-$ sleep 2 &
-PID=2489
-
-$ sleep 5
-<pasan dos segundos, y entonces:
-
-==> terminado: PID=2489
-
-:ahora pasan otros tres segundos antes de retornar>
-$
-```
-
-En otras palabras, se notifica de la terminación en cuanto ocurre, sin esperar al siguiente prompt como en la parte 1.
-
-También se observa el comportamiento en la ausencia de un segundo comando en primer plano; simplemente, se escribiría en la línea del _prompt_ actual:
-
-```
-$ sleep 2 &
-PID=2489
-
-$ ==> terminado: PID=2489
- ^
- dos segundos después, se imprime a continuación del prompt
-```
-
-Se recomienda, de hecho, realizar las primeras pruebas con este segundo ejemplo, para trabajar con una sola señal SIGCHLD.
-
-Una vez hecho eso, se debe resolver el problema de que los procesos foreground también generan SIGCHLD, y el handler los aceptaría, quedando el _waitpid_ de `run_cmd()` incapaz de obtener el estado de salida del hijo. La solución más fácil es asegurarse de que todos los procesos en segundo plano tengan un mismo _process group_, y que la llamada a _waitpid_ en el manejador de la señal no use -1 como argumento, sino un valor numérico que restrinja la llamada a los procesos en segundo plano. (Sugerencia: configurar el uso de grupos tal que ese primer argumento de _waitpid_ pueda ser, sencillamente, 0.)
-
-_<u>Preguntas:</u>_
-
-- Explicar detalladamente cómo se manejó la terminación del mismo.
-
-- ¿Por qué es necesario el uso de señales?
-
-**Syscalls sugeridas:** `setpgid(2)`, `sigaction(2)`, `sigaltstack(2)`
-
-**Archivos:** _exec.c_, _runcmd.c_, _sh.c_
 
 {% include footnotes.html %}
