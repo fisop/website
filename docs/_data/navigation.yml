@@ -6,7 +6,7 @@
 
 - TPs:
   shell: /tps/shell/
-#  sched: /tps/sched
+  sched: /tps/sched/
 #  filesystem: /tps/filesystem
 
 - Enlaces:

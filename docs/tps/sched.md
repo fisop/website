@@ -1,4 +1,4 @@
-# TP3: _Scheduling_ y cambio de contexto
+# TP2: _Scheduling_ y cambio de contexto
 
 ## Índice
 {:.no_toc}
