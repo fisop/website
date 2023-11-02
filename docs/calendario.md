@@ -18,7 +18,7 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 8      | 11/10/2023 | **[PRACTICA]** Continuar TP2                       | 13/10/2023 | **FERIADO**                                       |                                                          |
 | 9      | 18/10/2023 | Filesystem (parte 1)                               | 20/10/2023 | Continuar TP2                                     |                                                          |
 | 10     | 25/10/2023 | Filesystem (parte 2)                               | 27/10/2023 | Continuar TP2                                     | Entrega **TP2** [^sched]                                 |
-| 11     | 01/11/2023 | Clase especial                                     | 03/11/2023 | **Presentación TP3**: fs                          | **Parcialito TP2** [^parcialito]                         |
+| 11     | 01/11/2023 | Máquinas Virtuales                                 | 03/11/2023 | **Presentación TP3**: fs                          | **Parcialito TP2** [^parcialito]                         |
 | 12     | 08/11/2023 | Clase especial                                     | 10/11/2023 | Continuar TP3                                     |                                                          |
 | 13     | 15/11/2023 | **PARCIAL**                                        | 17/11/2023 | Continuar TP3                                     |                                                          |
 | 14     | 22/11/2023 | **[PRACTICA]** Continuar TP3                       | 24/11/2023 | Continuar TP3                                     | Entrega **TP3** [^fs]                                    |
