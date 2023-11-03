@@ -11,12 +11,9 @@
 **AVISO**: antes de comenzar, verificar que se tiene instalado [el software necesario](../kit.md#tools){:.alert-link}.
 {:.alert .alert-warning}
 
-**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
-{:.alert .alert-danger}
-
 En este trabajo implementaremos nuestro propio sistema de archivos (o _filesystem_) para Linux. El sistema de archivos utilizará el mecanismo de [FUSE][fuse-wiki] (_Filesystem in USErspace_) provisto por el [kernel][fuse-linux], que nos permitirá definir en _modo usuario_ la implementación de un _filesystem_. Gracias a ello, el mismo tendrá la interfaz VFS y podrá ser accedido con las syscalls y programas habituales (`read`, `open`, `ls`, etc).
 
-La implementación del _filesystem_ será enteramente en memoria: tanto archivos como directorios serán representados mediante estructuras que vivirán en memoria dinámica. Por esta razón, buscamos un sistema de archivos que apunte a la velocidad de acceso, y no al volumen de datos o a la persistencia (algo similar a [`tmpfs`][tmpfs]). Aún así, los datos de nuestro _filesystem_ **estarán** representados _en disco_ por un archivo.
+La implementación del _filesystem_ será enteramente en memoria: tanto archivos como directorios serán representados mediante estructuras que vivirán en memoria RAM. Por esta razón, buscamos un sistema de archivos que apunte a la velocidad de acceso, y no al volumen de datos o a la persistencia (algo similar a [`tmpfs`][tmpfs]). Aún así, los datos de nuestro _filesystem_ **estarán** representados _en disco_ por un archivo.
 
 [fuse-wiki]: https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 [fuse-linux]: https://www.kernel.org/doc/html/latest/filesystems/fuse.html
@@ -39,19 +36,18 @@ sudo apt update && sudo apt install pkg-config libfuse2 libfuse-dev
 ```
 
 El código del [esqueleto](#skel) viene con un _filesystem_ FUSE trivial, para poder probar las dependencias. Si las mismas están correctamente instaladas, deberían poder *compilar y ejecutar* el código del esqueleto de la siguiente forma:
+
 * Compilación
-```
-$ ls
-Makefile  README.md  fisopfs.c
+```bash
 $ make
 gcc -ggdb3 -O2 -Wall -std=c11 -Wno-unused-function -Wvla fisopfs.c  -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse -lfuse -pthread -o fisopfs
 ```
 
 * Montando un directorio
-```
+```bash
 // Creamos un directorio vacío
 $ mkdir prueba
-// Ejecutamos nuestro binario y le decimos donde queremos que monte nuestro filesystem
+// Ejecutamos nuestro binario y le decimos dónde queremos que monte nuestro filesystem
 $ ./fisopfs prueba/
 // Verificamos que se haya montado correctamente
 $ mount | grep fisopfs
@@ -59,8 +55,7 @@ $ mount | grep fisopfs
 ```
 
 * Pruebas sobre el directorio
-```
-// Pruebas con el directorio montado
+```bash
 $ ls -al prueba/
 total 0
 drwxr-xr-x 2    1717 root       0 Dec 31  1969 .
@@ -71,13 +66,13 @@ hola fisopfs!
 ```
 
 * Limpieza
-```
+```bash
 $ sudo umount prueba
 ```
 
 ### Filesystem tipo FUSE
 
-La compilación y ejecución de un cliente FUSE es algo distinta. El esqueleto ya está preparado (en el `Makefile`) para compilar incluyendo los flags de compilación necesarios, pero se recomienda leer [este artículo][cs135-fuse] antes de arrancar, y antes de introducir modificaciones en el Makefile. En particular, se utiliza la utilidad `pkg-config` para obtener los flags de compilación adecuados.
+La compilación y ejecución de un cliente FUSE es algo distinta. El esqueleto ya está preparado (en el `Makefile`) para compilar incluyendo los flags de compilación necesarios, pero **se recomienda leer [este artículo][cs135-fuse]** antes de arrancar, y antes de introducir modificaciones en el `Makefile`. En particular, se utiliza la utilidad `pkg-config` para obtener los flags de compilación adecuados.
 
 [cs135-fuse]: https://www.cs.hmc.edu/~geoff/classes/hmc.cs135.201109/homework/fuse/fuse_doc.html#compiling
 
@@ -91,14 +86,14 @@ static struct fuse_operations operations = {
 };
 ```
 
-La [documentación oficial de FUSE][libfuse-docu-oficial] es muy útil para revisar las firmas de las funciones y los campos de cada struct de la librería. Sin embargo, hay que tener en cuenta que esa documentación es **para la versión 3**, y por tanto podría tener algunas diferencias en la API/firma de algunas funciones que utilizaremos en el TP.
+La [documentación oficial de FUSE][libfuse-docu-oficial] es muy útil para revisar las firmas de las funciones y los campos de cada struct de la librería. Sin embargo, hay que tener en cuenta que esa documentación es **para la versión 3**, y por lo tanto podría tener algunas diferencias en la API/firma de algunas funciones que utilizaremos en el TP.
 
-La documentación para la versión 2 (la última, 2.9.9) más precisa es el código del _header_ (`fuse.h`) en sí, el cual pueden encontrarlo [en el repositorio][libfuse-2.9.9]. En el mismo se encuentran todos los structs, funciones auxiliares y firmas; junto con los comentarios útiles.
+La documentación para la versión 2 (la última, 2.9.9) más precisa es el código del _header_ (`fuse.h`) en sí, el cual pueden encontrarlo [en el repositorio][libfuse-2.9.9]. En el mismo se encuentrán todos los _structs_, funciones auxiliares y firmas; junto con comentarios útiles.
 
 [libfuse-docu-oficial]: http://libfuse.github.io/doxygen/index.html
 [libfuse-2.9.9]: https://github.com/libfuse/libfuse/blob/fuse-2.9.9/include/fuse.h
 
-**IMPORTANTE**: Si tienen errores al momento de compilar, o ven alguna discrepancia con la documentación, es posible que estén usando FUSE versión 3. Pueden comprobarlo con `apt list libfuse*`
+**IMPORTANTE**: Si tienen errores al momento de compilar, o ven alguna discrepancia con la documentación, es posible que estén usando FUSE versión 3. Pueden comprobarlo con `apt list "libfuse*"`
 {:.alert .alert-warning}
 
 ## Implementación
@@ -114,14 +109,14 @@ Implementaremos `fisopfs`, un _filesystem_ de tipo FUSE definido por el usuario.
   - Lectura de archivos (con `cat`, `more`, `less`, etc)
   - Escritura de archivos (sobre-escritura y append con redirecciones)
   - Acceder a las estadísticas de los archivos (con `stat`)
-    - Incluir y mantener fecha de modificación y creación
+    - Incluir y mantener fecha de último accesso y última modificación
     - Asumir que todos los archivos son creados por el usuario y grupo actual (ver `getuid(2)` y `getgid(2)`)
   - Borrado de un archivo (con `rm` o `unlink`)
   - Borrado de un directorio (con `rmdir`)
 - La creación de directorios debe soportar al menos un nivel de recursión, es decir, directorio raíz y sub-directorio.
 </div>
 
-Para cada una de las funcionalidades pedidas, se espera que la misma se pueda corroborar montando el sistema de archivos e interactuando con el mismo a través de una terminal `bash`, de la misma forma que se haría con cualquier otro _filesystem_. Entre paréntesis, se muestran los comandos sugeridos para probar cada una de las funcionalidades.
+Para cada una de las funcionalidades pedidas, se espera que la misma se pueda corroborar montando el sistema de archivos e interactuando con el mismo a través de una terminal `bash`, de la misma forma que se haría con cualquier otro _filesystem_.
 
 **AYUDA**: Una buena forma de saber qué _operaciones_ hacen falta es implementar las mismas vacías con `printf` de debug; y montar el _filesystem_ en primer plano: `./fisopfs -f ...`. Esto permitirá loggear todas las operaciones/syscalls que generan los procesos al interactuar con el sistema de archivos.
 {:.alert .alert-info}
@@ -134,7 +129,7 @@ En caso de error o funcionalidad no implementada, el sistema de archivos debe es
 
 El sistema de archivo implementado debe existir en memoria RAM durante su operación. La estructura en memoria que se utilice para lograr tal funcionalidad es enteramente a diseño del grupo. Deberá explicarse claramente, con ayuda de diagramas, en el informe del trabajo (i.e. el archivo `fisopfs.md`); las decisiones tomadas y el razonamiento detrás de las mismas.
 
-La primera parte de la entrega, consistirá en el diseño de las estructuras que almacenarán toda la información, y cómo se accederán en cada una de las operaciones. Para luego implementarlas en la segunda parte del trabajo práctico.
+La primera parte, consistirá en el diseño de las estructuras que almacenarán toda la información, y cómo se accederán en cada una de las operaciones. Para luego implementarlas en la segunda parte del trabajo práctico.
 
 <div class="alert alert-primary" markdown="1">
 **Documentación de diseño**
@@ -142,7 +137,7 @@ La primera parte de la entrega, consistirá en el diseño de las estructuras que
   - Las estructuras en memoria que almacenarán los archivos, directorios y sus metadatos
   - Cómo el sistema de archivos encuentra un archivo específico dado un _path_
   - Todo tipo de estructuras auxiliares utilizadas
-  - El formato de serialización del sistema de archivos en disco (ver sección siguiente)
+  - El formato de serialización del sistema de archivos en disco (ver siguiente sección)
   - Cualquier otra decisión/información que crean relevante
 </div>
 
@@ -156,7 +151,7 @@ La primera parte de la entrega, consistirá en el diseño de las estructuras que
 
 Si bien el sistema de archivos puede vivir enteramente en RAM durante su operación, también será necesario persistirlo a disco al desmontarlo y recuperarlo de disco al montarlo.
 
-El _filesystem_ _entero_ se representará como un único archivo en disco, con la extensión `.fisopfs`; y en el mismo se serializará toda la estructura del _filesystem_. Al montar el _filesystem_, se espera que toda esa información se lea de disco en memoria, y la operación continúe exclusivamente en memoria. Cuando el _filesystem_ se desmonte (o si ocurre una llamada exclusiva a `fflush`), la información debe persistirse nuevamente en disco. De esta forma, a través de múltiples ejecuciones, los datos persistirán.
+El _filesystem_ _entero_ se representará como un único archivo en disco, con la extensión `.fisopfs`; y en el mismo se serializará toda la estructura del _filesystem_. Al montar el _filesystem_, se espera que toda esa información se lea de disco en memoria, y la operación continúe exclusivamente en memoria. Cuando el _filesystem_ se desmonte (o si ocurre una llamada explícita a `fflush`), la información debe persistirse nuevamente en disco. De esta forma, a través de múltiples ejecuciones, los datos persistirán.
 
 <div class="alert alert-primary" markdown="1">
 **Persistencia en disco**
