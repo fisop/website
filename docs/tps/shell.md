@@ -15,9 +15,6 @@ copyright: Patricio Iribarne Catella
 **AVISO**: antes de comenzar, verificar que se tiene instalado [el software necesario](../kit.md#tools){:.alert-link}.
 {:.alert .alert-warning}
 
-**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
-{:.alert .alert-danger}
-
 En este trabajo se va a desarrollar la funcionalidad mínima que caracteriza a un intérprete de comandos *shell* similar a lo que realizan `bash`, `zsh`, `fish`.
 
 La implementación debe realizarse en C11 y POSIX.1-2008. *(Estas siglas hacen referencia a la versión del lenguaje C utilizada y del estándar de syscalls Unix empleado. Las versiones modernas de GCC y Linux cumplen con ambos requerimientos.)*

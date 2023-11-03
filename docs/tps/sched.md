@@ -11,9 +11,6 @@
 **AVISO**: antes de comenzar, verificar que se tiene instalado [el software necesario](../kit.md#tools){:.alert-link}.
 {:.alert .alert-warning}
 
-**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
-{:.alert .alert-danger}
-
 En este trabajo se implementarán el mecanismo de cambio de contexto para procesos y el _scheduler_ (i.e. planificador) sobre un sistema operativo preexistente. El kernel a utilizar será una modificación de JOS, un exokernel educativo con licencia libre del grupo de [Sistemas Operativos Distribuidos][pdos] del MIT.
 
 [pdos]: https://pdos.csail.mit.edu/
