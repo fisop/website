@@ -109,7 +109,7 @@ Implementaremos `fisopfs`, un _filesystem_ de tipo FUSE definido por el usuario.
   - Lectura de archivos (con `cat`, `more`, `less`, etc)
   - Escritura de archivos (sobre-escritura y append con redirecciones)
   - Acceder a las estadísticas de los archivos (con `stat`)
-    - Incluir y mantener fecha de último accesso y última modificación
+    - Incluir y mantener fecha de último acceso y última modificación
     - Asumir que todos los archivos son creados por el usuario y grupo actual (ver `getuid(2)` y `getgid(2)`)
   - Borrado de un archivo (con `rm` o `unlink`)
   - Borrado de un directorio (con `rmdir`)
