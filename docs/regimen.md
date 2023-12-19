@@ -244,6 +244,9 @@ fechas dedicadas para tal fin (sobre el final del cuatrimestre).
 La idea de estos ejercicios opcionales es que sirvan para
 mejorar la nota final de aquellos que así lo deseen.
 
+Cada desafío entregado (y _aprobado_) sumará **1 punto**
+a la nota final de la cursada.
+
 Tanto en el _lab_ como en los _trabajos prácticos_ habrá ejercicios marcados como
 opcionales. Están para explorar con más profundidad algunos temas y representan un
 desafío en cuanto a complejidad e investigación respecto a los ejercicios
