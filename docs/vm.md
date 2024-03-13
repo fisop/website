@@ -83,39 +83,6 @@ dentro de la máquina virtual.
 
 Alternativamente, se puede levantar con interfaz gráfica, en tal caso hay que descomentar las líneas indicadas en el Vagrantfile **antes de levantar la VM por primera vez**. Cada vez que se haga **vagrant up** saldrá un pop-up con la interfaz gráfica.
 
-### Contraindicaciones para JOS
-
-Para los TPs grupales de JOS (específicamente el TP4), se hacen uso de archivos compartidos. Dependiendo del sistema de archivos del OS huésped, esto podría fallar si se compila JOS en la carpeta compartida `/vagrant` (dado que, por supuesto, este directorio pertenece al OS huésped, y por lo tanto, usa su sistema de archivos).
-
-Si se tienen problemas (e.g. errores con `mmap`) se recomienda **hacer una copia** del código de JOS a algún otro directorio **dentro de la VM** (por ejemplo `/home/vagrant`). De este modo se evita el problema, pero hay que tener en cuenta que los archivos _no estarán persistidos fuera de la VM_: si se hiciera `vagrant destroy` esos datos se perderían.
-
-#### Ejemplo
-
-Pueden desarrollar JOS en un subdirectorio en su entorno local, por ejemplo, `desarrollo-jos`. Además de incluir el repositorio de `jos`, en ese directorio es donde copiarían el archivo `Vagrantfile`.
-
-```
-$ tree desarrollo-jos
-desarrollo-jos
-├── Vagrantfile
-└── jos
-```
-
-En este ejemplo, los comandos como `vagrant up` y `vagrant ssh` se correrían desde `desarrollo-jos`. Desde dentro de la VM, los contenidos de `desarrollo-jos` se verán en `/vagrant`.
-
-Antes de compilar, tienen que copiar el código de JOS a un directorio nativo de la VM, Esto lo pueden lograr, por ejemplo, con el siguiente script:
-
-```
-mkdir -p $HOME/jos
-cp -r /vagrant/jos/* $HOME/jos
-```
-
-Luego pueden copiar JOS moviéndose a `$HOME/jos`
-
-```
-cd $HOME/jos
-make grade
-```
-
 ### Debbuging con gdb
 
 Si no se utiliza interfaz gráfica, es posible obtener varias líneas de comando dentro de la VM (con `vagrant ssh` desde distintas terminales en el huésped).
