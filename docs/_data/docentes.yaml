@@ -15,7 +15,7 @@ patricio:
 
 cristian:
   nombre: Cristian Simonelli
-  mail: cristian@fi.uba.ar
+  mail: csimonelli@fi.uba.ar
   github: csimonelli
 
 francisco-g:
@@ -27,16 +27,6 @@ mario:
   nombre: Mario Santiago Adris
   mail: madris@fi.uba.ar
   github: marioax
-
-carolina:
-  nombre: Carolina Di Matteo
-  mail: cdimatteo@fi.uba.ar
-  github: gcc-cdimatteo
-
-francisco-o:
-  nombre: Francisco Orquera Lorda
-  mail: forqueral@fi.uba.ar
-  github: franorquera
 
 emmanuel:
   nombre: Emmanuel Espina
@@ -58,7 +48,18 @@ brayan:
   mail: bricaldi@fi.uba.ar
   github: Brayan-Ric
 
-valentin:
-  nombre: Valentín Flores
-  mail: vaflores@fi.uba.ar
-  github: valentinflores
+gianni:
+  nombre: Gianni Antonio Boccazzi
+  mail: gboccazzi@fi.uba.ar
+  github: gianniboccazzi
+
+mariana:
+  nombre: Mariana Galdo Martinez
+  mail: mgaldo@fi.uba.ar
+  github: marg30
+
+paolo:
+  nombre: Paolo Belforte
+  mail: pbelforte@fi.uba.ar
+  github: belfortep
+
