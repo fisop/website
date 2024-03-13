@@ -1,13 +1,13 @@
 - Teoría:
   Clases: /clases/
 
-- Labs:
-  fork: /labs/fork/
+#- Labs:
+#  fork: /labs/fork/
 
-- TPs:
-  shell: /tps/shell/
-  sched: /tps/sched/
-  filesystem: /tps/filesystem
+#- TPs:
+#  shell: /tps/shell/
+#  sched: /tps/sched/
+#  filesystem: /tps/filesystem
 
 - Enlaces:
   Calendario: /calendario/
