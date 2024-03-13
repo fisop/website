@@ -38,10 +38,11 @@ y la solución, al igual que respuestas en prosa (en caso de corresponder)
 son conceptualmente correctas.
 {:.alert .alert-success}
 
-**REGULAR**: no pasan todas las pruebas por errores menores en el código (_no_ conceptuales)
+**REGULAR**: no pasan las pruebas por errores en el código (_no_ conceptuales)
+y/o la solución no sigue _buenas prácticas de programación_.
 {:.alert .alert-warning}
 
-**DESAPROBADO**: no pasan todas las pruebas por errores conceptuales en el código
+**DESAPROBADO**: no pasan todas las pruebas por errores _conceptuales_ en el código
 {:.alert .alert-danger}
 
 ### Descripción de los trabajos prácticos
