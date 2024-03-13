@@ -1,35 +1,36 @@
 # Calendario de la materia
 
+{% assign main = site.data.main %}
+
 A continuación se presenta un calendario aproximado de la cursada
-(segundo cuatrimestre, 2023).
+({{ main.cursada }}).
 
 Los temas de cada clase podrán verse alterados, así como las fechas de entrega.
 En el caso de estas últimas, se notificará por correo/discord.
 
 | Semana | Fecha      | Teórica                                            | Fecha      | Práctica                                          | Eventos                                                  |
 |--------|------------|----------------------------------------------------|------------|---------------------------------------------------|----------------------------------------------------------|
-| 1      | 23/08/2023 | Introducción a la materia, Introducción a procesos | 25/08/2023 | Introducción a la práctica, Presentación lab fork |                                                          |
-| 2      | 30/08/2023 | Procesos                                           | 01/09/2023 | Continuar lab fork                                | Entrega **fork** [^fork]                                 |
-| 3      | 06/09/2023 | Kernel, Booteo                                     | 08/09/2023 | **Presentación TP1**: shell                       |                                                          |
-| 4      | 13/09/2023 | Memoria                                            | 15/09/2023 | Continuar TP1                                     |                                                          |
-| 5      | 20/09/2023 | Scheduling (parte 1)                               | 22/09/2023 | Continuar TP1                                     |                                                          |
-| 6      | 27/09/2023 | Scheduling (parte 2)                               | 29/09/2023 | Continuar TP1                                     | Entrega **TP1** [^shell]                                 |
-| 7      | 04/10/2023 | Concurrencia y FUTEX                               | 06/10/2023 | **Presentación TP2**: sched                       | **Parcialito TP1** [^parcialito]                         |
-| 8      | 11/10/2023 | **[PRACTICA]** Continuar TP2                       | 13/10/2023 | **FERIADO**                                       |                                                          |
-| 9      | 18/10/2023 | Filesystem (parte 1)                               | 20/10/2023 | Continuar TP2                                     |                                                          |
-| 10     | 25/10/2023 | Filesystem (parte 2)                               | 27/10/2023 | Continuar TP2                                     | Entrega **TP2** [^sched]                                 |
-| 11     | 01/11/2023 | Máquinas Virtuales                                 | 03/11/2023 | **Presentación TP3**: fs                          | **Parcialito TP2** [^parcialito]                         |
-| 12     | 08/11/2023 | Clase especial                                     | 10/11/2023 | Continuar TP3                                     |                                                          |
-| 13     | 15/11/2023 | **PARCIAL**                                        | 17/11/2023 | Continuar TP3                                     |                                                          |
-| 14     | 22/11/2023 | **[PRACTICA]** Continuar TP3                       | 24/11/2023 | Continuar TP3                                     | Entrega **TP3** [^fs]                                    |
-| 15     | 29/11/2023 | Clase especial                                     | 01/12/2023 |                                                   | **Parcialito TP3** [^parcialito]                         |
-| 16     | 06/12/2023 | **Recuperatorio** [^recu]                          | 08/12/2023 | **FERIADO**                                       |                                                          |
+| 1      | 13/03/2024 | Introducción a la materia, Introducción a procesos | 15/03/2024 | Introducción a la práctica, Presentación lab fork |                                                          |
+| 2      | 20/03/2024 | Procesos                                           | 22/03/2024 | Continuar lab fork                                | Entrega **fork** [^fork]                                 |
+| 3      | 27/03/2024 | Kernel, Booteo                                     | 29/03/2024 | **FERIADO**                                       |                                                          |
+| 4      | 03/04/2024 | Memoria                                            | 05/04/2024 | **Presentación TP1**: shell                       |                                                          |
+| 5      | 10/04/2024 | Scheduling (parte 1)                               | 12/04/2024 | Continuar TP1                                     |                                                          |
+| 6      | 17/04/2024 | Scheduling (parte 2)                               | 19/04/2024 | Continuar TP1                                     | Entrega **TP1** [^shell]                                 |
+| 7      | 24/04/2024 | Concurrencia y FUTEX                               | 26/04/2024 | **Presentación TP2**: sched                       |                                                          |
+| 8      | 01/05/2024 | **FERIADO**                                        | 03/05/2024 | Continuar TP2                                     | **Parcialito TP1** [^parcialito]                                                         |
+| 9      | 08/05/2024 | Filesystem (parte 1)                               | 10/05/2024 | Continuar TP2                                     |                                                          |
+| 10     | 15/05/2024 | Filesystem (parte 2)                               | 17/05/2024 | Continuar TP2                                     | Entrega **TP2** [^sched]                                 |
+| 11     | 22/05/2024 | **PARCIAL**                                        | 24/05/2024 | **Presentación TP3**: fs                          |                                                          |
+| 12     | 29/05/2024 | Máquinas Virtuales                                 | 31/05/2024 | Continuar TP3                                     | **Parcialito TP2** [^parcialito]                                                         |
+| 13     | 05/06/2024 | TBD                                                | 07/06/2024 | Continuar TP3                                     |                                                          |
+| 14     | 12/06/2024 | **Recuperatorio** [^recu]                          | 14/06/2024 | Continuar TP3                                     | Entrega **TP3** [^fs]                                    |
+| 15     | 19/06/2024 | TBD                                                | 21/06/2024 | **FERIADO**                                       |                                                          |
+| 16     | 26/06/2024 | TBD                                                | 28/06/2024 | Clase final                                       | **Parcialito TP3** [^parcialito]                                                         |
  
-[^fork]: **fork** - la fecha de entrega es hasta el domingo 3/09 inclusive
-[^shell]: **TP1** - la fecha de entrega es hasta el domingo 1/10 inclusive
-[^sched]: **TP2** - la fecha de entrega es hasta el domingo 29/10 inclusive
-[^fs]: **TP3** - la fecha de entrega es hasta el domingo 26/11 inclusive
+[^fork]: **fork** - la fecha de entrega es hasta el domingo 24/03 inclusive
+[^shell]: **TP1** - la fecha de entrega es hasta el domingo 21/04 inclusive
+[^sched]: **TP2** - la fecha de entrega es hasta el domingo 19/05 inclusive
+[^fs]: **TP3** - la fecha de entrega es hasta el domingo 16/06 inclusive
 [^parcialito]: **parcialitos** - serán siempre en el horario de la práctica
 [^recu]: **recuperatorio** - el segundo recuperatorio será probablemente en la primera fecha de final
-
 
