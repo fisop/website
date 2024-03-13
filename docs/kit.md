@@ -11,23 +11,37 @@ El software indispensable para realizar los trabajos prácticos es:
 
   - Compiladores _GCC_ (con soporte para 32-bits) y [Clang]
   - _glibc_ (biblioteca estándar de C) y archivos _“include”_ de Linux
-  - _QEMU_ (virtualizador de hardware) y _seabios_ (simulador de BIOS)
   - gdb, make, git, clang-format
 
 En Debian y distribuciones derivadas, se puede instalar mediante:
 
+```bash
+$ sudo apt install make git gdb clang clang-format \
+	libbsd-dev gcc-multilib libc6-dev linux-libc-dev
 ```
-sudo apt install make git gdb seabios clang clang-format libbsd-dev \
-         gcc-multilib libc6-dev linux-libc-dev qemu-system-x86
+
+### **_QEMU_**
+
+Es un _software_ que permite la virtualización de diferentes arquitecturas (similar a _VirtualBox_).
+Además permite configurar la imagen de un _disco_ y se conecta fácilmente con _GDB_.
+
+Es necesario únicamente para la realización del **TP2: sched**
+{:.alert .alert-info}
+
+Además de _QEMU_ es necesario instalar un simulador de BIOS (_seabios_).
+
+```bash
+$ sudo apt install seabios qemu-system-x86
 ```
 
 La versión de _QEMU_ debe ser 2.5 o superior, y la versión de _seabios_ 1.10 o superior.
 
-### _Issue_ de **_QEMU_**
+Existe un _known issue_ relacionado a la versión de _QEMU_ y la distribución del SO que se esté utilizando.
+Una solución es descargar la versión correcta de _QEMU_ y hacer un **downgrade** de la versión actual.
 
-Existe un _known issue_ relacionado a la versión de _QEMU_ y la distribución del SO que se esté utilizando. La solución es bajarse "a mano" la versión correcta de _QEMU_ y hacer un **downgrade** de la versión actual.
-
-Para saber si es necesario hacerlo, se recomienda ejecutar los siguientes comandos y comparar su salida (en _especial_ tener en cuenta el _número_ final de _QEMU_, en este caso **7.36**. La versión de su SO, puede variar):
+Para saber si es necesario hacerlo, se recomienda ejecutar los siguientes comandos
+y comparar su salida (en _especial_ tener en cuenta el _número_ final de _QEMU_,
+en este caso **7.36**. La versión de su SO, puede variar):
 
 ```bash
 $ qemu-system-i386 --version | head -1
