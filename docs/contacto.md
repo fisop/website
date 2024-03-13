@@ -1,5 +1,7 @@
 ## Contacto
 
+{% assign links = site.data.links %}
+
 La lista de correo de la materia, [fisop-consultas@googlegroups.com][lista],
 se usa tanto para realizar anuncios como para resolver todas las consultas
 sobre los contenidos de la materia.
@@ -13,4 +15,4 @@ docentes en la dirección [fisop-doc@googlegroups.com][doc].**
 
 [doc]: mailto:fisop-doc@googlegroups.com
 [lista]: https://groups.google.com/forum/#!forum/fisop-consultas
-[buzón]: https://forms.gle/pSooF8pYT4vuykSB7
+[buzón]: {{ links.buzon }}
