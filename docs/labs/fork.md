@@ -2,16 +2,14 @@
 
 El objetivo de este lab es familiarizarse con las llamadas al sistema `fork(2)` (que crea una copia del proceso actual) y `pipe(2)` (que proporciona un mecanismo de comunicación unidireccional entre dos procesos).
 
+**REQUERIDO**: para la entrega es condición **necesaria** que se haya aplicado el **formato** de código mediante `make format` (ver `README.md` del repositorio).
+{:.alert .alert-danger}
+
 **IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
 {:.alert .alert-warning}
 
-**REQUERIDO**: para las entregas es condición **necesaria** que el _check_ del **formato** de código esté en verde a la hora de realizar el PR (_pull request_). Para ello, se puede ejecutar `make format` localmente, comitear y subir esos cambios.
-{:.alert .alert-danger}
-
 **RECORDATORIO**: en la sección [entregas](../../entregas) se describe en forma general el proceder para integrar el código del esqueleto público, como así también el mecanismo de entrega.
 {:.alert .alert-info}
-
-[repolabs]: https://github.com/fisop/labs
 
 
 ## Índice
@@ -89,11 +87,13 @@ Tips:
   - **No** se puede utilizar ninguna función similar a `sleep(3)`
     para sincronizar a los procesos.
 
-Llamadas al sistema: `fork(2)`, `pipe(2)`, `wait(2)`, `getpid(2)`, `getppid(2)`.
-
+Llamadas al sistema: [`fork(2)`][fork(2)], [`pipe(2)`][pipe(2)], [`wait(2)`][wait(2)],
+[`getpid(2)`][getpid(2)], [`getppid(2)`][getppid(2)].
 
 ## Tarea: primes
 {: #primes}
+
+### Descripción
 
 La [criba de Eratóstenes][wpsieve-es] ([sieve of Eratosthenes][wpsieve-en] en inglés) es un algoritmo milenario para calcular todos los primos menores a un determinado número natural, _n_.
 
@@ -112,7 +112,10 @@ mientras <pipe izquierdo no cerrado>:
         escribir <n> en el pipe derecho
 ```
 
-(El único proceso que es distinto, es el primero, que tiene que simplemente generar la secuencia de números naturales de 2 a _n_. No tiene lado izquierdo.)
+(El único proceso que es distinto, es el primero, que tiene que simplemente generar la secuencia de números
+naturales de 2 a _n_. No tiene lado izquierdo.)
+
+### Requisitos
 
 La interfaz que se pide es:
 
@@ -120,7 +123,9 @@ La interfaz que se pide es:
 $ ./primes <n>
 ```
 
-donde _n_ será un número natural mayor o igual a 2. El código debe crear una estructura de procesos similar a la mostrada en la imagen, de tal manera que:
+donde _n_ será un número natural mayor o igual a 2.
+
+El código debe crear una estructura de procesos similar a la mostrada en la imagen, de tal manera que:
 
   - El primer proceso cree un proceso derecho, con el que se comunica mediante
     un _pipe_.
@@ -140,7 +145,7 @@ donde _n_ será un número natural mayor o igual a 2. El código debe crear una 
 
 Ejemplo de uso:
 
-```
+```bash
 $ ./primes 35
 primo 2
 primo 3
@@ -155,101 +160,88 @@ primo 29
 primo 31
 ```
 
-Ayuda:
-
-  - Conceptualmente esta tarea es la más difícil de las cuatro del lab, y no
-    es prerrequisito para poder realizar las dos siguientes.
-
-Llamadas al sistema: `fork(2)`, `pipe(2)`, `wait(2)`.
+Llamadas al sistema: [`fork(2)`][fork(2)], [`pipe(2)`][pipe(2)], [`wait(2)`][wait(2)].
 
 [coxcsp]: https://swtch.com/~rsc/thread/
 [wpsieve-es]: https://es.wikipedia.org/wiki/Criba_de_Eratóstenes
 [wpsieve-en]: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
-
 ## Tarea: xargs
 {: #xargs}
 
-En su versión más sencilla, la utilidad `xargs(1)` permite:
+### Descripción
 
-  - Tomar un único argumento (`argv[1]`, un sólo comando).
-  - Leer nombres de archivos de la entrada estándar (_stdin_), de a uno por línea.
-  - Para cada nombre de archivo leído, invocar al comando especificado con el
-    nombre de archivo como argumento.
+La utilidad [`xargs(1)`][xargs(1)] permite ejecutar un _binario_ una o más veces
+pasándole como argumentos, los leídos desde la _entrada estándar_.
+Los argumentos están separados por un _delimitador_ como el  _espacio_ o el `'\n'`
+(pero también se pueden indicar otros mediante la opción `-d`).
 
 Por ejemplo, si se invoca:
 
 ```bash
-$ echo /home | xargs ls
+$ seq 10 | xargs -n 4 /bin/echo
 ```
 
-Esto sería equivalente a realizar `ls /home`. Pero si se invoca:
+El resultado será:
+
+```
+1 2 3 4
+5 6 7 8
+9 10
+```
+
+El comando [`seq(1)`][seq(1)] genera una secuencia de números hasta _N_
+y `-n 4` le indica a [`xargs`][xargs(1)] que tiene que _empaquetar_
+los argumentos leídos de a 4 (en este caso). Finalmente, por cada _paquete_
+ejecuta el comando `/bin/echo`.
+
+Esto sería equivalente a ejecutar lo siguiente:
 
 ```bash
-$ printf "/home\n/var\n" | xargs ls
+$ /bin/echo 1 2 3 4
+$ /bin/echo 5 6 7 8
+$ /bin/echo 9 10
 ```
 
-Esto sería equivalente a ejecutar `ls /home; ls/var`.
+Para ampliar y conocer el comportamiento de una implementación de `xargs` moderna,
+y por ejemplo sus opciones `-r`, `-0`, `-I` y `-P`, consultar [la página de manual][xargs(1)].
 
-Variantes (soportadas por la utilidad):
+### Requisitos
 
-  - Aceptar más de un argumento. Por ejemplo:
+La interfaz que se pide es:
 
-    ```bash
-    $ printf "/home\n/var\n" | xargs ls -l
-    ```
+```bash
+$ ./xargs <comando>
+```
 
-    En este caso, el comando ejecutado sobre el _input_ es `ls -l`.
+donde _comando_ es un binario que no recibe argumentos extras (como por ejemplo `ls` o `echo`).
 
-  - Aceptar nombres de archivos separados por espacio, por ejemplo:
+El código debe satisfacer los siguientes puntos:
 
-    ```bash
-    $ echo /home /var | xargs ls
-    ```
-
-    (Esto impediría, no obstante, que se puedan pasar a _xargs_ nombres de
-    archivos con espacios en sus nombres, como ser: `/home/user/Media Files`)
-
-  - Aceptar el “empaquetado” de varios nombres de archivos en una sola invocación
-    del comando. Por ejemplo, en el segundo ejemplo de arriba, que se ejecute
-    `ls /home /var` (una sola vez) en lugar de `ls /home; ls /var` (dos
-    veces).
-
-Para ampliar y conocer el comportamiento de una implementación de  _xargs_ moderna, y por ejemplo las opciones `-r`, `-0`, `-n`, `-I` y `-P`, consultar [la página de manual][xargs(1)].
-
-Se pide implementar la siguiente versión modificada de _xargs_.
-
-Requisitos:
-
-  - Leer los nombres de archivo **línea a línea**, **nunca** separados **por espacios** (se recomienda usar la
-    función [`getline(3)`][getline(3)]). También, es necesario eliminar el caracter `'\n'` para obtener el nombre del
-    archivo.
+  - Leer los argumentos **línea a línea**, **nunca** separados **por espacios** (se recomienda usar la
+    función [`getline(3)`][getline(3)]). También, es necesario eliminar el caracter `'\n'`
+    para obtener el nombre del archivo.
 
   - El “empaquetado” vendrá definido por un valor entero positivo disponible en
-    la macro `NARGS` (la cual tiene efecto durante el proceso de compilación.
-    Para más información se puede consultar la siguiente [documentación](https://dashdash.io/1/gcc#-D_1)).
-    El programa debe funcionar de manera tal que siempre se
-    pasen `NARGS` argumentos al comando ejecutado (excepto en su última
-    ejecución, que pueden ser menos). **Si no se encuentra definida `NARGS`,
-    se debe definir a 4.** 
-    Se puede hacer algo como:
+    la macro `NARGS` (disponible en esqueleto). [^NARGS] 
 
-    ```c
-    #ifndef NARGS
-    #define NARGS 4
-    #endif
-    ```
+  - **Siempre** se pasan `NARGS` argumentos al _comando_ ejecutado (excepto en su última
+    ejecución, que pueden ser menos).
 
   - Se debe esperar **siempre** a que termine la ejecución del comando actual.
 
-    - **Mejora o funcionalidad opcional:** si el primer argumento a _xargs_ es
-      `-P`, emplear hasta 4 ejecuciones del comando en paralelo (pero **nunca**
-      más de 4 a la vez).
+Ejemplo de uso:
 
-Llamadas al sistema: `fork(2)`, `execvp(3)`, `wait(2)`.
+```bash
+$ seq 10 | ./xargs 10
+1 2 3 4
+5 6 7 8
+9 10
+```
 
-[xargs(1)]: https://dashdash.io/1/xargs
-[getline(3)]: https://dashdash.io/3/getline
+Llamadas al sistema: [`fork(2)`][fork(2)], [`wait(2)`][wait(2)], [execvp(3)][execvp(3)].
+
+[^NARGS]: Tiene efecto durante el proceso de compilación. Para más información consultar la [documentación](https://dashdash.io/1/gcc#-D_1)
 
 ## Esqueleto y compilación
 {: #skel}
@@ -270,6 +262,16 @@ Simplemente alcanza con ejecutar `make`.
 
 Alcanza con ejecutar `make test`.
 
+[xargs(1)]: https://dashdash.io/1/xargs
+[seq(1)]: https://dashdash.io/1/seq
+[fork(2)]: https://dashdash.io/2/fork
+[pipe(2)]: https://dashdash.io/2/pipe
+[wait(2)]: https://dashdash.io/2/wait
+[getpid(2)]: https://dashdash.io/2/getpid
+[getppid(2)]: https://dashdash.io/2/getppid
+[execvp(3)]: https://dashdash.io/3/exec
+[getline(3)]: https://dashdash.io/3/getline
+
 ## Desafíos
 {: #Desafíos}
 
@@ -287,16 +289,19 @@ puntos.
 Las opciones son:
 
 * `ps` (5pts): el comando _process status_ muestra información básica de los procesos
-  que están corriendo en el sistema. Se pide **como mínimo** una implementación
+que están corriendo en el sistema. Se pide **como mínimo** una implementación
 que muestre el pid y comando (i.e. argv) de cada proceso (esto es equivalente a
 hacer `ps -eo pid,comm`, se recomienda compararlo con tal comando).  Para más
 información, leer la [sección `ps0`][ps0], de uno de los labs anteriores. Ayuda:
 leer `proc(5)` para información sobre el directorio `/proc`.
 
-* `find` (2pts): el comando buscará y mostrará por pantalla todos los archivos del directorio _actual_ (y subdirectorios) cuyo nombre contenga (o sea igual a) `xyz`. Se pide **como mínimo** una implementación equivalente a la que se indica en la [sección `find`][find], de lab _unix_.
+* `find` (2pts): el comando buscará y mostrará por pantalla
+todos los archivos del directorio _actual_ (y subdirectorios) cuyo nombre
+contenga (o sea igual a) `xyz`. Se pide **como mínimo** una implementación equivalente
+a la que se indica en la [sección `find`][find], de lab _unix_.
 
 * `ls` (2pts):  el comando _list_ permite listar los contenidos de un
-  directorio, brindando información extra de cada una de sus entradas.
+directorio, brindando información extra de cada una de sus entradas.
 Se pide implementar una versión simplificada de `ls -al` donde cada entrada del
 directorio se imprima en su propia línea, indicando _nombre_, _tipo_ (con la
 misma simbología que usa `ls`), _permisos_ (se pueden mostrar numéricamente) y
