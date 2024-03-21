@@ -233,7 +233,7 @@ El código debe satisfacer los siguientes puntos:
 Ejemplo de uso:
 
 ```bash
-$ seq 10 | ./xargs 10
+$ seq 10 | ./xargs /bin/echo
 1 2 3 4
 5 6 7 8
 9 10
