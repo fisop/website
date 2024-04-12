@@ -344,9 +344,9 @@ En la [parte 1](#back) se implementó una solución simple para manejar los proc
 preguntando de forma oportunística por la terminación de dichos procesos.
 
 Ahora, queremos mejorar dicha implementación para que el manejo y liberación de _recursos_ del proceso,
-sea asincrónica. Es decir, en el _mismo_ momento en que dicho proceso termina.
+ocurra en el _mismo_ momento en que termina.
 
-Para poder realizar esto, vamos a manejar _señales_ (o `signals`). La señal que nos interesa _atrapar_
+Para poder realizar ésto, vamos a manejar _señales_ (o `signals`). La señal que nos interesa _atrapar_
 es `SIGCHLD`, la cual se genera cada vez que un proceso hijo termina (es decir, llama a `exit(3)`).
 
 El _sistema operativo_ nos da la posibilidad de poder ejecutar lógica _custom_ para cada señal
@@ -406,7 +406,7 @@ de `waitpid(2)` pueda ser, sencillamente, 0.
     - ¿Por qué es necesario el uso de señales?
 </div>
 
-**Syscalls sugeridas:** `setpgid(2)`, `sigaction(2)`, `sigaltstack(2)`
+**Syscalls sugeridas:** `setpgid(2)`, `getppid(2)`, `sigaction(2)`, `sigaltstack(2)`
 
 **Archivos:** _exec.c_, _runcmd.c_, _sh.c_
 
