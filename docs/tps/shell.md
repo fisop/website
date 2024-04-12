@@ -406,6 +406,8 @@ de `waitpid(2)` pueda ser, sencillamente, 0.
     - ¿Por qué es necesario el uso de señales?
 </div>
 
+**Páginas de manual:** `man 7 signal`, `man 7 signal-safety`
+
 **Syscalls sugeridas:** `setpgid(2)`, `getppid(2)`, `sigaction(2)`, `sigaltstack(2)`
 
 **Archivos:** _exec.c_, _runcmd.c_, _sh.c_
