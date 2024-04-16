@@ -94,6 +94,13 @@ Al finalizar la parte 1 la _shell_ debe poder:
 ### Parte 2: Redirecciones
 {: #redir}
 
+<div class="alert alert-warning" markdown="1">
+**AVISO**: El esqueleto no soporta espacios entre los caracteres de _redirección_ y
+el nombre del archivo proporcionado.
+
+Es decir, se debe ejecutar **siempre**: `<in.txt` y `>out.txt`.
+</div>
+
 #### Flujo estándar
 {: #standard}
 
