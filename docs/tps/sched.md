@@ -84,7 +84,7 @@ Cabe notar que el resto de los registros definidos en `struct Trapframe` deben s
     - Utilizar la instrucción `iret` para finalizar el cambio de contexto
   - Completar la función `env_run`, en `kern/env.c`
   - Modificar `kern/init.c` de forma _temporal_, para ejecutar un único proceso `user_hello`
-  - Utilizar GDB para visualizar el cambio de contexto. Realizar una captura donde se muestre claramente:
+  - **Informe**: Utilizar GDB para visualizar el cambio de contexto. Realizar una captura donde se muestre claramente:
     - el cambio de contexto
     - el estado del stack al inicio de la llamada de `context_switch`
     - cómo cambia el stack instrucción a instrucción
@@ -163,6 +163,7 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
     - Inicio y fin de cada proceso ejecutado
   - Las estadísticas deben ser mostradas por el kernel al finalizar la ejecución de todos los procesos, durante `sched_halt`.
   - Modificar `kern/init.c`, y crear procesos de usuario para mostrar el correcto funcionamiento del scheduler con prioridades. Incluir ejemplos que muestren si un proceso puede ganar/perder prioridad.
+  - **Informe**: explicar y describir la lógica de la implementación en el _scheduler_ por prioridades.
 </div>
 
 ## Esqueleto y compilación
