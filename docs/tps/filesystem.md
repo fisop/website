@@ -88,7 +88,7 @@ static struct fuse_operations operations = {
 
 La [documentación oficial de FUSE][libfuse-docu-oficial] es muy útil para revisar las firmas de las funciones y los campos de cada struct de la librería. Sin embargo, hay que tener en cuenta que esa documentación es **para la versión 3**, y por lo tanto podría tener algunas diferencias en la API/firma de algunas funciones que utilizaremos en el TP.
 
-La documentación para la versión 2 (la última, 2.9.9) más precisa es el código del _header_ (`fuse.h`) en sí, el cual pueden encontrarlo [en el repositorio][libfuse-2.9.9]. En el mismo se encuentrán todos los _structs_, funciones auxiliares y firmas; junto con comentarios útiles.
+La documentación para la versión 2 (la última, 2.9.9) más precisa es el código del _header_ (`fuse.h`) en sí, el cual pueden encontrarlo [en el repositorio][libfuse-2.9.9]. En el mismo se encuentran todos los _structs_, funciones auxiliares y firmas; junto con comentarios útiles.
 
 [libfuse-docu-oficial]: http://libfuse.github.io/doxygen/index.html
 [libfuse-2.9.9]: https://github.com/libfuse/libfuse/blob/fuse-2.9.9/include/fuse.h
@@ -127,7 +127,7 @@ En caso de error o funcionalidad no implementada, el sistema de archivos debe es
 
 ### Representación del sistema de archivos
 
-El sistema de archivo implementado debe existir en memoria RAM durante su operación. La estructura en memoria que se utilice para lograr tal funcionalidad es enteramente a diseño del grupo. Deberá explicarse claramente, con ayuda de diagramas, en el informe del trabajo (i.e. el archivo `fisopfs.md`); las decisiones tomadas y el razonamiento detrás de las mismas.
+El sistema de archivo implementado debe existir en memoria RAM durante su operación. La estructura en memoria que se utilice para lograr tal funcionalidad es enteramente a diseño del grupo. Deberá explicarse claramente, con ayuda de diagramas, en el informe del trabajo (i.e. archivo `fisopfs.md`); las decisiones tomadas y el razonamiento detrás de las mismas.
 
 La primera parte, consistirá en el diseño de las estructuras que almacenarán toda la información, y cómo se accederán en cada una de las operaciones. Para luego implementarlas en la segunda parte del trabajo práctico.
 
@@ -164,6 +164,59 @@ El _filesystem_ _entero_ se representará como un único archivo en disco, con l
 
 [init]: http://libfuse.github.io/doxygen/structfuse__operations.html#a0ad1f7c4105ee062528c767da88060f0
 [destroy]: http://libfuse.github.io/doxygen/structfuse__operations.html#af7485db1c9c6d402323f7a24e1b7db82
+
+### Modularización
+
+Es _recomendable_ tener la lógica del _filesystem_ en otro archivo (por ejemplo `fs.c`) y que `fisopfs.c` llame a estas primitivas. Dichas funciones **no** deberían recibir ningún tipo de dato que sea de _FUSE_ ya que ésto romperían la _abstracción_.
+
+Entonces, si uno quisiera tener una primitiva para leer las _entradas_ de un directorio, se podría hacer:
+
+```c
+char entry_name[MAX_ENTRY_NAME];
+
+res = fs_read_dir(&fs, path, entry_name);
+```
+
+Y luego el puntero a función que recibe FUSE (`fuse_fill_dir_t filler`) se llamaría por cada una de éstas entradas. Algo como:
+
+```c
+while (res > 0) {
+	filler(buffer, entry_name, NULL, 0);
+	res = fs_read_dir(&fs, path, entry_name);
+}
+```
+
+Otra posible implementación, podría ser con _memoria dinámica_ devolviendo una lista de las entradas. Por ejemplo:
+
+```c
+char **entries = fs_list_dir_entries(&fs, path);
+
+int entry_idx = 0;
+
+while (entries[entry_idx] != NULL) {
+	filler(buffer, entries[entry_idx], NULL, 0);
+	entry_idx++;
+}
+```
+
+Para poder compilar fácilmente los nuevos módulos, se pueden agregar al `Makefile` de la siguiente forma:
+
+```make
+# ...
+
+build: $(FS_NAME)
+
+# por cada módulo se agrega un nuevo item
+# ejemplo:
+#   si además tenemos un archivo llamado file.c
+#   la siguiente linea quedaría
+# $(FS_NAME): fs.o file.o
+$(FS_NAME): fs.o
+
+format: .clang-files .clang-format
+
+# ...
+```
 
 ### Pruebas y salidas de ejemplo
 
