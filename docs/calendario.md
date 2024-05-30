@@ -21,8 +21,8 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 9      | 08/05/2024 | Filesystem (parte 1)                               | 10/05/2024 | Continuar TP2                                     |                                                           |
 | 10     | 15/05/2024 | Filesystem (parte 2)                               | 17/05/2024 | Continuar TP2                                     | **Parcialito TP1** [^parcialito] Entrega **TP2** [^sched] |
 | 11     | 22/05/2024 | **PARCIAL**                                        | 24/05/2024 | **Presentación TP3**: fs                          |                                                           |
-| 12     | 29/05/2024 | Máquinas Virtuales                                 | 31/05/2024 | Continuar TP3                                     | **Parcialito TP2** [^parcialito]                          |
-| 13     | 05/06/2024 | TBD                                                | 07/06/2024 | Continuar TP3                                     |                                                           |
+| 12     | 29/05/2024 | Máquinas Virtuales                                 | 31/05/2024 | Continuar TP3                                     |                                                           |
+| 13     | 05/06/2024 | TBD                                                | 07/06/2024 | Continuar TP3                                     | **Parcialito TP2** [^parcialito]                          |
 | 14     | 12/06/2024 | **Recuperatorio** [^recu]                          | 14/06/2024 | Continuar TP3                                     | Entrega **TP3** [^fs]                                     |
 | 15     | 19/06/2024 | TBD                                                | 21/06/2024 | **FERIADO**                                       |                                                           |
 | 16     | 26/06/2024 | TBD                                                | 28/06/2024 | Clase final                                       | **Parcialito TP3** [^parcialito]                          |
