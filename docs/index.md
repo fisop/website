@@ -1,7 +1,7 @@
 {% assign main = site.data.main %}
 {% assign links = site.data.links %}
 
-Este es el sitio de la materia _Sistemas Operativos de FIUBA_ ({{ main.codigos }}), curso Méndez/Fresia. La información que se presenta corresponde a la cursada {{ main.cursada }}.
+Este es el sitio de la materia _Sistemas Operativos de FIUBA_ ({{ main.codigos }}). La información que se presenta corresponde a la cursada {{ main.cursada }}.
 
   - [Contacto](contacto.md)
   - [Docentes](docentes.md)
@@ -10,7 +10,7 @@ Se pide **completar** [el formulario de alta][alta]{:.alert-link} (que incluye l
 suscripción a la lista de correo, y el servidor de _Discord_ a través de los cuales se comunica el curso).
 {:.alert .alert-primary}
 
-También, para los trabajos prácticos grupales deben inscribirse completando [este formulario][grupos]{:.alert-link}.
+También, para los trabajos prácticos **grupales** deben inscribirse completando [este formulario][grupos]{:.alert-link}.
 
 *[FIUBA]: Facultad de Ingeniería, Universidad de Buenos Aires
 

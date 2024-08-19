@@ -33,16 +33,6 @@ emmanuel:
   mail: eespina@fi.uba.ar
   github: espinaemmanuel
 
-paula:
-  nombre: María Paula Bruck
-  mail: pbruck.ext@fi.uba.ar
-  github: paulabruck
-
-clara:
-  nombre: Clara Ruano Frugoli
-  mail: cruano@fi.uba.ar
-  github: claram97
-
 brayan:
   nombre: Brayan Alexander Ricaldi Rebata
   mail: bricaldi@fi.uba.ar
@@ -63,3 +53,32 @@ paolo:
   mail: pbelforte@fi.uba.ar
   github: belfortep
 
+matias:
+  nombre: Matías Marcó del Pont
+  mail: mmarco@fi.uba.ar
+  github: MatiasMdelP
+
+alfonso:
+  nombre: Alfonso Campondónico
+  mail: alfonso@fi.uba.ar
+  github: AlfonsoCampodonico
+
+nicolas:
+  nombre: Nicolás Zulaica
+  mail: nzulaica@fi.uba.ar
+  github: n-zu
+
+manuel:
+  nombre: Manuel Diaz
+  mail: jumdiaz@fi.uba.ar
+  github: Diaz-Manuel
+
+cindy:
+  nombre: Cindy Teresa Hsieh
+  mail: chsieh@fi.uba.ar
+  github: cindy1404hsieh
+
+ruben:
+  nombre: Rubén Andrés Bohorquez Gutierrez
+  mail: rbohorquez@fi.uba.ar
+  github: Rpetey317
