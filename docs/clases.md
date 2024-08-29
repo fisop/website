@@ -12,7 +12,7 @@ mismos.
 
     - Opcional: **[KERR] — cap. 2**: _Fundamental concepts_
 
-- Kernel: userland vs kernelspace 
+- Kernel: userland vs kernelspace
     - **[DAH] — cap. 2**: _The kernel abstraction_
     - **[KERR] — sec. 3.1**: _System calls_
     - **[xv6] — cap. 1**: _Operating System Organization_
@@ -59,5 +59,4 @@ mismos.
 ## Material extra
 
 - Diapositivas
-    - [_Línea de comandos en ambientes
-  *nix_](https://drive.google.com/open?id=1pt7NSSb4Dw6utcJ40mQtKmxvVt6uOQpJTHNRUZNGteI)
+    - [_Línea de comandos en ambientes *nix_](https://drive.google.com/open?id=1pt7NSSb4Dw6utcJ40mQtKmxvVt6uOQpJTHNRUZNGteI)
