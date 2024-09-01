@@ -11,8 +11,8 @@ En el caso de estas últimas, se notificará por correo/discord.
 | Semana | Fecha      | Teórica                                            | Fecha      | Práctica                                          | Eventos                                                   |
 |--------|------------|----------------------------------------------------|------------|---------------------------------------------------|-----------------------------------------------------------|
 | 1      | 21/08/2024 | Introducción a la materia                          | 23/08/2024 | Introducción a la práctica, Presentación lab fork |                                                           |
-| 2      | 28/08/2024 | Introducción a procesos                            | 30/08/2024 | Continuar lab fork                                | Entrega **fork** [^fork]                                  |
-| 3      | 04/09/2024 | Procesos                                           | 06/09/2024 | **Presentación TP1**: shell                       |                                                           |
+| 2      | 28/08/2024 | Introducción a procesos                            | 30/08/2024 | Continuar lab fork                                |                                                           |
+| 3      | 04/09/2024 | Procesos                                           | 06/09/2024 | **Presentación TP1**: shell                       | Entrega **fork** [^fork]                                  |
 | 4      | 11/09/2024 | Kernel, Booteo                                     | 13/09/2024 | Continuar TP1                                     |                                                           |
 | 5      | 18/09/2024 | Memoria                                            | 20/09/2024 | Continuar TP1                                     |                                                           |
 | 6      | 25/09/2024 | Scheduling (parte 1)                               | 27/09/2024 | **Presentación TP2**: sched                       | Entrega **TP1** [^shell]                                  |
@@ -27,7 +27,7 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 15     | 27/11/2024 | **Recuperatorio** [^recu]                          | 29/11/2024 | Shell & Terminals                                 | **Parcialito TP3** [^parcialito]                          |
 | 16     | 04/12/2024 | Clase final                                        | 06/12/2024 | Clase final                                       |                                                           |
 
-[^fork]: **fork** - la fecha de entrega es hasta el domingo 01/09 inclusive
+[^fork]: **fork** - la fecha de entrega es hasta el domingo 08/09 inclusive
 [^shell]: **TP1** - la fecha de entrega es hasta el domingo 29/09 inclusive
 [^sched]: **TP2** - la fecha de entrega es hasta el domingo 20/10 inclusive
 [^fs]: **TP3** - la fecha de entrega es hasta el domingo 24/11 inclusive
