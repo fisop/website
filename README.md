@@ -21,19 +21,17 @@ Setup inicial
 -------------
 
 ```bash
-$ sudo apt-get install bundler
-$ git clone git@github.com:fisop/website
-$ cd website/docs
-$ bundle install --path=../gems
+$ cd docs
+$ sudo ../install-deps.sh
 ```
 
 Visualizar al editar
 --------------------
 
 ```bash
-$ cd website/docs
-$ bundle exec jekyll serve --livereload
+$ cd docs
+$ ../run.sh
 ```
 
-(La opción --livereload es opcional, pero fuerza al navegador a mostrar
+(La opción `--livereload` es opcional, pero fuerza al navegador a mostrar
 el nuevo contenido tras escribir un archivo.)
