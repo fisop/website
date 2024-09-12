@@ -55,40 +55,11 @@ tmpfs           8.3G  2.0M  8.3G   1% /tmp
 
 **Archivo:** `exec_cmd()` en _exec.c_
 
-#### Procesos en segundo plano
-{: #back}
-
-Los procesos en segundo plano o procesos en el "fondo", o _background_, son muy útiles a la hora de ejecutar comandos que no queremos esperar a que terminen para que la *shell* nos devuelva el *prompt* nuevamente. Por ejemplo, si queremos ver algún documento *.pdf* o una imagen y queremos seguir trabajando en la terminal sin tener que abrir una nueva.
-
-```bash
-$ evince file.pdf &
- [PID=2489]
-
-$ ls /home
-patricio
-```
-
-Sólo se pide la implementación de un proceso en segundo plano. No es necesario que se notifique de la terminación del mismo por medio de mensajes en la _shell_.
-
-Sin embargo, la _shell_ deberá **esperar oportunamente** a los procesos en segundo plano. Esto puede hacerse sincrónicamente antes de mostrar cada _prompt_, con el objetivo de que en una ejecución normal _no se dejen procesos huérfanos_.
-
-<div class="alert alert-primary" markdown="1">
-**Tareas**
-  - Soportar procesos en segundo plano
-    - Sin notificación de procesos terminados
-    - Esperando _oportunísticamente_ con cada _prompt_ a cada proceso
-  - **Responder**: Detallar cuál es el mecanismo utilizado para implementar procesos en segundo plano.
-</div>
-
-**Ayuda:** Leer el funcionamiento del flag `WNOHANG` de la syscall `wait(2)`
-
 #### Resumen
 
 Al finalizar la parte 1 la _shell_ debe poder:
 - Invocar programas y permitir pasarles argumentos.
 - Esperar correctamente a la ejecución de los programas.
-- Ejecutar procesos en segundo plano.
-- Esperar _oportunísticamente_ a los procesos en segundo plano antes de cada prompt.
 
 
 ### Parte 2: Redirecciones
@@ -344,21 +315,24 @@ Es evidente que si `cd` no se realizara en el mismo proceso donde la _shell_ se 
 
 **Archivo:** `cd()`, `exit_shell()` y `pwd()` en _builtin.c_
 
-### Parte 5: Segundo plano avanzado
+### Parte 5: Procesos en segundo plano
 {: #advance-back}
 
-En la [parte 1](#back) se implementó una solución simple para manejar los procesos en _segundo plano_
-preguntando de forma oportunística por la terminación de dichos procesos.
+Los procesos en segundo plano o procesos en el “fondo”, o _background_, son muy útiles
+a la hora de ejecutar comandos que no queremos esperar a que terminen.
+En estos casos la _shell_ nos devuelva el prompt inmediatamente, para seguir realizando tareas.
+Por ejemplo, si queremos ver un documento `.pdf` o una imagen y queremos seguir trabajando
+sin tener que abrir una terminal.
 
-Ahora, queremos mejorar dicha implementación para que el manejo y liberación de _recursos_ del proceso,
-ocurra en el _mismo_ momento en que termina.
+Esta implementación debe manejar la liberación de _recursos_ del proceso,
+en el _mismo_ momento en que termina.
 
 Para poder realizar ésto, vamos a manejar _señales_ (o `signals`). La señal que nos interesa _atrapar_
 es `SIGCHLD`, la cual se genera cada vez que un proceso hijo termina (es decir, llama a `exit(3)`).
 
 El _sistema operativo_ nos da la posibilidad de poder ejecutar lógica _custom_ para cada señal
 que se precise manejar de manera particular. Con la _syscall_ `sigaction(2)` vamos a poder configurar
-lo que se denomina **handler** (a.k.a una _función_) para dicha señal y liberar los recursos del
+lo que se denomina un **handler** (a.k.a una _función_) para dicha señal y liberar los recursos del
 proceso en _segundo plano_ que haya finalizado.
 
 Desde el punto de vista del usuario de la _shell_, el comportamiento al final esta tarea,
@@ -379,7 +353,8 @@ $
 
 En otras palabras, se notifica de la terminación en cuanto ocurre, sin esperar al siguiente prompt.
 
-También se observa el comportamiento en la ausencia de un segundo comando en primer plano; simplemente, se escribiría en la línea del _prompt_ actual:
+También se observa el comportamiento en la ausencia de un segundo comando en primer plano;
+simplemente, se escribiría en la línea del _prompt_ actual:
 
 ```bash
 $ sleep 2 &
@@ -392,9 +367,9 @@ $ ==> terminado: PID=2489
 
 Se recomienda, de hecho, realizar las primeras pruebas con este segundo ejemplo, para trabajar con una solo evento de la señal `SIGCHLD`.
 
-Una vez hecho esto, se debe resolver el problema de que los procesos en _primer plano_ (o `foreground`)
-también generan `SIGCHLD` cuando finalizan. El _handler_ los aceptaría, quedando `waitpid(2)`
-de `run_cmd()` incapaz de obtener el estado de salida del hijo.
+Una vez hecho ésto, se debe resolver el problema de que, los procesos en _primer plano_ (o `foreground`)
+también generan `SIGCHLD` cuando finalizan. El _handler_ los aceptaría, quedando la llamada a `waitpid(2)`
+en `run_cmd()` incapaz de obtener el estado de salida del hijo.
 
 La solución más fácil es asegurarse de que todos los procesos en _segundo plano_ tengan
 un mismo _process group_.
@@ -403,7 +378,7 @@ Y que la llamada a `waitpid(2)` en el _handler_ no use -1 como argumento
 la llamada a los procesos en segundo plano.
 
 **Sugerencia**: configurar el uso de grupos tal que ese primer argumento
-de `waitpid(2)` pueda ser, sencillamente, 0.
+de `waitpid(2)` pueda ser, sencillamente, `0`.
 
 <div class="alert alert-primary" markdown="1">
 **Tareas**
@@ -412,6 +387,8 @@ de `waitpid(2)` pueda ser, sencillamente, 0.
   - **Responder**:
     - ¿Por qué es necesario el uso de señales?
 </div>
+
+**Ayuda:** Leer el funcionamiento del flag `WNOHANG` de la syscall `wait(2)`
 
 **Páginas de manual:** `man 7 signal`, `man 7 signal-safety`
 
