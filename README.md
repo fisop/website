@@ -33,5 +33,3 @@ $ cd docs
 $ ../run.sh
 ```
 
-(La opción `--livereload` es opcional, pero fuerza al navegador a mostrar
-el nuevo contenido tras escribir un archivo.)
