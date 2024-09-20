@@ -16,7 +16,7 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 4      | 11/09/2024 | Kernel, Booteo                                     | 13/09/2024 | **Presentación TP1**: shell                       |                                                           |
 | 5      | 18/09/2024 | Memoria                                            | 20/09/2024 | Continuar TP1                                     |                                                           |
 | 6      | 25/09/2024 | Scheduling (parte 1)                               | 27/09/2024 | Continuar TP1                                     | Entrega **TP1** [^shell]                                  |
-| 7      | 02/10/2024 | Scheduling (parte 2)                               | 04/10/2024 | **Presentación TP2**: schedContinuar TP2          | **Parcialito TP1** [^parcialito]                          |
+| 7      | 02/10/2024 | Scheduling (parte 2)                               | 04/10/2024 | **Presentación TP2**: sched                       | **Parcialito TP1** [^parcialito]                          |
 | 8      | 09/10/2024 | Concurrencia y FUTEX                               | 11/10/2024 | **FERIADO**                                       |                                                           |
 | 9      | 16/10/2024 | Filesystem (parte 1)                               | 18/10/2024 | Continuar TP2                                     |                                                           |
 | 10     | 23/10/2024 | Filesystem (parte 2)                               | 25/10/2024 | Continuar TP2                                     | Entrega **TP2** [^sched]                                  |
