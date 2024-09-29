@@ -206,6 +206,7 @@ Para aprobar la cursada/materia es necesario:
   - Aprobar el _lab_ y todos los _trabajos prácticos_
   - El _lab_ **debe** estar en los estados `APROBADO` o `REGULAR`,
     **nunca** en `DESAPROBADO`
+  - Cumplir con el 75% de asistencia a las clases teóricas
 
 ## Instancias recuperatorias
 {: #recup}
