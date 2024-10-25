@@ -20,8 +20,8 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 8      | 09/10/2024 | Concurrencia y FUTEX                               | 11/10/2024 | **FERIADO**                                       |                                                           |
 | 9      | 16/10/2024 | Filesystem (parte 1)                               | 18/10/2024 | Continuar TP2                                     |                                                           |
 | 10     | 23/10/2024 | Filesystem (parte 2)                               | 25/10/2024 | Continuar TP2                                     | Entrega **TP2** [^sched]                                  |
-| 11     | 30/10/2024 | Máquinas virtuales                                 | 01/11/2024 | Ejercicios Pre-Parcial                            | **Parcialito TP2** [^parcialito]                          |
-| 12     | 06/11/2024 | **PARCIAL**                                        | 08/11/2024 | **Presentación TP3**: fs                          |                                                           |
+| 11     | 30/10/2024 | Máquinas virtuales                                 | 01/11/2024 | **Presentación TP3**: fs                          | **Parcialito TP2** [^parcialito]                          |
+| 12     | 06/11/2024 | Ejercicios Pre-Parcial                             | 08/11/2024 | **PARCIAL**                                       |                                                           |
 | 13     | 13/11/2024 | TBD                                                | 15/11/2024 | Continuar TP3                                     |                                                           |
 | 14     | 20/11/2024 | Revisión parcial                                   | 22/11/2024 | Continuar TP3                                     |                                                           |
 | 15     | 27/11/2024 | **Recuperatorio** [^recu]                          | 29/11/2024 | Continuar TP3                                     | Entrega **TP3** [^fs]                                     |
