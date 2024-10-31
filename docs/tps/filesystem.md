@@ -158,6 +158,7 @@ El _filesystem_ _entero_ se representará como un único archivo en disco, con l
 - Es *requisito* que el sistema de archivos se persista en disco
   - En un único archivo, de extensión `.fisopfs`
   - Al lanzar el _filesystem_, se debe especificar un nombre de archivo, si no se hace, se elige uno por defecto
+    - Esto es provisto por el esqueleto mediante la opción `--filedisk`
   - Del archivo especificado se lee todo el _filesystem_, y se inicializan las estructuras acordemente (esto ocurre en la función [`init`][init])
   - Si ocurre un `flush` o cuando el sistema de archivos se desmonta (esto ocurre en la función [`destroy`][destroy]), la data debe persistirse en el archivo nuevamente
 </div>
@@ -201,7 +202,7 @@ while (entries[entry_idx] != NULL) {
 
 Para poder compilar fácilmente los nuevos módulos, se pueden agregar al `Makefile` de la siguiente forma:
 
-```make
+```diff
 # ...
 
 build: $(FS_NAME)
@@ -210,8 +211,8 @@ build: $(FS_NAME)
 # ejemplo:
 #   si además tenemos un archivo llamado file.c
 #   la siguiente linea quedaría
-# $(FS_NAME): fs.o file.o
-$(FS_NAME): fs.o
++ $(FS_NAME): fs.o file.o
+- $(FS_NAME): fs.o
 
 format: .clang-files .clang-format
 
