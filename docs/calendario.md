@@ -21,7 +21,7 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 9      | 16/10/2024 | Filesystem (parte 1)                               | 18/10/2024 | Continuar TP2                                     |                                                           |
 | 10     | 23/10/2024 | Filesystem (parte 2)                               | 25/10/2024 | Continuar TP2                                     | Entrega **TP2** [^sched]                                  |
 | 11     | 30/10/2024 | -                                                  | 01/11/2024 | **Presentación TP3**: fs                          | **Parcialito TP2** [^parcialito]                          |
-| 12     | 06/11/2024 | Ejercicios Pre-Parcial [^pre-parcial]              | 08/11/2024 | **PARCIAL**                                       |                                                           |
+| 12     | 06/11/2024 | Ejercicios Pre-Parcial [^pre-parcial]              | 08/11/2024 | **PARCIAL** [^parcial]                            |                                                           |
 | 13     | 13/11/2024 | TBD                                                | 15/11/2024 | Continuar TP3                                     |                                                           |
 | 14     | 20/11/2024 | Revisión parcial                                   | 22/11/2024 | Continuar TP3                                     |                                                           |
 | 15     | 27/11/2024 | **Recuperatorio** [^recu]                          | 29/11/2024 | Continuar TP3                                     | Entrega **TP3** [^fs]                                     |
@@ -33,4 +33,5 @@ En el caso de estas últimas, se notificará por correo/discord.
 [^fs]: **TP3** - la fecha de entrega es hasta el domingo 01/12 inclusive
 [^parcialito]: **parcialitos** - serán siempre en el horario de la práctica
 [^pre-parcial]: **pre-parcial** - martes 5/11 19:00 clase virtual, miércoles 6/11 no hay clases
+[^parcial]: **PARCIAL**: - viernes 8/11 19:00 presencial
 [^recu]: **recuperatorio** - el segundo recuperatorio será probablemente en la primera fecha de final
