@@ -22,10 +22,10 @@ En el caso de estas últimas, se notificará por correo/discord.
 | 10     | 23/10/2024 | Filesystem (parte 2)                               | 25/10/2024 | Continuar TP2                                     | Entrega **TP2** [^sched]                                  |
 | 11     | 30/10/2024 | -                                                  | 01/11/2024 | **Presentación TP3**: fs                          | **Parcialito TP2** [^parcialito]                          |
 | 12     | 06/11/2024 | Ejercicios Pre-Parcial [^pre-parcial]              | 08/11/2024 | -                                                 |                                                           |
-| 13     | 13/11/2024 | Continuar TP3                                      | 15/11/2024 | **PARCIAL** [^parcial]                            |                                                           |
-| 14     | 20/11/2024 | Revisión parcial                                   | 22/11/2024 | Continuar TP3                                     |                                                           |
-| 15     | 27/11/2024 | **Recuperatorio** [^recu]                          | 29/11/2024 | Continuar TP3                                     | Entrega **TP3** [^fs]                                     |
-| 16     | 04/12/2024 | Clase final                                        | 06/12/2024 | Shell & Terminals                                 | **Parcialito TP3** [^parcialito]                          |
+| 13     | 13/11/2024 | **[PRACTICA]** Continuar TP3                       | 15/11/2024 | **PARCIAL** [^parcial]                            |                                                           |
+| 14     | 20/11/2024 | -                                                  | 22/11/2024 | Continuar TP3                                     |                                                           |
+| 15     | 27/11/2024 | Revisión parcial                                   | 29/11/2024 | Continuar TP3                                     | Entrega **TP3** [^fs]                                     |
+| 16     | 04/12/2024 | **[PRACTICA]** Shell & Terminals                   | 06/12/2024 | **Recuperatorio** [^recu]                         | **Parcialito TP3** [^parcialito]                          |
 
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 08/09 inclusive
 [^shell]: **TP1** - la fecha de entrega es hasta el domingo 29/09 inclusive
