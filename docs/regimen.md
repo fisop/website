@@ -243,6 +243,12 @@ fechas dedicadas para tal fin (sobre el final del cuatrimestre).
 ## Ejercicios opcionales (_challenges_)
 {: #challenges}
 
+**IMPORTANTE**: avisar de su implementación a la casilla [fisop-doc@googlegroups.com][doc]. El _asunto_ del mail debería ser: **Entrega challenge: [nombre del challenge]**.
+{:.alert .alert-danger}
+
+**REQUERIDO**: realizar la implementación en una rama separada del _lab_ o _trabajo práctico_.
+{:.alert .alert-warning}
+
 La idea de estos ejercicios opcionales es que sirvan para
 mejorar la nota final de aquellos que así lo deseen.
 
@@ -267,6 +273,8 @@ de la materia al que estén asociados, y no hay limitaciones con que se realicen
 _durante_ la cursada.
 Lo importante es que los mismos serán evaluados _luego_ de la
 cursada, durante las mismas fechas de final.
+
+[doc]: mailto:fisop-doc@googlegroups.com
 
 {::options toc_levels="2" /}
 {% include footnotes.html %}
