@@ -1,10 +1,12 @@
 # TP3: Filesystem FUSE
 
+
 ## Índice
 {:.no_toc}
 
 * TOC
 {:toc .sidetoc}
+
 
 ## Introducción
 
@@ -18,7 +20,6 @@ La implementación del _filesystem_ será enteramente en memoria: tanto archivos
 [fuse-wiki]: https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 [fuse-linux]: https://www.kernel.org/doc/html/latest/filesystems/fuse.html
 [tmpfs]: https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html
-
 
 ### Software necesario
 
@@ -95,6 +96,70 @@ La documentación para la versión 2 (la última, 2.9.9) más precisa es el cód
 
 **IMPORTANTE**: Si tienen errores al momento de compilar, o ven alguna discrepancia con la documentación, es posible que estén usando FUSE versión 3. Pueden comprobarlo con `apt list "libfuse*"`
 {:.alert .alert-warning}
+
+
+## Esqueleto
+{: #skel}
+
+**AVISO**: El esqueleto del TP3 se encuentra disponible en [fisop/fisopfs](https://github.com/fisop/fisopfs){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
+### Integración
+{: #integration}
+
+Suponiendo que ya se **clonó** el repositorio privado en algún directorio:
+
+```bash
+git clone git@github.com:fiubatps/sisop_<año_cuatrimestre>_g1 tps
+cd tps
+```
+
+Para integrar el esqueleto de la cátedra, hacer:
+
+- **asegurarse** de estar en la rama **main**
+```bash
+git checkout main
+```
+
+- **agregar remoto** de la cátedra
+```bash
+git remote add fs git@github.com:fisop/fisopfs.git
+```
+
+- **creación** de la rama **base**
+```bash
+git checkout -b base_fs
+git push -u origin base_fs
+```
+
+- **merge** del esqueleto
+```bash
+git fetch --all
+git merge fs/main --allow-unrelated-histories
+git push origin base_fs
+```
+
+- **creación** de la rama **entrega**
+```bash
+git checkout -b entrega_fs
+git push -u origin entrega_fs
+```
+
+**IMPORTANTE**: asegurarse de siempre commitear en la rama **entrega_fs**.
+{:.alert .alert-danger}
+
+### Compilación
+{: #compile}
+
+Para compilar nuestro _filesystem_, se puede:
+
+```bash
+make
+```
+
 
 ## Implementación
 
@@ -227,20 +292,6 @@ Cada funcionalidad implementada debe incluir una prueba asociada. Las salidas de
 
 Es altamente recomendable pensar y escribir las pruebas incluso antes de arrancar con la implementación, para tener una guía del comportamiento del sistema.
 
-## Esqueleto y compilación
-{: #skel}
-
-**AVISO**: El esqueleto del TP3 se encuentra disponible en [fisop/fisopfs](https://github.com/fisop/fisopfs){:.alert-link}.
-{:.alert .alert-warning}
-
-**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
-{:.alert .alert-warning}
-
-Para compilar nuestro _filesystem_, se puede:
-
-```bash
-make
-```
 
 ## Desafíos
 {: #Desafíos}
@@ -266,6 +317,7 @@ Más allá de los requisitos obligatorios, los grupos podrán optar por implemen
   * Implementar las operaciones `chown` y `chmod` para modificar permisos y ownership de un archivo/directorio
 
 En cualquier caso, las operaciones elegidas deben implementarse incluyendo pruebas de la misma forma que para el resto de las funcionalidades.
+
 
 ## Bibliografía útil
 

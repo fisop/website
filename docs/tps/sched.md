@@ -1,10 +1,12 @@
 # TP2: _Scheduling_ y cambio de contexto
 
+
 ## Índice
 {:.no_toc}
 
 * TOC
 {:toc .sidetoc}
+
 
 ## Introducción
 
@@ -16,6 +18,120 @@ En este trabajo se implementarán el mecanismo de cambio de contexto para proces
 [pdos]: https://pdos.csail.mit.edu/
 
 JOS está diseñado para correr en la arquitectura Intel x86, y para poder ejecutarlo utilizaremos QEMU que emula dicha arquitectura.
+
+
+## Esqueleto
+{: #skel}
+
+**AVISO**: El esqueleto se encuentra disponible en [fisop/sched](https://github.com/fisop/sched){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `sched/README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
+### Integración
+{: #integration}
+
+Suponiendo que ya se **clonó** el repositorio privado en algún directorio:
+
+```bash
+git clone git@github.com:fiubatps/sisop_<año_cuatrimestre>_g1 tps
+cd tps
+```
+
+Para integrar el esqueleto de la cátedra, hacer:
+
+- **asegurarse** de estar en la rama **main**
+```bash
+git checkout main
+```
+
+- **agregar remoto** de la cátedra
+```bash
+git remote add sched git@github.com:fisop/sched.git
+```
+
+- **creación** de la rama **base**
+```bash
+git checkout -b base_sched
+git push -u origin base_sched
+```
+
+- **merge** del esqueleto
+```bash
+git fetch --all
+git merge sched/main --allow-unrelated-histories
+git push origin base_sched
+```
+
+- **creación** de la rama **entrega**
+```bash
+git checkout -b entrega_sched
+git push -u origin entrega_sched
+```
+
+**IMPORTANTE**: asegurarse de siempre commitear en la rama **entrega_sched**.
+{:.alert .alert-danger}
+
+### Compilación
+{: #compile}
+
+La compilación se realiza mediante `make`. En el directorio `obj/kern` se puede encontrar:
+
+  - _kernel_ — el binario ELF con el kernel
+  - _kernel.asm_ — assembler asociado al binario
+
+### Ejecución
+{: #run}
+
+Para correr JOS, se puede usar `make qemu` o `make qemu-nox`.
+
+Para ejecutar _un proceso de usuario_ en particular dentro del kernel, se puede usar `make run-<proceso>` o `make run-<proceso>-nox`. Como ejemplo, `make run-hello-nox` correrá el proceso de usuario `user/hello.c`.
+
+### Depurado
+{: #debug}
+
+El _Makefile_ de JOS incluye dos reglas para correr QEMU junto con GDB.
+
+En una terminal ejecutar:
+
+```
+$ make qemu-gdb
+***
+*** Now run 'make gdb'.
+***
+qemu-system-i386 ...
+```
+
+y en otra distinta:
+
+```
+$ make gdb
+gdb -q -ex 'target remote ...' -n -x .gdbinit
+Reading symbols from obj/kern/kernel...done.
+Remote debugging using 127.0.0.1:...
+0x0000fff0 in ?? ()
+(gdb)
+```
+
+#### Depurado de una triple fault
+{: #debug-triple-fault}
+
+En la arquitectura x86, el sistema se reinicia automáticamente cuando ocurre una “triple falla” _(triple fault)_. QEMU, por omisión, obedece esta especificación.
+
+Sin embargo, durante el desarrollo de sistemas operativos en modo protegido de x86, las _triple fault_ ocurren casi exclusivamente por un bug en el kernel. Por esto, es más deseable que QEMU detenga la ejecución en lugar de reiniciarse constantemente.
+
+QEMU no ofrece soporte _directo_ para detectar fallas triples y detener la ejecución, pero existen un set de opciones que se acercan bastante a ese propósito.
+
+Por tanto, si en una determinada versión del desarrollo ocurre que QEMU se reinicia constantemente, se recomienda probar lo siguiente:
+
+  - correr QEMU con las opciones: `-no-reboot -no-shutdown -d cpu_reset` (estas
+    opciones pueden añadirse en la variable `QEMUOPTS` en el archivo _GNUmakefile_)
+
+  - si el error realmente fue un _Triple fault_, se mostrará ese error en la
+    úlltima línea del archivo _qemu.log_, y se podrá consultar el estado de
+    los registros mediante el monitor de QEMU (`Ctrl-A C → info registers`)
+
 
 ## Implementación
 
@@ -166,75 +282,8 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
   - **Informe**: explicar y describir la lógica de la implementación en el _scheduler_ por prioridades.
 </div>
 
-## Esqueleto y compilación
-{: #repo}
-
-**AVISO**: El esqueleto se encuentra disponible en [fisop/sched](https://github.com/fisop/sched){:.alert-link}.
-{:.alert .alert-warning}
-
-**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
-{:.alert .alert-warning}
-
-### Compilación
-{: #make}
-
-La compilación se realiza mediante `make`. En el directorio `obj/kern` se puede encontrar:
-
-  - _kernel_ — el binario ELF con el kernel
-  - _kernel.asm_ — assembler asociado al binario
-
-### Ejecución
-{: #run}
-
-Para correr JOS, se puede usar `make qemu` o `make qemu-nox`.
-
-Para ejecutar _un proceso de usuario_ en particular dentro del kernel, se puede usar `make run-<proceso>` o `make run-<proceso>-nox`. Como ejemplo, `make run-hello-nox` correrá el proceso de usuario `user/hello.c`.
-
-### Depurado
-{: #gdb}
-
-El _Makefile_ de JOS incluye dos reglas para correr QEMU junto con GDB.
-
-En una terminal ejecutar:
-
-```
-$ make qemu-gdb
-***
-*** Now run 'make gdb'.
-***
-qemu-system-i386 ...
-```
-
-y en otra distinta:
-
-```
-$ make gdb
-gdb -q -ex 'target remote ...' -n -x .gdbinit
-Reading symbols from obj/kern/kernel...done.
-Remote debugging using 127.0.0.1:...
-0x0000fff0 in ?? ()
-(gdb)
-```
-
-#### Depurado de una triple fault
-{: #gdb-triple-fault}
-
-En la arquitectura x86, el sistema se reinicia automáticamente cuando ocurre una “triple falla” _(triple fault)_. QEMU, por omisión, obedece esta especificación.
-
-Sin embargo, durante el desarrollo de sistemas operativos en modo protegido de x86, las _triple fault_ ocurren casi exclusivamente por un bug en el kernel. Por esto, es más deseable que QEMU detenga la ejecución en lugar de reiniciarse constantemente.
-
-QEMU no ofrece soporte _directo_ para detectar fallas triples y detener la ejecución, pero existen un set de opciones que se acercan bastante a ese propósito.
-
-Por tanto, si en una determinada versión del desarrollo ocurre que QEMU se reinicia constantemente, se recomienda probar lo siguiente:
-
-  - correr QEMU con las opciones: `-no-reboot -no-shutdown -d cpu_reset` (estas
-    opciones pueden añadirse en la variable `QEMUOPTS` en el archivo _GNUmakefile_)
-
-  - si el error realmente fue un _Triple fault_, se mostrará ese error en la
-    úlltima línea del archivo _qemu.log_, y se podrá consultar el estado de
-    los registros mediante el monitor de QEMU (`Ctrl-A C → info registers`)
-
 [labguide]: https://pdos.csail.mit.edu/6.828/2017/labguide.html
+
 
 ## Bibliografía útil
 

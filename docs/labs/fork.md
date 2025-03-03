@@ -1,5 +1,6 @@
 # Lab fork
 
+
 El objetivo de este lab es familiarizarse con las llamadas al sistema `fork(2)` (que crea una copia del proceso actual) y `pipe(2)` (que proporciona un mecanismo de comunicación unidireccional entre dos procesos).
 
 **REQUERIDO**: para la entrega es condición **necesaria** que se haya aplicado el **formato** de código mediante `make format` (ver `README.md` del repositorio).
@@ -7,9 +8,6 @@ El objetivo de este lab es familiarizarse con las llamadas al sistema `fork(2)` 
 
 **IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
 {:.alert .alert-warning}
-
-**RECORDATORIO**: en la sección [entregas](../../entregas) se describe en forma general el proceder para integrar el código del esqueleto público, como así también el mecanismo de entrega.
-{:.alert .alert-info}
 
 
 ## Índice
@@ -33,6 +31,71 @@ En general, una buena referencia sobre sistemas POSIX es **[KERR]**. En particul
   - Tarea **_xargs_**: §6.6, §24.1, §26.1, §27.1, §27.2
 
 Opcionalmente se puede leer el capítulo 3 a modo de introducción.
+
+
+## Esqueleto
+{: #skel}
+
+**AVISO**: El esqueleto se encuentra disponible en [fisop/fork](https://github.com/fisop/fork){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
+### Integración
+{: #integration}
+
+Suponiendo que ya se **clonó** el repositorio privado en algún directorio:
+
+```bash
+git clone git@github.com:fiubatps/sisop_<año_cuatrimestre>_<apellido_alumno> fork
+cd fork
+```
+
+Para integrar el esqueleto de la cátedra, hacer:
+
+- **asegurarse** de estar en la rama **main**
+```bash
+git checkout main
+```
+
+- **agregar remoto** de la cátedra
+```bash
+git remote add catedra https://github.com/fisop/fork
+```
+
+- **creación** de la rama **base**
+```bash
+git checkout -b base_fork
+git push -u origin base_fork
+```
+
+- **merge** del esqueleto
+```bash
+git fetch --all
+git merge catedra/main --allow-unrelated-histories
+git push origin base_fork
+```
+
+- **creación** de la rama **entrega**
+```bash
+git checkout -b entrega_fork
+git push -u origin entrega_fork
+```
+
+**IMPORTANTE**: asegurarse de siempre commitear en la rama **entrega_fork**.
+{:.alert .alert-danger}
+
+### Compilación
+{: #compile}
+
+Simplemente alcanza con ejecutar `make`.
+
+### Pruebas
+{: #tests}
+
+Alcanza con ejecutar `make test`.
+
 
 ## Introducción: pingpong
 {: #pingpong}
@@ -89,6 +152,7 @@ Tips:
 
 Llamadas al sistema: [`fork(2)`][fork(2)], [`pipe(2)`][pipe(2)], [`wait(2)`][wait(2)],
 [`getpid(2)`][getpid(2)], [`getppid(2)`][getppid(2)].
+
 
 ## Tarea: primes
 {: #primes}
@@ -165,6 +229,7 @@ Llamadas al sistema: [`fork(2)`][fork(2)], [`pipe(2)`][pipe(2)], [`wait(2)`][wai
 [coxcsp]: https://swtch.com/~rsc/thread/
 [wpsieve-es]: https://es.wikipedia.org/wiki/Criba_de_Eratóstenes
 [wpsieve-en]: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
 
 ## Tarea: xargs
 {: #xargs}
@@ -246,25 +311,6 @@ Llamadas al sistema: [`fork(2)`][fork(2)], [`wait(2)`][wait(2)], [execvp(3)][exe
 
 [^NARGS]: Tiene efecto durante el proceso de compilación. Para más información consultar la [documentación](https://dashdash.io/1/gcc#-D_1)
 
-## Esqueleto y compilación
-{: #skel}
-
-**AVISO**: El esqueleto se encuentra disponible en [fisop/fork](https://github.com/fisop/fork){:.alert-link}.
-{:.alert .alert-warning}
-
-**IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
-{:.alert .alert-warning}
-
-### Compilación
-{: #compile}
-
-Simplemente alcanza con ejecutar `make`.
-
-### Pruebas
-{: #tests}
-
-Alcanza con ejecutar `make test`.
-
 [xargs(1)]: https://dashdash.io/1/xargs
 [seq(1)]: https://dashdash.io/1/seq
 [fork(2)]: https://dashdash.io/2/fork
@@ -274,6 +320,7 @@ Alcanza con ejecutar `make test`.
 [getppid(2)]: https://dashdash.io/2/getppid
 [execvp(3)]: https://dashdash.io/3/exec
 [getline(3)]: https://dashdash.io/3/getline
+
 
 ## Desafíos
 {: #Desafíos}

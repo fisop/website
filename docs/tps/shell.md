@@ -1,14 +1,12 @@
----
-copyright: Patricio Iribarne Catella
----
-
 # TP1: Intérprete de comandos - _shell_
+
 
 ## Índice
 {:.no_toc}
 
 * TOC
 {:toc .sidetoc}
+
 
 ## Introducción
 
@@ -18,6 +16,83 @@ copyright: Patricio Iribarne Catella
 En este trabajo se va a desarrollar la funcionalidad mínima que caracteriza a un intérprete de comandos *shell* similar a lo que realizan `bash`, `zsh`, `fish`.
 
 La implementación debe realizarse en C11 y POSIX.1-2008. *(Estas siglas hacen referencia a la versión del lenguaje C utilizada y del estándar de syscalls Unix empleado. Las versiones modernas de GCC y Linux cumplen con ambos requerimientos.)*
+
+
+## Esqueleto
+{: #skel}
+
+**AVISO**: El esqueleto se encuentra disponible en [fisop/shell](https://github.com/fisop/shell){:.alert-link}.
+{:.alert .alert-warning}
+
+**IMPORTANTE**: leer el archivo `shell/README.md` que se encuentra en el proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
+{:.alert .alert-warning}
+
+Se recomienda, antes de empezar, leer el código para entender bien cómo funciona, y qué hace cada una de las funciones. **Particularmente recomendamos entender qué significa cada uno de los campos en los structs definidos en `types.h`**.
+
+### Integración
+{: #integration}
+
+Suponiendo que ya se **clonó** el repositorio privado en algún directorio:
+
+```bash
+git clone git@github.com:fiubatps/sisop_<año_cuatrimestre>_g1 tps
+cd tps
+```
+
+Para integrar el esqueleto de la cátedra, hacer:
+
+- **asegurarse** de estar en la rama **main**
+```bash
+git checkout main
+```
+
+- **agregar remoto** de la cátedra
+```bash
+git remote add shell git@github.com:fisop/shell.git
+```
+
+- **creación** de la rama **base**
+```bash
+git checkout -b base_shell
+git push -u origin base_shell
+```
+
+- **merge** del esqueleto
+```bash
+git fetch --all
+git merge shell/main --allow-unrelated-histories
+git push origin base_shell
+```
+
+- **creación** de la rama **entrega**
+```bash
+git checkout -b entrega_shell
+git push -u origin entrega_shell
+```
+
+**IMPORTANTE**: asegurarse de siempre commitear en la rama **entrega_shell**.
+{:.alert .alert-danger}
+
+### Compilación
+{: #compile}
+
+Simplemente alcanza con ejecutar `make`.
+
+### Ejecución
+{: #run}
+
+Se proveen dos formas para ejecutar la _shell_: `make run` y `make valgrind` que ejecuta el binario dentro de una sesión de `valgrind`.
+
+### Depurando con printf
+{: #debug}
+
+Es importante mencionar que es requisito usar las funciones `printf_debug` y `fprintf_debug` si se desea mostrar información por pantalla; o bien encapsular todo lo que se imprima por stdout o stderr utilizando la macro `SHELL_NO_INTERACTIVE` (como ejemplo, ver las funciones definidas en `utils.c`).
+
+Esto es debido a que al momento de corregir es mucho más fácil ejecutar una shell en modo no interactivo (que no imprima _prompt_) y así poder comparar el output de forma automática.
+
+Cualquier mensaje que se imprima por pantalla al momento de hacer la entrega tiene que hacerse con las funciones `printf_debug` (en lugar de `printf`) o bien encapsulando el código con la directiva del preprocesador `#ifndef SHELL_NO_INTERACTIVE`.
+{:.alert .alert-info}
+
 
 ## Implementación
 
@@ -395,40 +470,6 @@ de `waitpid(2)` pueda ser, sencillamente, `0`.
 **Syscalls sugeridas:** `setpgid(2)`, `getppid(2)`, `sigaction(2)`, `sigaltstack(2)`
 
 **Archivos:** _exec.c_, _runcmd.c_, _sh.c_
-
-
-## Esqueleto y compilación
-{: #skel}
-
-**AVISO**: El esqueleto se encuentra disponible en [fisop/shell](https://github.com/fisop/shell){:.alert-link}.
-{:.alert .alert-warning}
-
-**IMPORTANTE**: leer el archivo `shell/README.md` que se encuentra en el proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
-{:.alert .alert-warning}
-
-Para que no tengan que implementar todo desde cero, se provee un esqueleto. Éste tiene gran parte del parseo hecho, y está estructurado indicando con comentarios los lugares en donde deben introducir el código crítico de cada punto.
-
-Se recomienda, antes de empezar, leer el código para entender bien cómo funciona, y qué hace cada una de las funciones. **Particularmente recomendamos entender qué significa cada uno de los campos en los structs definidos en `types.h`**.
-
-### Compilación
-{: #compile}
-
-Simplemente alcanza con ejecutar `make`.
-
-### Ejecución
-{: #run}
-
-Se proveen dos formas para ejecutar la _shell_: `make run` y `make valgrind` que ejecuta el binario dentro de una sesión de `valgrind`.
-
-### Depurando con printf
-{: #debug}
-
-Es importante mencionar que es requisito usar las funciones `printf_debug` y `fprintf_debug` si se desea mostrar información por pantalla; o bien encapsular todo lo que se imprima por stdout o stderr utilizando la macro `SHELL_NO_INTERACTIVE` (como ejemplo, ver las funciones definidas en `utils.c`).
-
-Esto es debido a que al momento de corregir es mucho más fácil ejecutar una shell en modo no interactivo (que no imprima _prompt_) y así poder comparar el output de forma automática.
-
-Cualquier mensaje que se imprima por pantalla al momento de hacer la entrega tiene que hacerse con las funciones `printf_debug` (en lugar de `printf`) o bien encapsulando el código con la directiva del preprocesador `#ifndef SHELL_NO_INTERACTIVE`.
-{:.alert .alert-info}
 
 
 ## Desafíos
