@@ -19,6 +19,9 @@ En este trabajo se implementarán el mecanismo de cambio de contexto para proces
 
 JOS está diseñado para correr en la arquitectura Intel x86, y para poder ejecutarlo utilizaremos QEMU que emula dicha arquitectura.
 
+**AVISO**: las diapositivas están en [sched](https://docs.google.com/presentation/d/1XvHYx1Fo7fMPvcLOqMCRNIw3hCB05jLkU36oU0QFFQ0?usp=sharing)
+{:.alert .alert-info}
+
 
 ## Esqueleto
 {: #skel}

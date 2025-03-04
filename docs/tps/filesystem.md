@@ -21,6 +21,9 @@ La implementación del _filesystem_ será enteramente en memoria: tanto archivos
 [fuse-linux]: https://www.kernel.org/doc/html/latest/filesystems/fuse.html
 [tmpfs]: https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html
 
+**AVISO**: las diapositivas están en [fs](https://docs.google.com/presentation/d/1H3v4Zb87Z7n-_T5rYlZm0az4q1Dp34GohtX9q7Ru5bE?usp=sharing)
+{:.alert .alert-info}
+
 ### Software necesario
 
 FUSE está compuesto de varios componentes, los principales son:

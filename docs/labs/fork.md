@@ -1,6 +1,13 @@
 # Lab fork
 
 
+## Índice
+{:.no_toc}
+
+* TOC
+{:toc .sidetoc}
+
+
 El objetivo de este lab es familiarizarse con las llamadas al sistema `fork(2)` (que crea una copia del proceso actual) y `pipe(2)` (que proporciona un mecanismo de comunicación unidireccional entre dos procesos).
 
 **REQUERIDO**: para la entrega es condición **necesaria** que se haya aplicado el **formato** de código mediante `make format` (ver `README.md` del repositorio).
@@ -9,12 +16,8 @@ El objetivo de este lab es familiarizarse con las llamadas al sistema `fork(2)` 
 **IMPORTANTE**: leer el archivo `README.md` que se encuentra en la raíz del proyecto. Contiene información sobre cómo realizar la compilación de los archivos, y cómo ejecutar el formateo de código.
 {:.alert .alert-warning}
 
-
-## Índice
-{:.no_toc}
-
-* TOC
-{:toc .sidetoc}
+**AVISO**: las diapositivas están en [fork](https://docs.google.com/presentation/d/1SXymINFxL1-ntiPAeNlJX3pUZNM_fXKcXp_0S2vOFn0?usp=sharing)
+{:.alert .alert-info}
 
 
 ## Bibliografía sobre syscalls
