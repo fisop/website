@@ -167,18 +167,21 @@ Implementaremos `fisopfs`, un _filesystem_ de tipo FUSE definido por el usuario.
 
 <div class="alert alert-primary" markdown="1">
 **Operaciones requeridas**
-- Es *requisito* que el sistema de archivos soporte las siguientes funcionalidades:
-  - Creación de archivos (`touch`, redirección de escritura)
-  - Creación de directorios (con `mkdir`)
-  - Lectura de directorios, incluyendo los pseudo-directorios `.` y `..` (con `ls`)
-  - Lectura de archivos (con `cat`, `more`, `less`, etc)
-  - Escritura de archivos (sobre-escritura y append con redirecciones)
-  - Acceder a las estadísticas de los archivos (con `stat`)
+- El sistema de archivos debe soportar las siguientes funcionalidades:
+  - Archivos:
+    - creación (`touch` y redirecciones `echo "hola" > archivo`)
+    - lectura (con `cat`, `more`, `less`, etc)
+    - escritura (_trunc_ `>` y _append_ `>>`)
+    - borrado (con `rm` o `unlink`)
+  - Directorios:
+    - creación (con `mkdir`)
+    - lectura, incluyendo los pseudo-directorios `.` y `..` (con `ls`)
+    - borrado (con `rmdir`, **debe** estar vacío)
+  - Estadísticas (con `stat`)
     - Incluir y mantener fecha de último acceso y última modificación
     - Asumir que todos los archivos son creados por el usuario y grupo actual (ver `getuid(2)` y `getgid(2)`)
-  - Borrado de un archivo (con `rm` o `unlink`)
-  - Borrado de un directorio (con `rmdir`)
-- La creación de directorios debe soportar al menos un nivel de recursión, es decir, directorio raíz y sub-directorio.
+- La creación/lectura/escritura de archivos debe soportar contenido **binario**.
+- La creación de directorios **debe** soportar al menos **un nivel** de recursión, es decir, directorio raíz y sub-directorio.
 </div>
 
 Para cada una de las funcionalidades pedidas, se espera que la misma se pueda corroborar montando el sistema de archivos e interactuando con el mismo a través de una terminal `bash`, de la misma forma que se haría con cualquier otro _filesystem_.
