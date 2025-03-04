@@ -79,6 +79,33 @@ Si bien la mejor alternativa es siempre correr en una distribución de Linux _na
 
 Proveemos un instructivo para configurar una máquina virtual de Ubuntu usando [Vagrant][vagrant] y [VirtualBox][virtualbox] en [esta página](vm.md).
 
+También es posible lograrlo utilizando [Docker][docker] mediante los _Dockerfiles_ que se proveen en cada lab o TP.
+
+### MacOS
+
+Para usuarios MacOS, dependiendo de su arquitectura de procesador, puede haber problemas al correr **QEMU**.
+
+Entonces, las instrucciones son:
+
+- cambiar en el archivo `dock`:
+
+```diff
+DOCKER="docker"
+- EXEC_CMD="exec"
+- BUILD_CMD="build"
+- RUN_CMD="container run"
++ EXEC_CMD="exec --platform linux/amd64"
++ BUILD_CMD=="build --platform linux/amd64"
++ RUN_CMD="container run --platform linux/amd64"
+CONTAINER_NAME="sched"
+IMAGE_NAME="fisop-sched"
+```
+
+- en la configuración de _Docker_
+  - tener **habilitada** la opción **Apple Virtualization framework**
+  - tener **deshabilitada** la opción **Use Rosetta for x86_64/amd64 emulation ...**
+
+[docker]: https://www.docker.com/
 [vagrant]: https://www.vagrantup.com/
 [virtualbox]:https://www.virtualbox.org/
 
