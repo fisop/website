@@ -518,6 +518,7 @@ La tecla BackSpace debe funcionar para borrar los caracteres de un comando de ha
     - Permitir borrar con la tecla BackSpace los caracteres de un comando de cualquier número de líneas, independientemente que la escritura del mismo haya ocasionado el desplazamiento de la pantalla, esto ocurre al continuar escribiendo tras alcanzar la posición inferior derecha de la terminal.
     - Desplazar el cursor de a un caracter con las teclas &#8592; y &#8594;, de a una palabra con Ctrl&nbsp;+&nbsp;&#8592; y Ctrl&nbsp;+&nbsp;&#8594;, al comienzo del comando con Home, y al final del mismo con End, permitiendo insertar nuevos caracteres en cualquier posición.
     - Implementar los designadores de eventos `!!` y `!-n`, ver sección _Event Designators_ en [bash(1)](https://www.man7.org/linux/man-pages/man1/bash.1.html).
+  - **Comentar**: las tareas seleccionadas en el informe
   - **Responder**: ¿Cuál es la función de los parámetros `MIN` y `TIME` del modo no canónico? ¿Qué se logra en el ejemplo dado al establecer a `MIN` en `1` y a `TIME` en `0`?
 </div>
 
