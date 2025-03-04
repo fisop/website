@@ -246,6 +246,9 @@ Con ambas tareas implementadas, la ejecución de cualquier proceso debería pode
 
 ### Parte 2: Scheduler _round robin_
 
+**Ejecutar**: `make grade USE_RR=1` para correr las pruebas
+{:.alert .alert-danger}
+
 Para poder hacer uso completo del arreglo `envs` (i.e. el PCB), y ejecutar más de un proceso a la vez; hace falta la implementación de un _scheduler_.
 
 El esqueleto tiene preparado ya todo lo necesario para el mismo, en `kern/sched.c`. La función `sched_yield` es la que se invoca cada vez que se necesita ejecutar un nuevo proceso, y es aquí donde la política de scheduling deberá ser implementada.
@@ -254,12 +257,14 @@ Notar que `sched_yield` tiene dos posibles salidas: se elige y ejecuta un proces
 
 <div class="alert alert-primary" markdown="1">
 **Tarea**
-  - Implementar la función `sched_yield` en `kern/sched.c`
-    - La política de scheduling debe ser round_robin
-  - Ejecutar las pruebas básicas con `make grade` y validar que pasan todas
+  - Agregar a JOS la política basada en _round robin_.
+  - La función es: `sched_yield` en `kern/sched.c` dentro de `#ifdef SCHED_ROUND_ROBIN`.
 </div>
 
 ### Parte 3: Scheduler con prioridades
+
+**Ejecutar**: `make grade USE_PR=1` para correr las pruebas
+{:.alert .alert-danger}
 
 La política de scheduling _round robin_ es la más sencilla y simple de implementar; y aunque es justa (le da a todos los procesos la misma proporción del CPU) puede no ser suficiente para situaciones más reales. Usualmente los procesos son distintos entre sí en cuanto a importancia y carga para el sistema.
 
@@ -267,8 +272,9 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
 
 <div class="alert alert-primary" markdown="1">
 **Tarea**
-  - Agregar a JOS un scheduler basado en prioridades. Los **requisitos** son:
-    - La política de scheduling debe ser _round robin_ o _por prioridades_ y la misma debe elegirse al llamar a `sched_yield` en tiempo de compilación (e.g. usar `#ifdef`).
+  - Agregar a JOS la política basada en _prioridades_.
+  - La función es: `sched_yield` en `kern/sched.c` dentro de `#ifdef SCHED_PRIORITIES`.
+  - Los **requisitos** son:
     - Todo proceso debe tener asociada una prioridad, asignada al momento de su creación. Esto requiere cambios en `env_create` y/o `env_alloc`.
     - Se debe incluir una syscall para obtener prioridades, y otra para modificar prioridades. Ambas syscalls deben ser _seguras_. Esto quiere decir que, no se debe permitir a un proceso _aumentar_ su prioridad pero si reducirla.
     - Se debe incluir soporte para prioridades en las syscalls relevantes. Por ejemplo, cuando un proceso llama a `fork`, se deberá configurar acordemente (y siguiendo algún criterio) las prioridades del proceso hijo.
@@ -279,7 +285,7 @@ En esta parte, se mejorará el scheduler implementado anteriormente para agregar
     - Inicio y fin de cada proceso ejecutado
   - Las estadísticas deben ser mostradas por el kernel al finalizar la ejecución de todos los procesos, durante `sched_halt`.
   - Modificar `kern/init.c`, y crear procesos de usuario para mostrar el correcto funcionamiento del scheduler con prioridades. Incluir ejemplos que muestren si un proceso puede ganar/perder prioridad.
-  - **Informe**: explicar y describir la lógica de la implementación en el _scheduler_ por prioridades.
+  - **Informe**: explicar y describir la lógica de la implementación de esta política.
 </div>
 
 [labguide]: https://pdos.csail.mit.edu/6.828/2017/labguide.html
