@@ -15,7 +15,7 @@ La cursada comprenderá tres tipos distintos de instancias evaluatorias:
   - 3 "_trabajos prácticos_" [**grupal** (de cuatro personas)]
   - 1 "_parcial_" - teórico-práctico [**individual**]
 
-### Descripción de los labs
+### Descripción de los _labs_
 {: #labs}
 
 Los _labs_ consisten en una serie de ejercicios guiados a realizar de manera
@@ -42,10 +42,10 @@ son conceptualmente correctas.
 y/o la solución no sigue _buenas prácticas de programación_.
 {:.alert .alert-warning}
 
-**DESAPROBADO**: no pasan todas las pruebas por errores _conceptuales_ en el código
+**DESAPROBADO**: no pasan todas las pruebas por errores _conceptuales_ en el código.
 {:.alert .alert-danger}
 
-### Descripción de los trabajos prácticos
+### Descripción de los _trabajos prácticos_
 {: #tps}
 
 Los _trabajos prácticos_ grupales consisten en la implementación de
@@ -55,14 +55,14 @@ Si bien las consignas también son guiadas, al tratarse de grupos de
 cuatro personas, también se dejará lugar al diseño y modularización de su solución.
 Siendo ésto una parte importante de la nota final de cada _trabajo práctico_.
 
-### Parcialitos
+### _Parcialitos_
 {: #parcialitos}
 
 Cada uno de los _trabajos prácticos_ tendrá una instancia de evaluación _individual_ asociada.
-Estas instancias se denominan "parcialitos".
+Estas instancias se denominan "_parcialitos_".
 
 Los _parcialitos_ serán evaluaciones cortas (de no más de 30/40 minutos), de carácter
-_choice_ o respuestas muy breves en prosa. Los mismos serán
+_multiple choice_ (opción múltiple) o respuestas muy breves en prosa. Los mismos serán
 durante las clases prácticas, en la semana siguiente de la entrega de los _trabajos
 prácticos_. Los temas a evaluar estarán relacionados con el trabajo de turno a
 entregar.
@@ -218,7 +218,7 @@ para computar la nota.
 
 El _lab_ admite **una** reentrega cuando esté **REGULAR**.
 Asimismo, es **obligatoria** la reentrega en caso
-de estar **DESAPROBADO**
+de estar **DESAPROBADO**.
 {:.alert .alert-danger}
 
 En casos excepcionales, el docente a cargo de las correcciones podrá indicar
