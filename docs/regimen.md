@@ -211,9 +211,8 @@ Para aprobar la cursada/materia es necesario:
 ## Instancias recuperatorias
 {: #recup}
 
-Tanto los _trabajos prácticos_ como los parcialitos **no admiten reentrega**.
-Esto quiere decir que la entrega inicial será la válida
-para computar la nota.
+Los parcialitos **no admiten reentrega**.
+Esto quiere decir que la entrega inicial será la válida para computar la nota.
 {:.alert .alert-danger}
 
 El _lab_ admite **una** reentrega cuando esté **REGULAR**.
