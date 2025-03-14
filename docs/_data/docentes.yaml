@@ -18,7 +18,7 @@ cristian:
   mail: csimonelli@fi.uba.ar
   github: csimonelli
 
-francisco-g:
+francisco:
   nombre: Francisco Xavier Gauna
   mail: fgauna@fi.uba.ar
   github: FranciscoGauna
@@ -82,3 +82,24 @@ ruben:
   nombre: Rubén Andrés Bohorquez Gutierrez
   mail: rbohorquez@fi.uba.ar
   github: Rpetey317
+
+matias:
+  nombre: Matias Kaled Dib
+  mail: mdib@fi.uba.ar
+  github: zaspeh
+
+cristian-l:
+  nombre: Cristian Leith
+  mail: cleith@fi.uba.ar
+  github: cl-fiuba
+
+claudio:
+  nombre: Hangyeol Koo (Claudio)
+  mail: hkoo@fi.uba.ar
+  github: claudekoo
+
+luca:
+  nombre: Luca Lazcano
+  mail: llazcano@fi.uba.ar
+  github: lazcanoluca
+
