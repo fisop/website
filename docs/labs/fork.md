@@ -290,7 +290,7 @@ El código debe satisfacer los siguientes puntos:
     función [`getline(3)`][getline(3)]). También, es necesario eliminar el caracter `'\n'`
     para obtener el nombre del archivo.
 
-  - Alamcenar cuanto mucho `NARGS` argumentos en un _buffer_. Es decir,
+  - Almacenar cuanto mucho `NARGS` argumentos en un _buffer_. Es decir,
     asumir que el _stream_ de datos podría ser “infinito”.
 
   - El “empaquetado” vendrá definido por un valor entero positivo disponible en
