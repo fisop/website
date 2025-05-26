@@ -22,3 +22,5 @@
     - {% include docente.html docente=docentes.cristian-l %}
     - {% include docente.html docente=docentes.claudio %}
     - {% include docente.html docente=docentes.luca %}
+    - {% include docente.html docente=docentes.lihuen %}
+    - {% include docente.html docente=docentes.paulo %}
