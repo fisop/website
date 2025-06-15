@@ -21,11 +21,11 @@ En el caso de estas últimas, se notificará por **discord/correo**.
 | 9      | 06/05/2025  07/05/2025 | Filesystem (parte 2)                   | 09/05/2025 | Continuar TP2                       |                                    |
 | 10     | 13/05/2025  14/05/2025 | Consultas (**virtual**)                | 16/05/2025 | Continuar TP2                       | Entrega **TP2** [^sched]           |
 | 11     | 20/05/2025  21/05/2025 | **PARCIAL**                            | 23/05/2025 | **Presentación TP3**: fs            | **Parcialito TP2** [^parcialito]   |
-| 12     | 27/05/2025  28/05/2025 | Máquinas virtuales / Clase final       | 30/05/2025 | Continuar TP3                       |                                    |
+| 12     | 27/05/2025  28/05/2025 |                                        | 30/05/2025 | Continuar TP3                       |                                    |
 | 13     | 03/06/2025  04/06/2025 |                                        | 06/06/2025 | Continuar TP3                       |                                    |
-| 14     | 10/06/2025  11/06/2025 | Revisión parcial                       | 13/06/2025 | Continuar TP3                       | Entrega **TP3** [^fs]              |
-| 15     | 17/06/2025  18/06/2025 | **Recuperatorio** [^recu]              | 20/06/2025 | **FERIADO**                         |                                    |
-| 16     | 24/06/2025  25/06/2025 |                                        | 27/06/2025 | Shell & Terminals                   | **Parcialito TP3** [^parcialito]   |
+| 14     | 10/06/2025  11/06/2025 | Máquinas virtuales                     | 13/06/2025 | Continuar TP3                       | Entrega **TP3** [^fs]              |
+| 15     | 17/06/2025  18/06/2025 | Shell & Terminals - **Parcialito TP3** | 20/06/2025 | **FERIADO**                         |                                    |
+| 16     | 24/06/2025  25/06/2025 | Charlas con invitados                  | 27/06/2025 | **Recuperatorio** [^recu]           |                                    |
 
 
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 30/03 inclusive
