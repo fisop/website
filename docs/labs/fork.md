@@ -420,12 +420,11 @@ especial atención en `wait(2)` y `ptrace(2)`.
 Luego de familiarizarse con la herramienta, se pide _programar_ una versión
 sencilla de `strace`. Los requisitos mínimos de tal implementación son:
 * Debe imprimir _todas_ las llamadas al sistema, junto con su valor de
-  retorno. Alcanza con indicar el número de syscall, en x86\_64 pueden usar
-[ésta tabla][syscalls-table] para encontrar el _nombre_ de la syscall. No hace falta
-imprimir los argumentos de las syscalls.
+  retorno. En x86\_64 usar [ésta tabla][syscalls-table] para imprimir
+el _nombre_ de la syscall. No hace falta imprimir los argumentos de las syscalls.
 * Debe soportar la ejecución de un único proceso, del que asumiremos no realiza
-  `fork` ni `exec`; no maneja threads ni señales especiales.
-* No es necesario que soporte flags adicionales, y el formato de salida es libre
+  `fork` ni `exec`; no maneja _threads_ ni señales especiales.
+* No es necesario que soporte _flags_ adicionales, y el formato de salida es libre
   mientras esté la información esperada.
 * Se debe incluir una breve explicación en prosa comentando cada parte del
   código.
