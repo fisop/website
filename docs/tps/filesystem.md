@@ -222,16 +222,17 @@ La primera parte, consistirá en el diseño de las estructuras que almacenarán 
 
 Si bien el sistema de archivos puede vivir enteramente en RAM durante su operación, también será necesario persistirlo a disco al desmontarlo y recuperarlo de disco al montarlo.
 
-El _filesystem_ _entero_ se representará como un único archivo en disco, con la extensión `.fisopfs`; y en el mismo se serializará toda la estructura del _filesystem_. Al montar el _filesystem_, se espera que toda esa información se lea de disco en memoria, y la operación continúe exclusivamente en memoria. Cuando el _filesystem_ se desmonte (o si ocurre una llamada explícita a `fflush`), la información debe persistirse nuevamente en disco. De esta forma, a través de múltiples ejecuciones, los datos persistirán.
+El _filesystem_ _entero_ se representará como un único archivo en disco, con la extensión `.fisopfs`; y en el mismo se serializará toda la estructura del _filesystem_. Al montarlo, se espera que toda esa información se lea de disco a memoria, y la operación continúe exclusivamente en memoria. Cuando el _filesystem_ se desmonte (o si ocurre una llamada explícita a `fflush`), la información debe persistirse nuevamente en disco. De esta forma, a través de múltiples ejecuciones, los datos persistirán.
 
 <div class="alert alert-primary" markdown="1">
 **Persistencia en disco**
-- Es *requisito* que el sistema de archivos se persista en disco
-  - En un único archivo, de extensión `.fisopfs`
-  - Al lanzar el _filesystem_, se debe especificar un nombre de archivo, si no se hace, se elige uno por defecto
-    - Esto es provisto por el esqueleto mediante la opción `--filedisk`
-  - Del archivo especificado se lee todo el _filesystem_, y se inicializan las estructuras acordemente (esto ocurre en la función [`init`][init])
-  - Si ocurre un `flush` o cuando el sistema de archivos se desmonta (esto ocurre en la función [`destroy`][destroy]), la data debe persistirse en el archivo nuevamente
+- El _filesystem_ se persiste en disco, en un único archivo, de extensión `.fisopfs`
+- Al lanzar el _filesystem_, se debe especificar un nombre de archivo, si no se hace, se elige uno por defecto
+  - Esto es provisto por el esqueleto mediante la opción `--filedisk`
+- Del archivo especificado se lee todo el _filesystem_, y se inicializan las estructuras acordemente (esto ocurre en la función [`init`][init])
+- Si ocurre un `flush` o cuando el sistema de archivos se desmonta (esto ocurre en la función [`destroy`][destroy]), la data debe persistirse en el archivo nuevamente
+- Soporta ejecución en _background_ (cuando no se especifica `-f`), en particular:
+  - maneja el _path_ absoluto para el archivo de persistencia
 </div>
 
 [init]: http://libfuse.github.io/doxygen/structfuse__operations.html#a0ad1f7c4105ee062528c767da88060f0
