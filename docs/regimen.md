@@ -245,7 +245,7 @@ fechas dedicadas para tal fin (sobre el final del cuatrimestre).
 **IMPORTANTE**: avisar de su implementación a la casilla [fisop-doc@googlegroups.com][doc]. El _asunto_ del mail debería ser: **Entrega challenge: [nombre del challenge]**.
 {:.alert .alert-danger}
 
-**REQUERIDO**: realizar la implementación en una rama separada del _lab_ o _trabajo práctico_.
+**REQUERIDO**: realizar la implementación en una **rama separada** del _lab_ o _trabajo práctico_.
 {:.alert .alert-warning}
 
 La idea de estos ejercicios opcionales es que sirvan para
