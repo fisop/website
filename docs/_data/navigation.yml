@@ -1,8 +1,8 @@
 - Teoría:
   Clases: /clases/
 
-#- Labs:
-#  fork: /labs/fork/
+- Labs:
+  fork: /labs/fork/
 
 #- TPs:
 #  shell: /tps/shell/
