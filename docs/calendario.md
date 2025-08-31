@@ -29,7 +29,7 @@ En el caso de estas últimas, se notificará por **discord/correo**.
 
 
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 07/09 inclusive
-[^shell]: **TP1** - la fecha de entrega es hasta el domingo 25/09 inclusive
+[^shell]: **TP1** - la fecha de entrega es hasta el domingo 28/09 inclusive
 [^sched]: **TP2** - la fecha de entrega es hasta el domingo 26/10 inclusive
 [^fs]: **TP3** - la fecha de entrega es hasta el domingo 23/11 inclusive
 [^parcialito]: **parcialitos** - serán siempre en el horario de la práctica (al comienzo)
