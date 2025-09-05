@@ -301,9 +301,9 @@ Es altamente recomendable pensar y escribir las pruebas incluso antes de arranca
 
 
 ## Desafíos
-{: #Desafíos}
+{: #challenges}
 
-Las tareas listadas aquí no son obligatorias, pero suman para el régimen de [final alternativo](../regimen.md#final).
+Las tareas listadas aquí no son obligatorias, y refieren a [los challenges](../regimen.md#challenges).
 {:.alert .alert-warning}
 
 ### Implementación de más operaciones para `fisopfs`
