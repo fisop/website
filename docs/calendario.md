@@ -17,7 +17,7 @@ En el caso de estas últimas, se notificará por **discord/correo**.
 | 5      | 16/09/2025  17/09/2025 | Scheduling (parte 2)         | 19/09/2025 | Continuar TP1                                  |                                    |
 | 6      | 23/09/2025  24/09/2025 | Memoria (parte 1)            | 26/09/2025 | Continuar TP1 **Parcialito TP1** [^parcialito] | Entrega **TP1** [^shell]           |
 | 7      | 30/09/2025  01/10/2025 | Memoria (parte 2) - Locks    | 03/10/2025 | **Presentación TP2**: sched                    |                                    |
-| 8      | 07/10/2025  08/10/2025 | Filesystem (parte 1)         | 10/10/2025 | Continuar TP2                                  |                                    |
+| 8      | 07/10/2025  08/10/2025 | Filesystem (parte 1)         | 10/10/2025 | **FERIADO**                                    |                                    |
 | 9      | 14/10/2025  15/10/2025 | Filesystem (parte 2)         | 17/10/2025 | Continuar TP2                                  |                                    |
 | 10     | 21/10/2025  22/10/2025 | Consultas (**virtual**)      | 24/10/2025 | Continuar TP2 **Parcialito TP2** [^parcialito] | Entrega **TP2** [^sched]           |
 | 11     | 28/10/2025  29/10/2025 | **PARCIAL**                  | 31/10/2025 | **Presentación TP3**: fs                       |                                    |
