@@ -24,8 +24,8 @@ En el caso de estas últimas, se notificará por **discord/correo**.
 | 12     | 04/11/2025  05/11/2025 | Máquinas virtuales           | 07/11/2025 | Continuar TP3                                  |                                    |
 | 13     | 11/11/2025  12/11/2025 |                              | 14/11/2025 | Continuar TP3                                  |                                    |
 | 14     | 18/11/2025  19/11/2025 | Revisión parcial             | 21/11/2025 | **FERIADO**                                    | Entrega **TP3** [^fs]              |
-| 15     | 25/11/2025  26/11/2025 | **Recuperatorio** [^recu]    | 28/11/2025 | **Parcialito TP3** [^parcialito]               |                                    |
-| 16     | 02/12/2025  03/12/2025 |                              | 05/12/2025 | Shell & Terminales                             |                                    |
+| 15     | 25/11/2025  26/11/2025 |                              | 28/11/2025 | **Recuperatorio** [^recu]                      |                                    |
+| 16     | 02/12/2025  03/12/2025 |                              | 05/12/2025 | **Parcialito TP3** [^parcialito] Terminals     |                                    |
 
 
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 07/09 inclusive
