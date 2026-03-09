@@ -3,20 +3,10 @@ mariano:
   mail: marianomendez@fi.uba.ar
   github: mendezmariano
 
-juan:
-  nombre: Juan Manuel Fresia
-  mail: jfresia@fi.uba.ar
-  github: juanfresia
-
 patricio:
   nombre: Patricio Iribarne Catella
   mail: piribarnec@fi.uba.ar
   github: PatricioIribarneCatella
-
-cristian:
-  nombre: Cristian Simonelli
-  mail: csimonelli@fi.uba.ar
-  github: csimonelli
 
 francisco:
   nombre: Francisco Xavier Gauna
@@ -33,70 +23,20 @@ emmanuel:
   mail: eespina@fi.uba.ar
   github: espinaemmanuel
 
-brayan:
-  nombre: Brayan Alexander Ricaldi Rebata
-  mail: bricaldi@fi.uba.ar
-  github: Brayan-Ric
-
-gianni:
-  nombre: Gianni Antonio Boccazzi
-  mail: gboccazzi@fi.uba.ar
-  github: gianniboccazzi
-
-mariana:
-  nombre: Mariana Galdo Martinez
-  mail: mgaldo@fi.uba.ar
-  github: marg30
-
 paolo:
   nombre: Paolo Belforte
   mail: pbelforte@fi.uba.ar
   github: belfortep
-
-matias:
-  nombre: Matías Marcó del Pont
-  mail: mmarco@fi.uba.ar
-  github: MatiasMdelP
-
-alfonso:
-  nombre: Alfonso Campondónico
-  mail: alfonso@fi.uba.ar
-  github: AlfonsoCampodonico
-
-nicolas:
-  nombre: Nicolás Zulaica
-  mail: nzulaica@fi.uba.ar
-  github: n-zu
-
-manuel:
-  nombre: Manuel Diaz
-  mail: jumdiaz@fi.uba.ar
-  github: Diaz-Manuel
-
-cindy:
-  nombre: Cindy Teresa Hsieh
-  mail: chsieh@fi.uba.ar
-  github: cindy1404hsieh
 
 ruben:
   nombre: Rubén Andrés Bohorquez Gutierrez
   mail: rbohorquez@fi.uba.ar
   github: Rpetey317
 
-matias:
-  nombre: Matias Kaled Dib
-  mail: mdib@fi.uba.ar
-  github: zaspeh
-
 cristian-l:
   nombre: Cristian Leith
   mail: cleith@fi.uba.ar
   github: cl-fiuba
-
-claudio:
-  nombre: Hangyeol Koo (Claudio)
-  mail: hkoo@fi.uba.ar
-  github: claudekoo
 
 luca:
   nombre: Luca Lazcano
@@ -127,4 +67,19 @@ marcela:
   nombre: Marcela Jazmin Cruz
   mail: mjcruz@fi.uba.ar
   github: cruzmarcela02
+
+emma:
+  nombre: Emma Castarés
+  mail: ecastares@fi.uba.ar
+  github: EmCasta
+
+camila:
+  nombre: Camila General
+  mail: cgeneral@fi.uba.ar
+  github: camigeneral
+
+joel:
+  nombre: Jeol Pita
+  mail: jpita@fi.uba.ar
+  github: SolomilloBugueado
 
