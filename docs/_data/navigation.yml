@@ -1,8 +1,8 @@
 - Teoría:
   Clases: /clases/
 
-#- Labs:
-#  fork: /labs/fork/
+- Labs:
+  fork: /labs/fork/
 
 #- TPs:
 #  shell: /tps/shell/
@@ -10,8 +10,8 @@
 #  filesystem: /tps/filesystem
 
 - Enlaces:
-#  Calendario: /calendario/
-#  Régimen: /regimen/
+  Calendario: /calendario/
+  Régimen: /regimen/
   Entregas: /entregas/
   Bibliografía: /bibliografia/
   Software: /kit/

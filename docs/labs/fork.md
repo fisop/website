@@ -97,7 +97,9 @@ Simplemente alcanza con ejecutar `make`.
 ### Pruebas
 {: #tests}
 
-Alcanza con ejecutar `make test`.
+Alcanza con ejecutar `make test` (con **Docker**)
+
+También, pueden ejecutar `make test-native` para correrlo directamente en su OS nativo.
 
 
 ## Introducción: pingpong
@@ -210,6 +212,11 @@ El código debe crear una estructura de procesos similar a la mostrada en la ima
   - **No** se debe realizar ninguna clase de optimización que simplifique
     el algoritmo.
 
+  - Se debe utilizar **recursividad** para modelar la lógica de filtros.
+    **NO** se aceptaran soluciones _iterativas_.
+
+  - Debe compilar **sin** _warnings_.
+
 Ejemplo de uso:
 
 ```bash
@@ -291,7 +298,7 @@ El código debe satisfacer los siguientes puntos:
     para obtener el nombre del archivo.
 
   - Almacenar cuanto mucho `NARGS` argumentos en un _buffer_. Es decir,
-    asumir que el _stream_ de datos podría ser “infinito”.
+    asumir que el _stream_ de datos podría ser **“infinito”**.
 
   - El “empaquetado” vendrá definido por un valor entero positivo disponible en
     la macro `NARGS` (disponible en esqueleto). [^NARGS]
@@ -300,6 +307,12 @@ El código debe satisfacer los siguientes puntos:
     ejecución, que pueden ser menos).
 
   - Se debe esperar **siempre** a que termine la ejecución del comando actual.
+
+  - **NO** se deben utilizar `pipes` ni soluciones _recursivas_
+
+  - Debe correr **sin** pérdidas de memoria (_mem leaks_ de `valgrind(1)`).
+
+  - Debe compilar **sin** _warnings_.
 
 Ejemplo de uso:
 

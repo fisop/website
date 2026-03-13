@@ -28,8 +28,8 @@ prácticos, de manera que los integrantes de cada grupo hayan cubierto una
 cantidad de material y conocimientos previos similar.
 
 Por su carácter formativo, se recomienda leer mucho, dedicarles tiempo, y
-preguntar en clase y en la [lista](../contacto)/_Discord_ tanto como sea
-necesario, hasta aclarar cualquier duda posible.
+preguntar en clase y en _Discord_ tanto como sea necesario,
+hasta aclarar cualquier duda posible.
 
 Los **estados** posibles para un _lab_ corregido son:
 
@@ -42,7 +42,7 @@ son conceptualmente correctas.
 y/o la solución no sigue _buenas prácticas de programación_.
 {:.alert .alert-warning}
 
-**DESAPROBADO**: no pasan todas las pruebas por errores _conceptuales_ en el código
+**DESAPROBADO**: no pasan las pruebas y/o la solución tiene errores conceptuales.
 {:.alert .alert-danger}
 
 ### Descripción de los trabajos prácticos
@@ -54,6 +54,13 @@ funcionalidad relacionada con un componente importante de un sistema operativo.
 Si bien las consignas también son guiadas, al tratarse de grupos de
 cuatro personas, también se dejará lugar al diseño y modularización de su solución.
 Siendo ésto una parte importante de la nota final de cada _trabajo práctico_.
+
+Asimismo, se revisará con suma atención el **informe** (las respuestas a preguntas, etc)
+ya que la confección de una buen documento técnico es parte fudamental de la carrera.
+
+Finalmente, se revisarán los _commits_ asegurando que la participación
+de cada integrante sea equitativa. Pudiendo organizar encuentros de evaluación
+con integrantes cuyo porcentaje sea muy distinto al resto del equipo.
 
 ### Parcialitos
 {: #parcialitos}
@@ -202,11 +209,10 @@ nota_cursada_final => 7
 
 Para aprobar la cursada/materia es necesario:
 
-  - Aprobar el parcial, en primera instancia o en recuperatorio
+  - Aprobar el parcial
   - Aprobar el _lab_ y todos los _trabajos prácticos_
   - El _lab_ **debe** estar en los estados `APROBADO` o `REGULAR`,
     **nunca** en `DESAPROBADO`
-  - Cumplir con el 75% de asistencia a las clases teóricas
 
 ## Instancias recuperatorias
 {: #recup}
@@ -215,9 +221,7 @@ Los parcialitos **no admiten reentrega**.
 Esto quiere decir que la entrega inicial será la válida para computar la nota.
 {:.alert .alert-danger}
 
-El _lab_ admite **una** reentrega cuando esté **REGULAR**.
-Asimismo, es **obligatoria** la reentrega en caso
-de estar **DESAPROBADO**
+El _lab_ requiere **una** reentrega cuando esté **DESAPROBADO**.
 {:.alert .alert-danger}
 
 En casos excepcionales, el docente a cargo de las correcciones podrá indicar
@@ -251,8 +255,9 @@ fechas dedicadas para tal fin (sobre el final del cuatrimestre).
 La idea de estos ejercicios opcionales es que sirvan para
 mejorar la nota final de aquellos que así lo deseen.
 
-Cada desafío entregado (y _aprobado_) sumará **1 punto**
-a la nota final de la cursada.
+Cada desafío entregado (y _aprobado_) se computará de la siguiente forma:
+- los desafíos del _lab_: **1 punto** como máximo sobre la nota final
+- los desafíos del los _tps_: **1 punto** sobre el TP correspondiente
 
 Tanto en el _lab_ como en los _trabajos prácticos_ habrá ejercicios marcados como
 opcionales. Están para explorar con más profundidad algunos temas y representan un
