@@ -12,7 +12,6 @@
     - {% include docente.html docente=docentes.patricio %}
     - {% include docente.html docente=docentes.francisco %}
     - {% include docente.html docente=docentes.mario %}
-    - {% include docente.html docente=docentes.paolo %}
     - {% include docente.html docente=docentes.ruben %}
     - {% include docente.html docente=docentes.cristian-l %}
     - {% include docente.html docente=docentes.luca %}
