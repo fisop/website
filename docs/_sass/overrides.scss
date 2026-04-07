@@ -232,6 +232,23 @@ span.far-circle:before {
   color: inherit;
 }
 
+.theme-toggle {
+  border: none;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 0.4rem 0.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.theme-toggle:focus {
+  outline: none;
+}
+
 body.dark-mode {
   background-color: #121212;
   color: #e5e5e5;
@@ -346,8 +363,7 @@ body.dark-mode {
     border-left-color: #4a4a4a;
   }
 
-  #theme-toggle {
-    border-color: #7a7a7a;
+  .theme-toggle {
     color: #e5e5e5;
   }
 }
