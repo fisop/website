@@ -7,6 +7,28 @@
         integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 
 <script>
+  const themeStorageKey = "fisos-theme";
+  const prefersDarkScheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const storedTheme = localStorage.getItem(themeStorageKey);
+
+  function setTheme(theme) {
+    const isDark = theme === "dark";
+    $("body").toggleClass("dark-mode", isDark);
+    document.documentElement.classList.toggle("dark-mode-preload", isDark);
+    const icon = $("#theme-toggle-icon");
+    icon.toggleClass("fa-sun", isDark);
+    icon.toggleClass("fa-moon", !isDark);
+  }
+
+  setTheme(storedTheme || (prefersDarkScheme ? "dark" : "light"));
+
+  $("#theme-toggle").on("click", function () {
+    const isDarkMode = $("body").hasClass("dark-mode");
+    const nextTheme = isDarkMode ? "light" : "dark";
+    localStorage.setItem(themeStorageKey, nextTheme);
+    setTheme(nextTheme);
+  });
+
   // Copiar la tabla de contenidos de Kramdown al sidebar. Tras hacer esto,
   // añadimos la clase d-md-none a la tabla antigua, para que no se muestre
   // duplicada en las pantallas donde la sidebar es visible.
