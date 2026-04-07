@@ -321,11 +321,27 @@ body.dark-mode {
 
   pre,
   pre code,
+  :not(pre) > code,
   code.highlighter-rouge,
   .highlighter-rouge,
   .highlight,
   .highlight pre {
     color: #eaeaea !important;
+  }
+
+  :not(pre) > code {
+    color: #9ecbff !important;
+    background-color: inherit !important;
+    border: none;
+    padding: 0;
+  }
+
+  // Only inline code inside alerts (e.g. `make format`, `README.md`).
+  .alert code,
+  .alert code.highlighter-rouge {
+    color: #4a0f16 !important;
+    background-color: transparent !important;
+    font-weight: 600;
   }
 
   // Force readable syntax tokens in dark mode.
