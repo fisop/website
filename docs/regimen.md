@@ -221,7 +221,7 @@ Los parcialitos **no admiten reentrega**.
 Esto quiere decir que la entrega inicial será la válida para computar la nota.
 {:.alert .alert-danger}
 
-El _lab_ requiere **una** reentrega cuando esté **DESAPROBADO**.
+El _lab_ requiere **una** reentrega cuando esté **DESAPROBADO**. Asimismo, **no admite** reentrega cuando esté **REGULAR**.
 {:.alert .alert-danger}
 
 En casos excepcionales, el docente a cargo de las correcciones podrá indicar
