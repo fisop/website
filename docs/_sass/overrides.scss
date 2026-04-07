@@ -302,6 +302,46 @@ body.dark-mode {
     background-color: #1f1f1f;
   }
 
+  pre,
+  pre code,
+  code.highlighter-rouge,
+  .highlighter-rouge,
+  .highlight,
+  .highlight pre {
+    color: #eaeaea !important;
+  }
+
+  // Force readable syntax tokens in dark mode.
+  .highlight .c,
+  .highlight .cm,
+  .highlight .c1,
+  .highlight .cs,
+  .highlight .k,
+  .highlight .kc,
+  .highlight .kd,
+  .highlight .kn,
+  .highlight .kp,
+  .highlight .kr,
+  .highlight .kt,
+  .highlight .m,
+  .highlight .s,
+  .highlight .na,
+  .highlight .nb,
+  .highlight .nc,
+  .highlight .nd,
+  .highlight .ne,
+  .highlight .nf,
+  .highlight .nl,
+  .highlight .nn,
+  .highlight .no,
+  .highlight .nt,
+  .highlight .nv,
+  .highlight .o,
+  .highlight .ow,
+  .highlight .p {
+    color: #eaeaea !important;
+  }
+
   blockquote {
     border-left-color: #4a4a4a;
   }
