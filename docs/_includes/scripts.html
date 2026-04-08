@@ -11,6 +11,20 @@
   .alert.alert-info a:hover {
     color: #052a32 !important;
   }
+
+  /* Modo noche: resto de enlaces (cuerpo, índice lateral) — azul más oscuro que Bootstrap/FA */
+  body.dark-mode main a,
+  body.dark-mode main a:link,
+  body.dark-mode main a:visited,
+  body.dark-mode #sidetoc a,
+  body.dark-mode #sidetoc a:link,
+  body.dark-mode #sidetoc a:visited {
+    color: #1f5f8f !important;
+  }
+  body.dark-mode main a:hover,
+  body.dark-mode #sidetoc a:hover {
+    color: #2d7ab8 !important;
+  }
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
