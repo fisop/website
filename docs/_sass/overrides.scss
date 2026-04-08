@@ -279,8 +279,35 @@ body.dark-mode {
     border-color: #3a3a3a;
   }
 
-  a, a:visited, a:hover {
-    color: #7fb5ff;
+  a, a:visited {
+    color: #3d7ab8;
+  }
+
+  a:hover {
+    color: #4d8fd4;
+  }
+
+  // .alert-info: ver <style> en _includes/scripts.html (al pie, gana en cascada).
+
+  .alert.alert-primary a,
+  .alert.alert-primary a:visited,
+  .alert.alert-primary a.alert-link,
+  .alert.alert-primary a.alert-link:visited {
+    color: #002752 !important;
+  }
+
+  .alert.alert-primary a:hover,
+  .alert.alert-primary a.alert-link:hover {
+    color: #003875 !important;
+  }
+
+  #sidetoc a,
+  #sidetoc a:visited {
+    color: #2a5580;
+  }
+
+  #sidetoc a:hover {
+    color: #3d7ab8;
   }
 
   h2, h3 {
