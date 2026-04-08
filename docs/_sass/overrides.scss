@@ -94,6 +94,14 @@ a > .fa, a > .fab, a > .far, a > .fas {
   color: initial;
 }
 
+a.docente-icon-link > .docente-contact-icon {
+  color: #8a8a8a !important;
+}
+
+a.docente-icon-link:hover > .docente-contact-icon {
+  color: #5c5c5c !important;
+}
+
 
 //
 // Headers
@@ -419,6 +427,15 @@ body.dark-mode {
 
   .theme-toggle {
     color: #e5e5e5;
+  }
+
+  a.docente-icon-link > .docente-contact-icon {
+    color: #c4c4c4 !important;
+    opacity: 1 !important;
+  }
+
+  a.docente-icon-link:hover > .docente-contact-icon {
+    color: #e8e8e8 !important;
   }
 }
 

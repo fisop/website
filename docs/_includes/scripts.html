@@ -25,6 +25,15 @@
   body.dark-mode #sidetoc a:hover {
     color: #2d7ab8 !important;
   }
+
+  /* Íconos docentes (FA): color claro opaco; gana sobre main a + color:initial de .fab/.fas */
+  body.dark-mode main a.docente-icon-link > .docente-contact-icon {
+    color: #c4c4c4 !important;
+    opacity: 1 !important;
+  }
+  body.dark-mode main a.docente-icon-link:hover > .docente-contact-icon {
+    color: #e8e8e8 !important;
+  }
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
