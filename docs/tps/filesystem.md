@@ -17,8 +17,6 @@ En este trabajo implementaremos nuestro propio sistema de archivos (o _filesyste
 
 La implementación del _filesystem_ será enteramente en memoria: tanto archivos como directorios serán representados mediante estructuras que vivirán en memoria RAM. Por esta razón, buscamos un sistema de archivos que apunte a la velocidad de acceso, y no al volumen de datos o a la persistencia (algo similar a [`tmpfs`][tmpfs]). Aún así, los datos de nuestro _filesystem_ **estarán** representados _en disco_ por un archivo.
 
-[fuse-wiki]: https://en.wikipedia.org/wiki/Filesystem_in_Userspace
-[fuse-linux]: https://www.kernel.org/doc/html/latest/filesystems/fuse.html
 [tmpfs]: https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html
 
 **AVISO**: las diapositivas están en [fs](https://docs.google.com/presentation/d/1H3v4Zb87Z7n-_T5rYlZm0az4q1Dp34GohtX9q7Ru5bE?usp=sharing)
@@ -31,8 +29,6 @@ FUSE está compuesto de varios componentes, los principales son:
 - una librería de usuario que se utiliza como framework
 
 Para realizar este trabajo se necesitará un sistema operativo que cuente con el kernel Linux, y que disponga de las [librerías de FUSE][libfuse] versión 2.
-
-[libfuse]: https://github.com/libfuse/libfuse
 
 Pueden instalarse todas las dependencias con el siguiente comando:
 ```
@@ -78,7 +74,6 @@ $ sudo umount prueba
 
 La compilación y ejecución de un cliente FUSE es algo distinta. El esqueleto ya está preparado (en el `Makefile`) para compilar incluyendo los flags de compilación necesarios, pero **se recomienda leer [este artículo][cs135-fuse]** antes de arrancar, y antes de introducir modificaciones en el `Makefile`. En particular, se utiliza la utilidad `pkg-config` para obtener los flags de compilación adecuados.
 
-[cs135-fuse]: https://www.cs.hmc.edu/~geoff/classes/hmc.cs135.201109/homework/fuse/fuse_doc.html#compiling
 
 En el artículo también podrán encontrar una explicación sobre cómo utilizar la librería de FUSE e implementar sus propias funciones. En el caso del esqueleto, únicamente están implementadas 3 primitivas del sistema de archivos: `getattr`, `readdir` y `read`.
 
@@ -224,11 +219,14 @@ Si bien el sistema de archivos puede vivir enteramente en RAM durante su operaci
 
 El _filesystem_ _entero_ se representará como un único archivo en disco, con la extensión `.fisopfs`; y en el mismo se serializará toda la estructura del _filesystem_. Al montarlo, se espera que toda esa información se lea de disco a memoria, y la operación continúe exclusivamente en memoria. Cuando el _filesystem_ se desmonte (o si ocurre una llamada explícita a `fflush`), la información debe persistirse nuevamente en disco. De esta forma, a través de múltiples ejecuciones, los datos persistirán.
 
+Al lanzar el _filesystem_, se puede especificar un nombre de archivo. Si no se hace, se coloca uno por defecto `persistence_file.fisopfs`. Ésto es provisto por el _esqueleto_ mediante la opción `--filedisk`.
+
+**NO** se debe modificar la sección de código que parsea dicha opción.
+{:.alert .alert-danger}
+
 <div class="alert alert-primary" markdown="1">
 **Persistencia en disco**
 - El _filesystem_ se persiste en disco, en un único archivo, de extensión `.fisopfs`
-- Al lanzar el _filesystem_, se debe especificar un nombre de archivo, si no se hace, se elige uno por defecto
-  - Esto es provisto por el esqueleto mediante la opción `--filedisk`
 - Del archivo especificado se lee todo el _filesystem_, y se inicializan las estructuras acordemente (esto ocurre en la función [`init`][init])
 - Si ocurre un `flush` o cuando el sistema de archivos se desmonta (esto ocurre en la función [`destroy`][destroy]), la data debe persistirse en el archivo nuevamente
 - Soporta ejecución en _background_ (cuando no se especifica `-f`), en particular:
@@ -308,11 +306,11 @@ Las tareas listadas aquí no son obligatorias, y refieren a [los challenges](../
 
 ### Implementación de más operaciones para `fisopfs`
 
-Más allá de los requisitos obligatorios, los grupos podrán optar por implementar _al menos_ dos de las siguientes funcionalidades adicionales.
-* Soporte para enlaces simbólicos
+Más allá de los requisitos obligatorios, los grupos podrán optar por implementar _al menos_ **dos** de las siguientes funcionalidades adicionales.
+* Soporte para _soft links_
   * Debe implementarse la operación `symlink`
   * Deben incluirse pruebas utilizando `ln -s`
-* Soporte para hard links
+* Soporte para _hard links_
   * Debe implementarse la operación `link`
   * Deben incluirse pruebas utilizado `ln`
   * Notar que ahora el borrado _real_ de un archivo solo debe ocurrir si no quedan más _hard links_ asociados al mismo.
@@ -321,20 +319,30 @@ Más allá de los requisitos obligatorios, los grupos podrán optar por implemen
   * Se debe implementar una cota máxima a los niveles de directorios y a la longitud del _path_
 * Agregar validaciones de permisos
   * Comprobar si el usuario que accede tiene permisos para leer el archivo/directorio
-  * Implementar las operaciones `chown` y `chmod` para modificar permisos y ownership de un archivo/directorio
+  * Implementar las operaciones `chown` y `chmod` para modificar permisos y _ownership_ de un archivo/directorio
 
 En cualquier caso, las operaciones elegidas deben implementarse incluyendo pruebas de la misma forma que para el resto de las funcionalidades.
 
 
 ## Bibliografía útil
 
-A continuación se presentan algunos enlaces y bibliografía útiles como referencia.
+Además de los enlaces mencionados a lo largo de esta consigna, a saber:
+  - [FUSE wiki][fuse-wiki]
+  - [FUSE linux][fuse-linux]
+  - [libfuse][libfuse]
+  - [Artículo FUSE][cs135-fuse]
+
+Se presentan los siguientes capítulos como referencia:
   - OSTEP, capítulo 39: [_Interlude: Files and Directories_][ostep-cap39] (PDF)
   - OSTEP, capítulo 40: [_File System Implementation_][ostep-cap40] (PDF)
   - The Linux Programming Interface, capítulo 14: _File systems_
 
 [ostep-cap39]: https://pages.cs.wisc.edu/~remzi/OSTEP/file-intro.pdf
 [ostep-cap40]: https://pages.cs.wisc.edu/~remzi/OSTEP/file-implementation.pdf
+[fuse-wiki]: https://en.wikipedia.org/wiki/Filesystem_in_Userspace
+[fuse-linux]: https://www.kernel.org/doc/html/latest/filesystems/fuse.html
+[libfuse]: https://github.com/libfuse/libfuse
+[cs135-fuse]: https://www.cs.hmc.edu/~geoff/classes/hmc.cs135.201109/homework/fuse/fuse_doc.html
 
 {% include anchors.html %}
 {% include footnotes.html %}
