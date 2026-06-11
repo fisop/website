@@ -24,8 +24,8 @@ En el caso de estas últimas, se notificará por **discord/correo**.
 | 12     | 26/05/2026  27/05/2026 | Máquinas virtuales           | 29/05/2026 | Continuar TP3                                  |                                    |
 | 13     | 02/06/2026  03/06/2026 |                              | 05/06/2026 | Continuar TP3                                  |                                    |
 | 14     | 09/06/2026  10/06/2026 | Revisión parcial             | 12/06/2026 | Continuar TP3                                  | Entrega **TP3** [^fs]              |
-| 15     | 16/06/2026  17/06/2026 | **Recuperatorio** [^recu]    | 19/06/2026 | Terminals - **Parcialito TP3** [^parcialito]   |                                    |
-| 16     | 23/06/2026  24/06/2026 |                              | 26/06/2026 |                                                |                                    |
+| 15     | 16/06/2026  17/06/2026 |                              | 19/06/2026 | **Recuperatorio** [^recu]                      |                                    |
+| 16     | 23/06/2026  24/06/2026 |                              | 26/06/2026 | Terminals - **Parcialito TP3** [^parcialito]   |                                    |
 
 
 [^fork]: **fork** - la fecha de entrega es hasta el domingo 29/03 inclusive
@@ -34,4 +34,3 @@ En el caso de estas últimas, se notificará por **discord/correo**.
 [^fs]: **TP3** - la fecha de entrega es hasta el domingo 14/06 inclusive
 [^parcialito]: **parcialitos** - serán siempre en el horario de la práctica (al comienzo)
 [^recu]: **recuperatorio** - el segundo recuperatorio será probablemente en la primera fecha de final
-
