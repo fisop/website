@@ -1,5 +1,41 @@
 <!-- Bootstrap 4 includes. -->
 
+<style>
+  /* Al final del documento: gana a Bootstrap/FA; enlaces legibles en alert-info (p. ej. “shell”). */
+  .alert.alert-info a,
+  .alert.alert-info a:link,
+  .alert.alert-info a:visited {
+    color: #021418 !important;
+    font-weight: 600;
+  }
+  .alert.alert-info a:hover {
+    color: #052a32 !important;
+  }
+
+  /* Modo noche: resto de enlaces (cuerpo, índice lateral) — azul más oscuro que Bootstrap/FA */
+  body.dark-mode main a,
+  body.dark-mode main a:link,
+  body.dark-mode main a:visited,
+  body.dark-mode #sidetoc a,
+  body.dark-mode #sidetoc a:link,
+  body.dark-mode #sidetoc a:visited {
+    color: #1f5f8f !important;
+  }
+  body.dark-mode main a:hover,
+  body.dark-mode #sidetoc a:hover {
+    color: #2d7ab8 !important;
+  }
+
+  /* Íconos docentes (FA): color claro opaco; gana sobre main a + color:initial de .fab/.fas */
+  body.dark-mode main a.docente-icon-link > .docente-contact-icon {
+    color: #c4c4c4 !important;
+    opacity: 1 !important;
+  }
+  body.dark-mode main a.docente-icon-link:hover > .docente-contact-icon {
+    color: #e8e8e8 !important;
+  }
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 
@@ -7,6 +43,28 @@
         integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 
 <script>
+  const themeStorageKey = "fisos-theme";
+  const prefersDarkScheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const storedTheme = localStorage.getItem(themeStorageKey);
+
+  function setTheme(theme) {
+    const isDark = theme === "dark";
+    $("body").toggleClass("dark-mode", isDark);
+    document.documentElement.classList.toggle("dark-mode-preload", isDark);
+    const icon = $("#theme-toggle-icon");
+    icon.toggleClass("fa-adjust", isDark);
+    icon.toggleClass("fa-moon", !isDark);
+  }
+
+  setTheme(storedTheme || (prefersDarkScheme ? "dark" : "light"));
+
+  $("#theme-toggle").on("click", function () {
+    const isDarkMode = $("body").hasClass("dark-mode");
+    const nextTheme = isDarkMode ? "light" : "dark";
+    localStorage.setItem(themeStorageKey, nextTheme);
+    setTheme(nextTheme);
+  });
+
   // Copiar la tabla de contenidos de Kramdown al sidebar. Tras hacer esto,
   // añadimos la clase d-md-none a la tabla antigua, para que no se muestre
   // duplicada en las pantallas donde la sidebar es visible.

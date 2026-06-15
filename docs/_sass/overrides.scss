@@ -62,6 +62,13 @@ li {
   }
 }
 
+.navbar-light .navbar-brand .navbar-home-icon {
+  color: $brand-color;
+  display: inline-flex;
+  vertical-align: middle;
+  line-height: 0;
+}
+
 
 //
 //
@@ -85,6 +92,14 @@ abbr[title] {
 
 a > .fa, a > .fab, a > .far, a > .fas {
   color: initial;
+}
+
+a.docente-icon-link > .docente-contact-icon {
+  color: #8a8a8a !important;
+}
+
+a.docente-icon-link:hover > .docente-contact-icon {
+  color: #5c5c5c !important;
 }
 
 
@@ -226,4 +241,205 @@ code.wrap {
 // one does (used in entregas.md).
 span.far-circle:before {
   content: '\f111';
+}
+
+#theme-toggle-icon {
+  color: inherit;
+}
+
+.theme-toggle {
+  border: none;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 0.4rem 0.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.theme-toggle:focus {
+  outline: none;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e5e5e5;
+
+  .site-header {
+    border-top-color: #2f2f2f;
+    border-bottom-color: #2f2f2f;
+  }
+
+  .navbar.bg-light {
+    background-color: #1d1d1d !important;
+  }
+
+  .navbar-light .navbar-brand,
+  .navbar-light .navbar-nav .nav-link,
+  .navbar-light .navbar-nav .dropdown-item {
+    color: #e5e5e5;
+  }
+
+  .navbar-light .navbar-brand .navbar-home-icon {
+    color: #7ec8ff;
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .dropdown-item:hover {
+    background-color: #2d2d2d;
+    color: #ffffff;
+  }
+
+  .dropdown-menu {
+    background-color: #1d1d1d;
+    border-color: #3a3a3a;
+  }
+
+  a, a:visited {
+    color: #1f5f8f;
+  }
+
+  a:hover {
+    color: #2d7ab8;
+  }
+
+  // .alert-info: ver <style> en _includes/scripts.html (al pie, gana en cascada).
+
+  .alert.alert-primary a,
+  .alert.alert-primary a:visited,
+  .alert.alert-primary a.alert-link,
+  .alert.alert-primary a.alert-link:visited {
+    color: #002752 !important;
+  }
+
+  .alert.alert-primary a:hover,
+  .alert.alert-primary a.alert-link:hover {
+    color: #003875 !important;
+  }
+
+  #sidetoc a,
+  #sidetoc a:visited {
+    color: #1f5f8f;
+  }
+
+  #sidetoc a:hover {
+    color: #2d7ab8;
+  }
+
+  h2, h3 {
+    border-bottom-color: #454545;
+  }
+
+  table {
+    color: #dedede;
+    border-color: #3f3f3f;
+
+    tr:nth-child(even) {
+      background-color: #1f1f1f;
+    }
+
+    th {
+      background-color: #2a2a2a;
+      border-color: #3f3f3f;
+    }
+
+    td {
+      border-color: #3f3f3f;
+    }
+  }
+
+  thead tr {
+    border-bottom-color: #5a5a5a;
+  }
+
+  td, th {
+    border-right-color: #3f3f3f;
+  }
+
+  div.highlighter-rouge pre,
+  div.highlighter-rouge pre.highlight,
+  code.highlighter-rouge {
+    background-color: #1f1f1f;
+  }
+
+  pre,
+  pre code,
+  :not(pre) > code,
+  code.highlighter-rouge,
+  .highlighter-rouge,
+  .highlight,
+  .highlight pre {
+    color: #eaeaea !important;
+  }
+
+  :not(pre) > code {
+    color: #9ecbff !important;
+    background-color: inherit !important;
+    border: none;
+    padding: 0;
+  }
+
+  // Only inline code inside alerts (e.g. `make format`, `README.md`).
+  .alert code,
+  .alert code.highlighter-rouge {
+    color: #4a0f16 !important;
+    background-color: transparent !important;
+    font-weight: 600;
+  }
+
+  // Force readable syntax tokens in dark mode.
+  .highlight .c,
+  .highlight .cm,
+  .highlight .c1,
+  .highlight .cs,
+  .highlight .k,
+  .highlight .kc,
+  .highlight .kd,
+  .highlight .kn,
+  .highlight .kp,
+  .highlight .kr,
+  .highlight .kt,
+  .highlight .m,
+  .highlight .s,
+  .highlight .na,
+  .highlight .nb,
+  .highlight .nc,
+  .highlight .nd,
+  .highlight .ne,
+  .highlight .nf,
+  .highlight .nl,
+  .highlight .nn,
+  .highlight .no,
+  .highlight .nt,
+  .highlight .nv,
+  .highlight .o,
+  .highlight .ow,
+  .highlight .p {
+    color: #eaeaea !important;
+  }
+
+  blockquote {
+    border-left-color: #4a4a4a;
+  }
+
+  .theme-toggle {
+    color: #e5e5e5;
+  }
+
+  a.docente-icon-link > .docente-contact-icon {
+    color: #c4c4c4 !important;
+    opacity: 1 !important;
+  }
+
+  a.docente-icon-link:hover > .docente-contact-icon {
+    color: #e8e8e8 !important;
+  }
+}
+
+html.dark-mode-preload body {
+  background-color: #121212;
+  color: #e5e5e5;
 }
