@@ -10,27 +10,28 @@ En el caso de estas últimas, se notificará por **discord/correo**.
 
 | Semana | Fecha                  | Teórica (Mar / Mier)         | Fecha      | Práctica                                       | Entregas                           |
 |--------|------------------------|------------------------------|------------|------------------------------------------------|------------------------------------|
-| 1      | 10/03/2026  11/03/2026 | Introducción                 | 13/03/2026 | Introducción, Presentación lab fork            |                                    |
-| 2      | 17/03/2026  18/03/2026 | Kernel                       | 20/03/2026 | Continuar lab fork                             |                                    |
-| 3      | 24/03/2026  25/03/2026 | **FERIADO** / Procesos       | 27/03/2026 | **Presentación TP1**: shell                    | Entrega **fork** [^fork]           |
-| 4      | 31/03/2026  01/04/2026 | Scheduling (parte 1)         | 03/04/2026 | **FERIADO**                                    |                                    |
-| 5      | 07/04/2026  08/04/2026 | Scheduling (parte 2)         | 10/04/2026 | Continuar TP1                                  |                                    |
-| 6      | 14/04/2026  15/04/2026 | Memoria (parte 1)            | 17/04/2026 | Continuar TP1 **Parcialito TP1** [^parcialito] | Entrega **TP1** [^shell]           |
-| 7      | 21/04/2026  22/04/2026 | Memoria (parte 2) - Locks    | 24/04/2026 | **Presentación TP2**: sched                    |                                    |
-| 8      | 28/04/2026  29/04/2026 | Filesystem (parte 1)         | 01/05/2026 | **FERIADO**                                    |                                    |
-| 9      | 05/05/2026  06/05/2026 | Filesystem (parte 2)         | 08/05/2026 | Continuar TP2                                  |                                    |
-| 10     | 12/05/2026  13/05/2026 | Consultas (**virtual**)      | 15/05/2026 | Continuar TP2 **Parcialito TP2** [^parcialito] | Entrega **TP2** [^sched]           |
-| 11     | 19/05/2026  20/05/2026 | **PARCIAL**                  | 22/05/2026 | **Presentación TP3**: fs                       |                                    |
-| 12     | 26/05/2026  27/05/2026 | Máquinas virtuales           | 29/05/2026 | Continuar TP3                                  |                                    |
-| 13     | 02/06/2026  03/06/2026 |                              | 05/06/2026 | Continuar TP3                                  |                                    |
-| 14     | 09/06/2026  10/06/2026 | Revisión parcial             | 12/06/2026 | Continuar TP3                                  | Entrega **TP3** [^fs]              |
-| 15     | 16/06/2026  17/06/2026 |                              | 19/06/2026 | **Recuperatorio** [^recu]                      |                                    |
-| 16     | 23/06/2026  24/06/2026 |                              | 26/06/2026 | Terminals - **Parcialito TP3** [^parcialito]   |                                    |
+| 1      | 18/08/2026  19/08/2026 | Introducción                 | 21/08/2026 | Introducción, Presentación lab fork            |                                    |
+| 2      | 25/08/2026  26/08/2026 | Kernel                       | 28/08/2026 | Continuar lab fork                             |                                    |
+| 3      | 01/09/2026  02/09/2026 | Procesos                     | 04/09/2026 | **Presentación TP1**: shell                    | Entrega **fork** [^fork]           |
+| 4      | 08/09/2026  09/09/2026 | Scheduling (parte 1)         | 11/09/2026 | Continuar TP1                                  |                                    |
+| 5      | 15/09/2026  16/09/2026 | Scheduling (parte 2)         | 18/09/2026 | Continuar TP1                                  |                                    |
+| 6      | 22/09/2026  23/09/2026 | Memoria (parte 1)            | 25/09/2026 | Continuar TP1 **Parcialito TP1** [^parcialito] | Entrega **TP1** [^shell]           |
+| 7      | 29/09/2026  30/09/2026 | Memoria (parte 2) - Locks    | 02/10/2026 | **Presentación TP2**: sched                    |                                    |
+| 8      | 06/10/2026  07/10/2026 | Filesystem (parte 1)         | 09/10/2026 | Continuar TP2                                  |                                    |
+| 9      | 13/10/2026  14/10/2026 | Filesystem (parte 2)         | 16/10/2026 | Continuar TP2                                  |                                    |
+| 10     | 20/10/2026  21/10/2026 | Consultas (**virtual**)      | 23/10/2026 | Continuar TP2 **Parcialito TP2** [^parcialito] | Entrega **TP2** [^sched]           |
+| 11     | 27/10/2026  28/10/2026 | **PARCIAL**                  | 30/10/2026 | **Presentación TP3**: fs                       |                                    |
+| 12     | 03/11/2026  04/11/2026 | Máquinas virtuales           | 06/11/2026 | Continuar TP3                                  |                                    |
+| 13     | 10/11/2026  11/11/2026 | _TBD_ [^tbd]                 | 13/11/2026 | Continuar TP3                                  |                                    |
+| 14     | 17/11/2026  18/11/2026 | Revisión parcial             | 20/11/2026 | Continuar TP3 **Parcialito TP3** [^parcialito] | Entrega **TP3** [^fs]              |
+| 15     | 24/11/2026  25/11/2026 | **Recuperatorio** [^recu]    | 27/11/2026 | _TBD_  [^tbd]                                  |                                    |
+| 16     | 01/12/2026  02/12/2026 | _TBD_ [^tbd]                 | 04/12/2026 | _TBD_  [^tbd]                                  |                                    |
 
 
-[^fork]: **fork** - la fecha de entrega es hasta el domingo 29/03 inclusive
-[^shell]: **TP1** - la fecha de entrega es hasta el domingo 19/04 inclusive
-[^sched]: **TP2** - la fecha de entrega es hasta el domingo 17/05 inclusive
-[^fs]: **TP3** - la fecha de entrega es hasta el domingo 14/06 inclusive
+[^fork]: **fork** - la fecha de entrega es hasta el domingo 06/09 inclusive
+[^shell]: **TP1** - la fecha de entrega es hasta el domingo 27/09 inclusive
+[^sched]: **TP2** - la fecha de entrega es hasta el domingo 25/10 inclusive
+[^fs]: **TP3** - la fecha de entrega es hasta el domingo 22/11 inclusive
 [^parcialito]: **parcialitos** - serán siempre en el horario de la práctica (al comienzo)
 [^recu]: **recuperatorio** - el segundo recuperatorio será probablemente en la primera fecha de final
+[^tbd]: **TBD** - posible clase especial
