@@ -97,6 +97,12 @@ Cualquier mensaje que se imprima por pantalla al momento de hacer la entrega tie
 {:.alert .alert-info}
 
 
+## Uso de _IA_
+
+**IMPORTANTE**: es requisito mencionar cómo utilizaron herramientas de _IA_ en la implementación. Dicha mención no debe estar realizada con _IA_.
+{:.alert .alert-danger}
+
+
 ## Implementación
 
 ### Parte 1: Invocación de comandos

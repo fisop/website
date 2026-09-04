@@ -159,6 +159,12 @@ make
 ```
 
 
+## Uso de _IA_
+
+**IMPORTANTE**: es requisito mencionar cómo utilizaron herramientas de _IA_ en la implementación. Dicha mención no debe estar realizada con _IA_.
+{:.alert .alert-danger}
+
+
 ## Implementación
 
 Implementaremos `fisopfs`, un _filesystem_ de tipo FUSE definido por el usuario. El mismo deberá implementar un subconjunto de las [operaciones][fuse-operations] que soporta FUSE. Las operaciones serán las necesarias para soportar la lista de operaciones que figura a continuación.

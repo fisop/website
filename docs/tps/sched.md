@@ -136,6 +136,12 @@ Por tanto, si en una determinada versión del desarrollo ocurre que QEMU se rein
     los registros mediante el monitor de QEMU (`Ctrl-A C → info registers`)
 
 
+## Uso de _IA_
+
+**IMPORTANTE**: es requisito mencionar cómo utilizaron herramientas de _IA_ en la implementación. Dicha mención no debe estar realizada con _IA_.
+{:.alert .alert-danger}
+
+
 ## Implementación
 
 La implementación del TP se dividirá en tres partes.
