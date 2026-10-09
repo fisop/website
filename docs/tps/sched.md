@@ -520,22 +520,29 @@ Se debe decidir la dirección donde alocar el _stack_ y documentar el criterio. 
     - Comparar el costo de creación de un _thread_ vs un proceso (`fork`): ¿cuántas páginas se copian en cada caso?
 </div>
 
-[labguide]: https://pdos.csail.mit.edu/6.828/2017/labguide.html
-
 
 ## Bibliografía útil
 
 A continuación se presentan algunos enlaces y bibliografía útiles como referencia.
-  - OSTEP, capítulo 7: [_Scheduling: Introduction_][ostep-cap7] (PDF)
-  - OSTEP, capítulo 8: [_Scheduling: The Multi-Level Feedback Queue_][ostep-cap8] (PDF)
-  - OSTEP, capítulo 9: [_Scheduling: Proportional Share_][ostep-cap9] (PDF)
-  - OSTEP, capítulo 26: [_Concurrency: An Introduction_][ostep-cap26] (PDF)
-  - Manuales de Intel: [_Intel® 64 and IA-32 Architectures Software Developer's Manual Volume 3A: System Programming Guide, Part 1_][intel] (PDF)
+
+* OSTEP
+  * Capítulo 7: [_Scheduling: Introduction_][ostep-cap7] (PDF)
+  * Capítulo 8: [_Scheduling: The Multi-Level Feedback Queue_][ostep-cap8] (PDF)
+  * Capítulo 9: [_Scheduling: Proportional Share_][ostep-cap9] (PDF)
+  * Capítulo 26: [_Concurrency: An Introduction_][ostep-cap26] (PDF)
+* Manuales de Intel: [_Intel® 64 and IA-32 Architectures Software Developer's Manual_][intel] (PDF)
+  * Volumen 1: Basic Architecture
+    * Chapter 6 - Procedure calls, Interrupts and Exceptions (6.2, 6.4, 6.5)
+    * Chapter 7 - Programming with general-purpose instructions (7.3)
+  * Volumen 2: Instruction Set Reference
+    * Chapter 4: Instruction Set Reference, M-U (4.3)
+  * Volume 3: System Programming Guide
+    * Chapter 5: Paging (5.2, 5.5, 5.7, 5.12)
+    * Chapter 7: Interrupt and Exception Handling (7.1, 7.2, 7.3, 7.4, 7.10, 7.11, 7.12)
 
 [ostep-cap7]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf
 [ostep-cap8]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
 [ostep-cap9]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-lottery.pdf
-[ostep-cap10]: https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf
 [ostep-cap26]: https://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf
 [intel]: https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
 
